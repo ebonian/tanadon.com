@@ -7,9 +7,9 @@ import TerminalIcon from "../../images/terminal-icon.png";
 
 export default function Sidebar({
   setProgramActiveState,
-  ProgramActiveState,
+  programActiveState,
   setProgramOpenState,
-  ProgramOpenState,
+  programOpenState,
   activitiesActiveState,
   setActivitiesActiveState,
   setProgramFocusState,
@@ -19,17 +19,17 @@ export default function Sidebar({
 }) {
   return (
     <div
-      className={`flex flex-col justify-between items-center h-full w-16 bg-black ${
+      className={`flex flex-col justify-between items-center h-full w-16 bg-black z-50 ${
         activitiesActiveState ? "bg-opacity-60" : "bg-opacity-50"
       } duration-300`}
     >
       <div className="flex flex-col items-center w-16 flex-grow p-1 space-y-1">
         <FirefoxProgram
-          open={ProgramOpenState.firefox}
-          active={ProgramActiveState.firefox}
+          open={programOpenState.firefox}
+          active={programActiveState.firefox}
           setProgramActiveState={setProgramActiveState}
           setProgramOpenState={setProgramOpenState}
-          ProgramOpenState={ProgramOpenState}
+          programOpenState={programOpenState}
           setActivitiesActiveState={setActivitiesActiveState}
           setProgramFocusState={setProgramFocusState}
           programFocusState={programFocusState}
@@ -37,11 +37,11 @@ export default function Sidebar({
           programMinimizeState={programMinimizeState}
         />
         <FilesProgram
-          open={ProgramOpenState.files}
-          active={ProgramActiveState.files}
+          open={programOpenState.files}
+          active={programActiveState.files}
           setProgramActiveState={setProgramActiveState}
           setProgramOpenState={setProgramOpenState}
-          ProgramOpenState={ProgramOpenState}
+          programOpenState={programOpenState}
           setActivitiesActiveState={setActivitiesActiveState}
           setProgramFocusState={setProgramFocusState}
           programFocusState={programFocusState}
@@ -49,11 +49,11 @@ export default function Sidebar({
           programMinimizeState={programMinimizeState}
         />
         <TerminalProgram
-          open={ProgramOpenState.terminal}
-          active={ProgramActiveState.terminal}
+          open={programOpenState.terminal}
+          active={programActiveState.terminal}
           setProgramActiveState={setProgramActiveState}
           setProgramOpenState={setProgramOpenState}
-          ProgramOpenState={ProgramOpenState}
+          programOpenState={programOpenState}
           setActivitiesActiveState={setActivitiesActiveState}
           setProgramFocusState={setProgramFocusState}
           programFocusState={programFocusState}
@@ -75,8 +75,9 @@ function FirefoxProgram({
   active,
   open,
   setProgramActiveState,
+  programActiveState,
   setProgramOpenState,
-  ProgramOpenState,
+  programOpenState,
   setActivitiesActiveState,
   setProgramFocusState,
   programFocusState,
@@ -111,11 +112,15 @@ function FirefoxProgram({
               files: false,
               terminal: false,
             });
-            setProgramOpenState({ ...ProgramOpenState, firefox: true });
+            setProgramOpenState({ ...programOpenState, firefox: true });
             setProgramFocusState({
               firefox: true,
               files: false,
               terminal: false,
+            });
+            setProgramMinimizeState({
+              ...programMinimizeState,
+              firefox: false,
             });
             setActivitiesActiveState(false);
           }}
@@ -146,7 +151,7 @@ function FilesProgram({
   open,
   setProgramActiveState,
   setProgramOpenState,
-  ProgramOpenState,
+  programOpenState,
   setActivitiesActiveState,
   setProgramFocusState,
   programFocusState,
@@ -181,7 +186,7 @@ function FilesProgram({
               files: true,
               terminal: false,
             });
-            setProgramOpenState({ ...ProgramOpenState, files: true });
+            setProgramOpenState({ ...programOpenState, files: true });
             setProgramFocusState({
               firefox: false,
               files: true,
@@ -220,7 +225,7 @@ function TerminalProgram({
   open,
   setProgramActiveState,
   setProgramOpenState,
-  ProgramOpenState,
+  programOpenState,
   setActivitiesActiveState,
   setProgramMinimizeState,
   programMinimizeState,
@@ -257,7 +262,7 @@ function TerminalProgram({
               files: false,
               terminal: true,
             });
-            setProgramOpenState({ ...ProgramOpenState, terminal: true });
+            setProgramOpenState({ ...programOpenState, terminal: true });
             setActivitiesActiveState(false);
           }}
         >

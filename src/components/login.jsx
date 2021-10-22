@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { FiChevronLeft, FiUser } from "react-icons/fi";
 import { FaUbuntu, FaNetworkWired } from "react-icons/fa";
 import { RiSettingsLine, RiShutDownLine } from "react-icons/ri";
-import { MdAccessibility } from "react-icons/md";
+import { MdAccessibility, MdSignalWifiStatusbarNull } from "react-icons/md";
 import { GoTriangleDown } from "react-icons/go";
 import { BsFillVolumeUpFill } from "react-icons/bs";
 
@@ -49,16 +49,16 @@ function Header() {
         <p>{formatDate.format(new Date()) + " " + clockState}</p>
       </div>
       {/* utilities icon */}
-      <div className="flex absolute right-6 top-3 items-center space-x-8 text-lg">
+      <div className="flex absolute right-6 top-3 items-center space-x-8 text-lg cursor-pointer">
         <div className="flex space-x-2 items-center">
-          <MdAccessibility className="cursor-pointer" />
+          <MdAccessibility />
           <GoTriangleDown className="cursor-pointer text-sm" />
         </div>
         <div className="flex space-x-2 items-center">
-          <FaNetworkWired className="cursor-pointer" />
-          <BsFillVolumeUpFill className="cursor-pointer" />
-          <RiShutDownLine className="cursor-pointer" />
-          <GoTriangleDown className="cursor-pointer text-sm" />
+          <MdSignalWifiStatusbarNull />
+          <BsFillVolumeUpFill />
+          <RiShutDownLine />
+          <GoTriangleDown className="text-sm" />
         </div>
       </div>
     </div>

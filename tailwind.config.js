@@ -16,7 +16,7 @@ module.exports = {
           100: "#008282",
           200: "#4F184D",
           300: "#1D1D1D",
-          400: "#403d3b",
+          400: "#303030",
           500: "#343434",
           600: "#2c2c2c",
           700: "#3e3e3e",
@@ -24,11 +24,13 @@ module.exports = {
       },
       width: {
         start: "250px",
-        window: "840px",
+        files: "840px",
+        firefox: "1120px",
       },
       height: {
         start: "400px",
-        window: "600px",
+        files: "600px",
+        firefox: "800px",
       },
       borderColor: (theme) => ({
         darkActive: "#ffffff #202020 #202020 #ffffff",

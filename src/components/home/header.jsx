@@ -4,7 +4,7 @@ import { RiShutDownLine } from "react-icons/ri";
 import { GoTriangleDown, GoTriangleRight } from "react-icons/go";
 import { BsFillVolumeUpFill } from "react-icons/bs";
 import { BiWifi2 } from "react-icons/bi";
-import { MdVolumeDown } from "react-icons/md";
+import { MdSignalWifiStatusbarNull, MdVolumeDown } from "react-icons/md";
 import { FaLock, FaTools, FaUser } from "react-icons/fa";
 
 export default function Header({
@@ -66,14 +66,14 @@ export default function Header({
       </div>
       {/* utilities icon */}
       {systemDropdownState ? (
-        <div className="flex flex-col absolute right-2 top-1 items-end space-x-8 text-lg z-50">
+        <div className="flex flex-col absolute right-2 top-1.5 items-end text-lg z-50">
           <div
-            className="flex space-x-2 items-center cursor-pointer"
+            className="flex space-x-3 items-center cursor-pointer"
             onClick={() => {
               setSystemDropdownState(false);
             }}
           >
-            <BiWifi2 className="text-xl mb-1" />
+            <MdSignalWifiStatusbarNull />
             <BsFillVolumeUpFill />
             <RiShutDownLine />
             <GoTriangleDown className="text-sm" />
@@ -91,8 +91,8 @@ export default function Header({
               {/* settings */}
               <div className="flex flex-col items-center w-full text-sm space-y-4">
                 <div className="flex w-full justify-between items-center cursor-pointer">
-                  <div className="flex space-x-2">
-                    <BiWifi2 className="text-xl pb-0.5" />
+                  <div className="flex space-x-2 items-center">
+                    <MdSignalWifiStatusbarNull className="text-lg mr-0.5 pl-1" />
                     <p>Wireless Connected</p>
                   </div>
                   <GoTriangleRight className="text-sm" />
@@ -133,14 +133,14 @@ export default function Header({
           </div>
         </div>
       ) : (
-        <div className="flex absolute right-2 top-1 items-center space-x-8 text-lg">
+        <div className="flex absolute right-2 top-1.5 items-center text-lg">
           <div
-            className="flex space-x-2 items-center cursor-pointer"
+            className="flex space-x-3 items-center cursor-pointer"
             onClick={() => {
               setSystemDropdownState(true);
             }}
           >
-            <BiWifi2 className="text-xl mb-1" />
+            <MdSignalWifiStatusbarNull />
             <BsFillVolumeUpFill />
             <RiShutDownLine />
             <GoTriangleDown className="text-sm" />

@@ -25,17 +25,21 @@ import MusicFilesIcon from "../../images/music-files-icon.png";
 import PicturesFilesIcon from "../../images/pictures-files-icon.png";
 import VideosFilesIcon from "../../images/videos-files-icon.png";
 import FolderIcon from "../../images/folder-icon.png";
+import { useContext } from "react";
+import { ProgramState } from ".";
+import Control from "./control";
 
-export default function Files({
-  setProgramActiveState,
-  programActiveState,
-  setProgramOpenState,
-  programOpenState,
-  setProgramFocusState,
-  programFocusState,
-  setProgramMinimizeState,
-  programMinimizeState,
-}) {
+export default function Files() {
+  const {
+    setProgramActiveState,
+    programActiveState,
+    setProgramOpenState,
+    programOpenState,
+    setProgramFocusState,
+    programFocusState,
+    setProgramMinimizeState,
+    programMinimizeState,
+  } = useContext(ProgramState);
   return (
     <>
       {programMinimizeState.files ? (
@@ -45,7 +49,7 @@ export default function Files({
           {programFocusState.files || programOpenState.files ? (
             <Draggable bounds="parent" handle="strong">
               <div
-                className={`absolute bg-base-500 text-white resize border border-black border-opacity-20 w-window h-window overflow-auto overflow-y-hidden overflow-x-hidden rounded-md shadow-lg ${
+                className={`absolute bg-base-500 text-white resize border border-black border-opacity-20 w-files h-files overflow-auto overflow-y-hidden overflow-x-hidden rounded-md shadow-lg ${
                   programFocusState.files ? "z-40" : "z-30"
                 }`}
                 onClick={() => {
@@ -56,10 +60,26 @@ export default function Files({
                   });
                 }}
               >
+                {/* top */}
                 <strong>
-                  <div className="flex justify-between items-center h-12 border-t-2 border-white border-opacity-5 pr-4 pl-3 bg-base-600 rounded-t-md">
+                  <Control window="Files" />
+
+                  <div
+                    className={`flex justify-between items-center h-12 border-t-2 border-white border-opacity-5 pr-4 pl-3 ${
+                      programFocusState.files ? "bg-base-600" : "bg-base-400"
+                    } rounded-t-md`}
+                  >
                     {/* left */}
-                    <div className="flex space-x-3">
+                    <div
+                      className="flex space-x-3"
+                      onClick={() => {
+                        setProgramActiveState({
+                          firefox: false,
+                          files: true,
+                          terminal: false,
+                        });
+                      }}
+                    >
                       <div className="flex items-center">
                         <div className="flex justify-center items-center h-9 w-9 bg-base-500 rounded-l border-t border-l border-b border-base-300 border-opacity-80">
                           <BsChevronCompactLeft className="text-xl opacity-30" />
@@ -76,8 +96,28 @@ export default function Files({
                         </div>
                       </div>
                     </div>
+                    {/* center */}
+                    <div
+                      className="flex flex-grow h-full"
+                      onClick={() => {
+                        setProgramActiveState({
+                          firefox: false,
+                          files: true,
+                          terminal: false,
+                        });
+                      }}
+                    />
                     {/* right */}
-                    <div className="flex space-x-5 text-gray-300">
+                    <div
+                      className="flex space-x-5 text-gray-300"
+                      onClick={() => {
+                        setProgramActiveState({
+                          firefox: false,
+                          files: true,
+                          terminal: false,
+                        });
+                      }}
+                    >
                       <div className="flex items-center space-x-2">
                         <div className="flex justify-center items-center h-9 w-9 bg-base-700 rounded border border-base-300 border-opacity-80 cursor-pointer">
                           <BiSearch className="text-xl" />
@@ -94,68 +134,29 @@ export default function Files({
                           <BiMenu className="text-xl" />
                         </div>
                       </div>
-                      <div className="flex items-center space-x-5 text-white">
-                        <div
-                          className="flex justify-center items-end w-6 h-6 bg-white bg-opacity-0 hover:bg-opacity-10 duration-75 p-0.5 rounded-full cursor-pointer"
-                          onClick={() => {
-                            setProgramFocusState({
-                              ...programFocusState,
-                              files: false,
-                            });
-                            setProgramActiveState({
-                              ...programActiveState,
-                              files: false,
-                            });
-                            setProgramMinimizeState({
-                              ...programMinimizeState,
-                              files: true,
-                            });
-                          }}
-                        >
-                          <BiMinus />
-                        </div>
-                        <div className="flex justify-center items-center w-6 h-6 bg-white bg-opacity-0 hover:bg-opacity-10 duration-75 p-1.5 rounded-full cursor-pointer">
-                          <BiSquare />
-                        </div>
-                        <div
-                          className={`flex justify-center items-center w-6 h-6 rounded-full cursor-pointer ${
-                            programFocusState.files
-                              ? "bg-primary"
-                              : "bg-white bg-opacity-10"
-                          }`}
-                          onClick={() => {
-                            setProgramActiveState({
-                              ...programActiveState,
-                              files: false,
-                            });
-                            setProgramOpenState({
-                              ...programOpenState,
-                              files: false,
-                            });
-                            setProgramFocusState({
-                              ...programFocusState,
-                              files: false,
-                            });
-                            setProgramMinimizeState({
-                              ...programMinimizeState,
-                              files: false,
-                            });
-                          }}
-                        >
-                          <BiX className="text-lg" />
-                        </div>
-                      </div>
+
+                      {/* control button */}
+                      <div className="w-28" />
                     </div>
                   </div>
                 </strong>
 
                 {/* body */}
-                <div className="flex h-full text-md border-t border-black border-opacity-30">
+                <div
+                  className="flex h-full text-md border-t border-black border-opacity-30"
+                  onClick={() => {
+                    setProgramActiveState({
+                      firefox: false,
+                      files: true,
+                      terminal: false,
+                    });
+                  }}
+                >
                   {/* sidebar */}
                   <div className="flex flex-none flex-col w-56 bg-base-700 overflow-auto border-r border-black border-opacity-30">
                     <SidebarButton type="Recent" />
                     <SidebarButton type="Starred" />
-                    <SidebarButton type="Home" />
+                    <SidebarButton type="Home" active={true} />
                     <SidebarButton type="Desktop" />
                     <SidebarButton type="Documents" />
                     <SidebarButton type="Download" />
@@ -190,21 +191,39 @@ export default function Files({
   );
 }
 
-function SidebarButton({ type }) {
+function SidebarButton({ active, type }) {
   return (
-    <div className="flex items-center justify-start w-full space-x-2 cursor-pointer hover:bg-primary px-4 py-3">
-      {type === "Recent" && <BiHistory className="text-xl" />}
-      {type === "Starred" && <AiFillStar className="text-xl" />}
-      {type === "Home" && <AiOutlineHome className="text-xl" />}
-      {type === "Desktop" && <RiSideBarFill className="text-xl" />}
-      {type === "Documents" && <CgFileDocument className="text-xl" />}
-      {type === "Download" && <MdDownload className="text-xl" />}
-      {type === "Music" && <HiMusicNote className="text-xl" />}
-      {type === "Picture" && <AiFillPicture className="text-xl" />}
-      {type === "Videos" && <FiFilm className="text-xl" />}
-      {type === "Trash" && <BiTrash className="text-xl" />}
-      <p>{type}</p>
-    </div>
+    <>
+      {active ? (
+        <div className="flex items-center justify-start w-full space-x-2 cursor-pointer bg-primary px-4 py-3">
+          {type === "Recent" && <BiHistory className="text-xl" />}
+          {type === "Starred" && <AiFillStar className="text-xl" />}
+          {type === "Home" && <AiOutlineHome className="text-xl" />}
+          {type === "Desktop" && <RiSideBarFill className="text-xl" />}
+          {type === "Documents" && <CgFileDocument className="text-xl" />}
+          {type === "Download" && <MdDownload className="text-xl" />}
+          {type === "Music" && <HiMusicNote className="text-xl" />}
+          {type === "Picture" && <AiFillPicture className="text-xl" />}
+          {type === "Videos" && <FiFilm className="text-xl" />}
+          {type === "Trash" && <BiTrash className="text-xl" />}
+          <p>{type}</p>
+        </div>
+      ) : (
+        <div className="flex items-center justify-start w-full space-x-2 cursor-pointer hover:bg-white hover:bg-opacity-5 px-4 py-3">
+          {type === "Recent" && <BiHistory className="text-xl" />}
+          {type === "Starred" && <AiFillStar className="text-xl" />}
+          {type === "Home" && <AiOutlineHome className="text-xl" />}
+          {type === "Desktop" && <RiSideBarFill className="text-xl" />}
+          {type === "Documents" && <CgFileDocument className="text-xl" />}
+          {type === "Download" && <MdDownload className="text-xl" />}
+          {type === "Music" && <HiMusicNote className="text-xl" />}
+          {type === "Picture" && <AiFillPicture className="text-xl" />}
+          {type === "Videos" && <FiFilm className="text-xl" />}
+          {type === "Trash" && <BiTrash className="text-xl" />}
+          <p>{type}</p>
+        </div>
+      )}
+    </>
   );
 }
 
@@ -221,6 +240,74 @@ function Folder({ name }) {
       {name === "Videos" && <img src={VideosFilesIcon} />}
       {name === "Works" && <img src={FolderIcon} />}
       <p>{name}</p>
+    </div>
+  );
+}
+
+function ControlButton() {
+  const {
+    setProgramActiveState,
+    programActiveState,
+    setProgramOpenState,
+    programOpenState,
+    setProgramFocusState,
+    programFocusState,
+    setProgramMinimizeState,
+    programMinimizeState,
+  } = useContext(ProgramState);
+  return (
+    <div
+      className={`flex absolute right-0 top-0 z-50 pr-4 rounded-md h-12 border-t-2 border-white border-opacity-5 bg-base-600 items-center space-x-5 text-white ${
+        programFocusState.files ? "bg-base-600" : "bg-base-400"
+      }`}
+    >
+      <div
+        className="flex justify-center items-end w-6 h-6 bg-white bg-opacity-0 hover:bg-opacity-10 duration-75 p-0.5 rounded-full cursor-pointer"
+        onClick={() => {
+          setProgramFocusState({
+            ...programFocusState,
+            files: false,
+          });
+          setProgramActiveState({
+            ...programActiveState,
+            files: false,
+          });
+          setProgramMinimizeState({
+            ...programMinimizeState,
+            files: true,
+          });
+        }}
+      >
+        <BiMinus />
+      </div>
+      <div className="flex justify-center items-center w-6 h-6 bg-white bg-opacity-0 hover:bg-opacity-10 duration-75 p-1.5 rounded-full cursor-pointer">
+        <BiSquare />
+      </div>
+      <div
+        className={`flex justify-center items-center w-6 h-6 rounded-full cursor-pointer ${
+          programFocusState.files ? "bg-primary" : "bg-white bg-opacity-10"
+        }`}
+        onClick={() => {
+          setProgramActiveState({
+            ...programActiveState,
+            files: false,
+          });
+          setProgramOpenState({
+            ...programOpenState,
+            files: false,
+          });
+          setProgramFocusState({
+            ...programFocusState,
+            files: false,
+          });
+          setProgramMinimizeState({
+            ...programMinimizeState,
+            files: true,
+          });
+        }}
+      >
+        <BiX className="text-lg" />
+      </div>
     </div>
   );
 }

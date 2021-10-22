@@ -39,7 +39,7 @@ function Firefox() {
   return (
     <div
       className={`flex absolute right-0 top-0 pr-4 rounded-md h-12 border-t-2 border-white border-opacity-5 bg-base-600 items-center space-x-5 text-white ${
-        programFocusState.firefox ? "bg-base-600" : "bg-base-400"
+        programFocusState.firefox ? "bg-base-600" : "bg-base-700"
       }`}
     >
       <div
@@ -107,7 +107,7 @@ function Files() {
   return (
     <div
       className={`flex absolute right-0 top-0 pr-4 rounded-md h-12 border-t-2 border-white border-opacity-5 bg-base-600 items-center space-x-5 text-white ${
-        programFocusState.files ? "bg-base-600" : "bg-base-400"
+        programFocusState.files ? "bg-base-600" : "bg-base-700"
       }`}
     >
       <div
@@ -175,7 +175,7 @@ function Terminal() {
   return (
     <div
       className={`flex absolute right-0 top-0 pr-4 rounded-md h-12 border-t-2 border-white border-opacity-5 bg-base-600 items-center space-x-5 text-white ${
-        programFocusState.terminal ? "bg-base-600" : "bg-base-400"
+        programFocusState.terminal ? "bg-base-600" : "bg-base-700"
       }`}
     >
       <div

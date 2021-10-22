@@ -38,8 +38,12 @@ export default function Firefox({
           {programFocusState.firefox || programOpenState.firefox ? (
             <Draggable bounds="parent" handle="strong">
               <div
-                className={`absolute bg-base-500 text-white resize border border-black border-opacity-20 w-firefox h-firefox overflow-auto overflow-y-hidden overflow-x-hidden rounded-md shadow-lg ${
+                className={`absolute text-white resize border border-black border-opacity-20 w-firefox h-firefox overflow-auto overflow-y-hidden overflow-x-hidden rounded-md shadow-xl ${
                   programFocusState.firefox ? "z-40" : "z-30"
+                } ${
+                  programFocusState.files
+                    ? "bg-base-500"
+                    : "bg-base-900 text-opacity-40"
                 }`}
                 onClick={() => {
                   setProgramFocusState({
@@ -54,7 +58,7 @@ export default function Firefox({
 
                   <div
                     className={`flex justify-between items-center h-12 border-t-2 border-white border-opacity-5 pr-4 pl-3 ${
-                      programFocusState.firefox ? "bg-base-600" : "bg-base-400"
+                      programFocusState.firefox ? "bg-base-600" : "bg-base-700"
                     } rounded-t-md`}
                     onClick={() => {
                       setProgramActiveState({

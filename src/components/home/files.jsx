@@ -1,3 +1,4 @@
+import { useContext, useState, createContext } from "react";
 import Draggable from "react-draggable";
 import {
   BiX,
@@ -18,18 +19,15 @@ import { MdDownload } from "react-icons/md";
 import { HiMusicNote } from "react-icons/hi";
 import { FiFilm } from "react-icons/fi";
 
-import DesktopFilesIcon from "../../images/desktop-files-icon.png";
-import DocumentsFilesIcon from "../../images/documents-files-icon.png";
-import DownloadsFilesIcon from "../../images/downloads-files-icon.png";
-import MusicFilesIcon from "../../images/music-files-icon.png";
-import PicturesFilesIcon from "../../images/pictures-files-icon.png";
-import VideosFilesIcon from "../../images/videos-files-icon.png";
-import FolderIcon from "../../images/folder-icon.png";
-import { useContext } from "react";
 import { ProgramState } from ".";
 import Control from "./control";
+import Home from "./files/home";
+import Path from "./files/path";
+
+// export const FileLocationContext = createContext(null);
 
 export default function Files() {
+  // consume ProgramState context
   const {
     setProgramActiveState,
     programActiveState,
@@ -40,6 +38,10 @@ export default function Files() {
     setProgramMinimizeState,
     programMinimizeState,
   } = useContext(ProgramState);
+
+  // folder path state
+  const [fileLocation, setFileLocation] = useState("Home");
+
   return (
     <>
       {programMinimizeState.files ? (
@@ -49,8 +51,12 @@ export default function Files() {
           {programFocusState.files || programOpenState.files ? (
             <Draggable bounds="parent" handle="strong">
               <div
-                className={`absolute bg-base-500 text-white resize border border-black border-opacity-20 w-files h-files overflow-auto overflow-y-hidden overflow-x-hidden rounded-md shadow-lg ${
+                className={`absolute text-white resize border border-black border-opacity-20 w-files h-files overflow-auto overflow-y-hidden overflow-x-hidden rounded-t-md shadow-xl ${
                   programFocusState.files ? "z-40" : "z-30"
+                } ${
+                  programFocusState.files
+                    ? "bg-base-500"
+                    : "bg-base-900 text-opacity-40"
                 }`}
                 onClick={() => {
                   setProgramFocusState({
@@ -66,7 +72,7 @@ export default function Files() {
 
                   <div
                     className={`flex justify-between items-center h-12 border-t-2 border-white border-opacity-5 pr-4 pl-3 ${
-                      programFocusState.files ? "bg-base-600" : "bg-base-400"
+                      programFocusState.files ? "bg-base-600" : "bg-base-700"
                     } rounded-t-md`}
                   >
                     {/* left */}
@@ -88,13 +94,10 @@ export default function Files() {
                           <BsChevronCompactRight className="text-xl opacity-30" />
                         </div>
                       </div>
-                      <div>
-                        <div className="flex items-center justify-center h-9 w-32 bg-base-700 rounded border border-base-300 border-opacity-80 cursor-pointer space-x-3 text-gray-300">
-                          <AiOutlineHome className="text-lg" />
-                          <p className="font-normal">Home</p>
-                          <GoTriangleDown />
-                        </div>
-                      </div>
+                      <Path
+                        fileLocation={fileLocation}
+                        setFileLocation={setFileLocation}
+                      />
                     </div>
                     {/* center */}
                     <div
@@ -119,18 +122,18 @@ export default function Files() {
                       }}
                     >
                       <div className="flex items-center space-x-2">
-                        <div className="flex justify-center items-center h-9 w-9 bg-base-700 rounded border border-base-300 border-opacity-80 cursor-pointer">
+                        <div className="flex justify-center items-center h-9 w-9 bg-base-700 hover:bg-base-1000 rounded border border-base-300 border-opacity-80 cursor-pointer">
                           <BiSearch className="text-xl" />
                         </div>
                         <div className="flex">
-                          <div className="flex justify-center items-center h-9 w-9 bg-base-700 rounded-l border-t border-l border-b border-base-300 border-opacity-80 cursor-pointer">
+                          <div className="flex justify-center items-center h-9 w-9 bg-base-700 hover:bg-base-1000 rounded-l border-t border-l border-b border-base-300 border-opacity-80 cursor-pointer">
                             <BiListUl className="text-2xl" />
                           </div>
-                          <div className="flex justify-center items-center h-9 w-9 bg-base-700 rounded-r border border-base-300 border-opacity-80 cursor-pointer">
+                          <div className="flex justify-center items-center h-9 w-9 bg-base-700 hover:bg-base-1000 rounded-r border border-base-300 border-opacity-80 cursor-pointer">
                             <GoTriangleDown />
                           </div>
                         </div>
-                        <div className="flex justify-center items-center h-9 w-9 bg-base-700 rounded border border-base-300 border-opacity-80 cursor-pointer">
+                        <div className="flex justify-center items-center h-9 w-9 bg-base-700 hover:bg-base-1000 rounded border border-base-300 border-opacity-80 cursor-pointer">
                           <BiMenu className="text-xl" />
                         </div>
                       </div>
@@ -153,7 +156,11 @@ export default function Files() {
                   }}
                 >
                   {/* sidebar */}
-                  <div className="flex flex-none flex-col w-56 bg-base-700 overflow-auto border-r border-black border-opacity-30">
+                  <div
+                    className={`flex flex-none flex-col w-56 overflow-auto border-r border-black border-opacity-30 space-y-0.5 pt-1.5 ${
+                      programFocusState.files ? "bg-base-700" : "bg-base-800"
+                    }`}
+                  >
                     <SidebarButton type="Recent" />
                     <SidebarButton type="Starred" />
                     <SidebarButton type="Home" active={true} />
@@ -168,15 +175,14 @@ export default function Files() {
                   {/* content */}
                   <div className="flex w-full items-start py-2 px-3 overflow-y-auto">
                     <div className="flex flex-wrap -mr-6">
-                      <Folder name="Coding" />
-                      <Folder name="Desktop" />
-                      <Folder name="Documents" />
-                      <Folder name="Downloads" />
-                      <Folder name="Music" />
-                      <Folder name="Pictures" />
-                      <Folder name="Portfolio" />
-                      <Folder name="Videos" />
-                      <Folder name="Works" />
+                      {/* <FileLocationContext.Provider
+                        value={{ fileLocation, setFileLocation }}
+                      > */}
+                      <Home
+                        fileLocation={fileLocation}
+                        setFileLocation={setFileLocation}
+                      />
+                      {/* </FileLocationContext.Provider> */}
                     </div>
                   </div>
                 </div>
@@ -195,7 +201,7 @@ function SidebarButton({ active, type }) {
   return (
     <>
       {active ? (
-        <div className="flex items-center justify-start w-full space-x-2 cursor-pointer bg-primary px-4 py-3">
+        <div className="flex items-center justify-start w-full space-x-2 cursor-pointer bg-primary px-4 py-3 duration-300">
           {type === "Recent" && <BiHistory className="text-xl" />}
           {type === "Starred" && <AiFillStar className="text-xl" />}
           {type === "Home" && <AiOutlineHome className="text-xl" />}
@@ -209,7 +215,7 @@ function SidebarButton({ active, type }) {
           <p>{type}</p>
         </div>
       ) : (
-        <div className="flex items-center justify-start w-full space-x-2 cursor-pointer hover:bg-white hover:bg-opacity-5 px-4 py-3">
+        <div className="flex items-center justify-start w-full space-x-2 cursor-pointer hover:bg-white hover:bg-opacity-5 px-4 py-3 duration-300">
           {type === "Recent" && <BiHistory className="text-xl" />}
           {type === "Starred" && <AiFillStar className="text-xl" />}
           {type === "Home" && <AiOutlineHome className="text-xl" />}
@@ -224,90 +230,5 @@ function SidebarButton({ active, type }) {
         </div>
       )}
     </>
-  );
-}
-
-function Folder({ name }) {
-  return (
-    <div className="flex flex-col items-center justify-center text-center mb-5 w-24 mr-4 bg-white bg-opacity-0 hover:bg-opacity-5 rounded-md px-4 py-1.5">
-      {name === "Coding" && <img src={FolderIcon} />}
-      {name === "Desktop" && <img src={DesktopFilesIcon} />}
-      {name === "Documents" && <img src={DocumentsFilesIcon} />}
-      {name === "Downloads" && <img src={DownloadsFilesIcon} />}
-      {name === "Music" && <img src={MusicFilesIcon} />}
-      {name === "Pictures" && <img src={PicturesFilesIcon} />}
-      {name === "Portfolio" && <img src={FolderIcon} />}
-      {name === "Videos" && <img src={VideosFilesIcon} />}
-      {name === "Works" && <img src={FolderIcon} />}
-      <p>{name}</p>
-    </div>
-  );
-}
-
-function ControlButton() {
-  const {
-    setProgramActiveState,
-    programActiveState,
-    setProgramOpenState,
-    programOpenState,
-    setProgramFocusState,
-    programFocusState,
-    setProgramMinimizeState,
-    programMinimizeState,
-  } = useContext(ProgramState);
-  return (
-    <div
-      className={`flex absolute right-0 top-0 z-50 pr-4 rounded-md h-12 border-t-2 border-white border-opacity-5 bg-base-600 items-center space-x-5 text-white ${
-        programFocusState.files ? "bg-base-600" : "bg-base-400"
-      }`}
-    >
-      <div
-        className="flex justify-center items-end w-6 h-6 bg-white bg-opacity-0 hover:bg-opacity-10 duration-75 p-0.5 rounded-full cursor-pointer"
-        onClick={() => {
-          setProgramFocusState({
-            ...programFocusState,
-            files: false,
-          });
-          setProgramActiveState({
-            ...programActiveState,
-            files: false,
-          });
-          setProgramMinimizeState({
-            ...programMinimizeState,
-            files: true,
-          });
-        }}
-      >
-        <BiMinus />
-      </div>
-      <div className="flex justify-center items-center w-6 h-6 bg-white bg-opacity-0 hover:bg-opacity-10 duration-75 p-1.5 rounded-full cursor-pointer">
-        <BiSquare />
-      </div>
-      <div
-        className={`flex justify-center items-center w-6 h-6 rounded-full cursor-pointer ${
-          programFocusState.files ? "bg-primary" : "bg-white bg-opacity-10"
-        }`}
-        onClick={() => {
-          setProgramActiveState({
-            ...programActiveState,
-            files: false,
-          });
-          setProgramOpenState({
-            ...programOpenState,
-            files: false,
-          });
-          setProgramFocusState({
-            ...programFocusState,
-            files: false,
-          });
-          setProgramMinimizeState({
-            ...programMinimizeState,
-            files: true,
-          });
-        }}
-      >
-        <BiX className="text-lg" />
-      </div>
-    </div>
   );
 }

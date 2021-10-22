@@ -41,25 +41,16 @@ export default function Header({
 
   return (
     <div className="flex justify-center items-center w-full h-8 bg-base-300 text-white">
-      {activitiesActiveState ? (
-        <div
-          className="absolute left-0.5 px-2 top-0 pt-1 text-gray-300 h-8 font-medium border-b-2 border-primary cursor-pointer"
-          onClick={() => {
-            setActivitiesActiveState(false);
-          }}
-        >
-          <p>Acitivities</p>
-        </div>
-      ) : (
-        <div
-          className="absolute left-1 px-2 top-0 pt-1 text-gray-300 h-8 cursor-pointer"
-          onClick={() => {
-            setActivitiesActiveState(true);
-          }}
-        >
-          <p>Acitivities</p>
-        </div>
-      )}
+      <div
+        className={`absolute left-0 px-3 top-0 pt-1 text-gray-300 h-8 cursor-pointer ${
+          activitiesActiveState && "border-b-2 border-primary"
+        }`}
+        onClick={() => {
+          setActivitiesActiveState(!activitiesActiveState);
+        }}
+      >
+        <p>Acitivities</p>
+      </div>
 
       <div className="flex items-center text-gray-200">
         <p>{formatDate.format(new Date()) + " " + clockState}</p>
@@ -78,9 +69,9 @@ export default function Header({
             <RiShutDownLine />
             <GoTriangleDown className="text-sm" />
           </div>
-          <div className="flex flex-col justify-center items-end mt-4 shadow-lg">
-            <div className="flex bg-base-500 w-4 h-4 rotate-45 mr-7 border-t border-l border-black border-opacity-20" />
-            <div className="flex flex-col justify-start items-center py-4 px-5 bg-base-500 -mt-2 w-64 rounded-md border border-black border-opacity-20 space-y-4">
+          <div className="flex flex-col justify-center items-end mt-4 shadow-lg text-gray-700">
+            <div className="flex bg-base-100 w-4 h-4 rotate-45 mr-7 border-t border-l border-black border-opacity-20" />
+            <div className="flex flex-col justify-start items-center py-4 px-5 bg-base-100 -mt-2 w-64 rounded-md border border-black border-opacity-20 space-y-4">
               {/* volume slider */}
               <div className="flex w-full justify-center items-center space-x-2">
                 <MdVolumeDown className="text-2xl" />

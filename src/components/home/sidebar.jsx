@@ -293,52 +293,26 @@ function TerminalProgram({
 
 function AppDrawer({ activitiesActiveState, setActivitiesActiveState }) {
   return (
-    <>
-      {activitiesActiveState ? (
-        <div className="group">
-          <div className="absolute left-16 ml-2 mt-4 duration-100 bg-black bg-opacity-25 py-0.5 px-3 rounded-md text-white text-sm hidden group-hover:block z-50">
-            <p>Show Applications</p>
-          </div>
-          <div
-            className="grid grid-cols-3 gap-1.5 bg-white p-3 bg-opacity-5 hover:bg-opacity-10 duration-100 rounded-md cursor-pointer"
-            onClick={() => {
-              setActivitiesActiveState(false);
-            }}
-          >
-            <div className="h-1.5 w-1.5 bg-white rounded-full" />
-            <div className="h-1.5 w-1.5 bg-white rounded-full" />
-            <div className="h-1.5 w-1.5 bg-white rounded-full" />
-            <div className="h-1.5 w-1.5 bg-white rounded-full" />
-            <div className="h-1.5 w-1.5 bg-white rounded-full" />
-            <div className="h-1.5 w-1.5 bg-white rounded-full" />
-            <div className="h-1.5 w-1.5 bg-white rounded-full" />
-            <div className="h-1.5 w-1.5 bg-white rounded-full" />
-            <div className="h-1.5 w-1.5 bg-white rounded-full" />
-          </div>
-        </div>
-      ) : (
-        <div className="group">
-          <div className="absolute left-16 ml-2 mt-4 duration-100 bg-black bg-opacity-25 py-0.5 px-3 rounded-md text-white text-sm hidden group-hover:block z-50">
-            <p>Show Applications</p>
-          </div>
-          <div
-            className="grid grid-cols-3 gap-1.5 bg-white p-3 bg-opacity-0 hover:bg-opacity-10 duration-100 rounded-md cursor-pointer"
-            onClick={() => {
-              setActivitiesActiveState(true);
-            }}
-          >
-            <div className="h-1.5 w-1.5 bg-white rounded-full" />
-            <div className="h-1.5 w-1.5 bg-white rounded-full" />
-            <div className="h-1.5 w-1.5 bg-white rounded-full" />
-            <div className="h-1.5 w-1.5 bg-white rounded-full" />
-            <div className="h-1.5 w-1.5 bg-white rounded-full" />
-            <div className="h-1.5 w-1.5 bg-white rounded-full" />
-            <div className="h-1.5 w-1.5 bg-white rounded-full" />
-            <div className="h-1.5 w-1.5 bg-white rounded-full" />
-            <div className="h-1.5 w-1.5 bg-white rounded-full" />
-          </div>
-        </div>
-      )}
-    </>
+    <div className="group">
+      <div className="absolute left-16 ml-2 mt-4 duration-100 bg-black bg-opacity-25 py-0.5 px-3 rounded-md text-white text-sm hidden group-hover:block z-50">
+        <p>Show Applications</p>
+      </div>
+      <div
+        className="grid grid-cols-3 gap-1.5 bg-white p-3 bg-opacity-0 hover:bg-opacity-10 duration-100 rounded-md cursor-pointer"
+        onClick={() => {
+          setActivitiesActiveState(!activitiesActiveState);
+        }}
+      >
+        <div className="h-1.5 w-1.5 bg-white rounded-sm" />
+        <div className="h-1.5 w-1.5 bg-white rounded-sm" />
+        <div className="h-1.5 w-1.5 bg-white rounded-sm" />
+        <div className="h-1.5 w-1.5 bg-white rounded-sm" />
+        <div className="h-1.5 w-1.5 bg-white rounded-sm" />
+        <div className="h-1.5 w-1.5 bg-white rounded-sm" />
+        <div className="h-1.5 w-1.5 bg-white rounded-sm" />
+        <div className="h-1.5 w-1.5 bg-white rounded-sm" />
+        <div className="h-1.5 w-1.5 bg-white rounded-sm" />
+      </div>
+    </div>
   );
 }

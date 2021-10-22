@@ -4,18 +4,18 @@ import { GoTriangleDown } from "react-icons/go";
 export default function Path({ fileLocation, setFileLocation }) {
   return (
     <div>
-      {fileLocation === "Home" && (
+      {fileLocation.Home && (
         <div className="flex items-center justify-center h-9 w-32 bg-base-700 hover:bg-base-1000 rounded border border-base-300 border-opacity-80 cursor-pointer space-x-3 text-gray-300">
           <AiOutlineHome className="text-lg" />
           <p className="font-normal">Home</p>
           <GoTriangleDown />
         </div>
       )}
-      {fileLocation === "Coding" && (
+      {fileLocation.Coding && (
         <div className="flex">
           <div
             onClick={() => {
-              setFileLocation("Home");
+              setFileLocation({ Home: true });
             }}
           >
             <Button position="left" path="Home" triangle={false} />
@@ -25,11 +25,11 @@ export default function Path({ fileLocation, setFileLocation }) {
           </div>
         </div>
       )}
-      {fileLocation === "Desktop" && (
+      {fileLocation.Desktop && (
         <div className="flex">
           <div
             onClick={() => {
-              setFileLocation("Home");
+              setFileLocation({ Home: true });
             }}
           >
             <Button position="left" path="Home" triangle={false} />
@@ -39,11 +39,11 @@ export default function Path({ fileLocation, setFileLocation }) {
           </div>
         </div>
       )}
-      {fileLocation === "Documents" && (
+      {fileLocation.Documents && (
         <div className="flex">
           <div
             onClick={() => {
-              setFileLocation("Home");
+              setFileLocation({ Home: true });
             }}
           >
             <Button position="left" path="Home" triangle={false} />
@@ -53,11 +53,11 @@ export default function Path({ fileLocation, setFileLocation }) {
           </div>
         </div>
       )}
-      {fileLocation === "Downloads" && (
+      {fileLocation.Downloads && (
         <div className="flex">
           <div
             onClick={() => {
-              setFileLocation("Home");
+              setFileLocation({ Home: true });
             }}
           >
             <Button position="left" path="Home" triangle={false} />
@@ -67,11 +67,11 @@ export default function Path({ fileLocation, setFileLocation }) {
           </div>
         </div>
       )}
-      {fileLocation === "Music" && (
+      {fileLocation.Music && (
         <div className="flex">
           <div
             onClick={() => {
-              setFileLocation("Home");
+              setFileLocation({ Home: true });
             }}
           >
             <Button position="left" path="Home" triangle={false} />
@@ -81,11 +81,11 @@ export default function Path({ fileLocation, setFileLocation }) {
           </div>
         </div>
       )}
-      {fileLocation === "Pictures" && (
+      {fileLocation.Pictures && (
         <div className="flex">
           <div
             onClick={() => {
-              setFileLocation("Home");
+              setFileLocation({ Home: true });
             }}
           >
             <Button position="left" path="Home" triangle={false} />
@@ -95,11 +95,11 @@ export default function Path({ fileLocation, setFileLocation }) {
           </div>
         </div>
       )}
-      {fileLocation === "Portfolio" && (
+      {fileLocation.Portfolio && (
         <div className="flex">
           <div
             onClick={() => {
-              setFileLocation("Home");
+              setFileLocation({ Home: true });
             }}
           >
             <Button position="left" path="Home" triangle={false} />
@@ -109,11 +109,11 @@ export default function Path({ fileLocation, setFileLocation }) {
           </div>
         </div>
       )}
-      {fileLocation === "Videos" && (
+      {fileLocation.Videos && (
         <div className="flex">
           <div
             onClick={() => {
-              setFileLocation("Home");
+              setFileLocation({ Home: true });
             }}
           >
             <Button position="left" path="Home" triangle={false} />
@@ -123,17 +123,59 @@ export default function Path({ fileLocation, setFileLocation }) {
           </div>
         </div>
       )}
-      {fileLocation === "Works" && (
+      {fileLocation.Works && (
         <div className="flex">
           <div
             onClick={() => {
-              setFileLocation("Home");
+              setFileLocation({ Home: true });
             }}
           >
             <Button position="left" path="Home" triangle={false} />
           </div>
           <div>
             <Button position="right" path="Works" triangle={true} />
+          </div>
+        </div>
+      )}
+      {fileLocation.Recent && (
+        <div className="flex">
+          <div
+            onClick={() => {
+              setFileLocation({ Home: true });
+            }}
+          >
+            <Button position="left" path="Home" triangle={false} />
+          </div>
+          <div>
+            <Button position="right" path="Recent" triangle={true} />
+          </div>
+        </div>
+      )}
+      {fileLocation.Starred && (
+        <div className="flex">
+          <div
+            onClick={() => {
+              setFileLocation({ Home: true });
+            }}
+          >
+            <Button position="left" path="Home" triangle={false} />
+          </div>
+          <div>
+            <Button position="right" path="Starred" triangle={true} />
+          </div>
+        </div>
+      )}
+      {fileLocation.Trash && (
+        <div className="flex">
+          <div
+            onClick={() => {
+              setFileLocation({ Home: true });
+            }}
+          >
+            <Button position="left" path="Home" triangle={false} />
+          </div>
+          <div>
+            <Button position="right" path="Trash" triangle={true} />
           </div>
         </div>
       )}

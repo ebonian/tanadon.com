@@ -40,8 +40,30 @@ export default function Files() {
   } = useContext(ProgramState);
 
   // folder path state
-  const [fileLocation, setFileLocation] = useState("Home");
-
+  const [fileLocation, setFileLocation] = useState({
+    Recent: false,
+    Starred: false,
+    Home: true,
+    Desktop: false,
+    Documents: false,
+    Downloads: false,
+    Music: false,
+    Pictures: false,
+    Videos: false,
+    Trash: false,
+  });
+  // const [sidebarActiveState, setSidebarActiveState] = useState({
+  // Recent: false,
+  // Starred: false,
+  // Home: true,
+  // Desktop: false,
+  // Documents: false,
+  // Downloads: false,
+  // Music: false,
+  // Pictures: false,
+  // Videos: false,
+  // Trash: false,
+  // });
   return (
     <>
       {programMinimizeState.files ? (
@@ -161,16 +183,97 @@ export default function Files() {
                       programFocusState.files ? "bg-base-700" : "bg-base-800"
                     }`}
                   >
-                    <SidebarButton type="Recent" />
-                    <SidebarButton type="Starred" />
-                    <SidebarButton type="Home" active={true} />
-                    <SidebarButton type="Desktop" />
-                    <SidebarButton type="Documents" />
-                    <SidebarButton type="Download" />
-                    <SidebarButton type="Music" />
-                    <SidebarButton type="Picture" />
-                    <SidebarButton type="Videos" />
-                    <SidebarButton type="Trash" />
+                    <div
+                      onClick={() => {
+                        setFileLocation({ Recent: true });
+                      }}
+                    >
+                      <SidebarButton
+                        type="Recent"
+                        active={fileLocation.Recent}
+                      />
+                    </div>
+                    <div
+                      onClick={() => {
+                        setFileLocation({ Starred: true });
+                      }}
+                    >
+                      <SidebarButton
+                        type="Starred"
+                        active={fileLocation.Starred}
+                      />
+                    </div>
+                    <div
+                      onClick={() => {
+                        setFileLocation({ Home: true });
+                      }}
+                    >
+                      <SidebarButton type="Home" active={fileLocation.Home} />
+                    </div>
+                    <div
+                      onClick={() => {
+                        setFileLocation({ Desktop: true });
+                      }}
+                    >
+                      <SidebarButton
+                        type="Desktop"
+                        active={fileLocation.Desktop}
+                      />
+                    </div>
+                    <div
+                      onClick={() => {
+                        setFileLocation({ Documents: true });
+                      }}
+                    >
+                      <SidebarButton
+                        type="Documents"
+                        active={fileLocation.Documents}
+                      />
+                    </div>
+                    <div
+                      onClick={() => {
+                        setFileLocation({ Downloads: true });
+                      }}
+                    >
+                      <SidebarButton
+                        type="Downloads"
+                        active={fileLocation.Downloads}
+                      />
+                    </div>
+                    <div
+                      onClick={() => {
+                        setFileLocation({ Music: true });
+                      }}
+                    >
+                      <SidebarButton type="Music" active={fileLocation.Music} />
+                    </div>
+                    <div
+                      onClick={() => {
+                        setFileLocation({ Pictures: true });
+                      }}
+                    >
+                      <SidebarButton
+                        type="Pictures"
+                        active={fileLocation.Pictures}
+                      />
+                    </div>
+                    <div
+                      onClick={() => {
+                        setFileLocation({ Videos: true });
+                      }}
+                    >
+                      <SidebarButton
+                        type="Videos"
+                        active={fileLocation.Videos}
+                      />
+                    </div>
+                    <div
+                      onClick={() => {
+                        setFileLocation({ Trash: true });
+                      }}
+                    >
+                      <SidebarButton type="Trash" active={fileLocation.Trash} />
+                    </div>
                   </div>
                   {/* content */}
                   <div className="flex w-full items-start py-2 px-3 overflow-y-auto">
@@ -207,9 +310,9 @@ function SidebarButton({ active, type }) {
           {type === "Home" && <AiOutlineHome className="text-xl" />}
           {type === "Desktop" && <RiSideBarFill className="text-xl" />}
           {type === "Documents" && <CgFileDocument className="text-xl" />}
-          {type === "Download" && <MdDownload className="text-xl" />}
+          {type === "Downloads" && <MdDownload className="text-xl" />}
           {type === "Music" && <HiMusicNote className="text-xl" />}
-          {type === "Picture" && <AiFillPicture className="text-xl" />}
+          {type === "Pictures" && <AiFillPicture className="text-xl" />}
           {type === "Videos" && <FiFilm className="text-xl" />}
           {type === "Trash" && <BiTrash className="text-xl" />}
           <p>{type}</p>
@@ -221,9 +324,9 @@ function SidebarButton({ active, type }) {
           {type === "Home" && <AiOutlineHome className="text-xl" />}
           {type === "Desktop" && <RiSideBarFill className="text-xl" />}
           {type === "Documents" && <CgFileDocument className="text-xl" />}
-          {type === "Download" && <MdDownload className="text-xl" />}
+          {type === "Downloads" && <MdDownload className="text-xl" />}
           {type === "Music" && <HiMusicNote className="text-xl" />}
-          {type === "Picture" && <AiFillPicture className="text-xl" />}
+          {type === "Pictures" && <AiFillPicture className="text-xl" />}
           {type === "Videos" && <FiFilm className="text-xl" />}
           {type === "Trash" && <BiTrash className="text-xl" />}
           <p>{type}</p>

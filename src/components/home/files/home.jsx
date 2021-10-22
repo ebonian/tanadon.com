@@ -30,63 +30,63 @@ export default function Home({ fileLocation, setFileLocation }) {
     <HomeSelectionContext.Provider value={{ homeSelection, setHomeSelection }}>
       <div
         onDoubleClick={() => {
-          setFileLocation("Coding");
+          setFileLocation({ Coding: true });
         }}
       >
         <Folder name="Coding" select={homeSelection.Coding} />
       </div>
       <div
         onDoubleClick={() => {
-          setFileLocation("Desktop");
+          setFileLocation({ Desktop: true });
         }}
       >
         <Folder name="Desktop" select={homeSelection.Desktop} />
       </div>
       <div
         onDoubleClick={() => {
-          setFileLocation("Documents");
+          setFileLocation({ Documents: true });
         }}
       >
         <Folder name="Documents" select={homeSelection.Documents} />
       </div>
       <div
         onDoubleClick={() => {
-          setFileLocation("Downloads");
+          setFileLocation({ Downloads: true });
         }}
       >
         <Folder name="Downloads" select={homeSelection.Downloads} />
       </div>
       <div
         onDoubleClick={() => {
-          setFileLocation("Music");
+          setFileLocation({ Music: true });
         }}
       >
         <Folder name="Music" select={homeSelection.Music} />
       </div>
       <div
         onDoubleClick={() => {
-          setFileLocation("Pictures");
+          setFileLocation({ Pictures: true });
         }}
       >
         <Folder name="Pictures" select={homeSelection.Pictures} />
       </div>
       <div
         onDoubleClick={() => {
-          setFileLocation("Portfolio");
+          setFileLocation({ Portfolio: true });
         }}
       >
         <Folder name="Portfolio" select={homeSelection.Portfolio} />
       </div>
       <div
         onDoubleClick={() => {
-          setFileLocation("Videos");
+          setFileLocation({ Videos: true });
         }}
       >
         <Folder name="Videos" select={homeSelection.Videos} />
       </div>
       <div
         onDoubleClick={() => {
-          setFileLocation("Works");
+          setFileLocation({ Works: true });
         }}
       >
         <Folder name="Works" select={homeSelection.Works} />

@@ -1,4 +1,5 @@
-import { AiOutlineHome } from "react-icons/ai";
+import { AiFillStar, AiOutlineHome } from "react-icons/ai";
+import { BiHistory, BiTrash } from "react-icons/bi";
 import { GoTriangleDown } from "react-icons/go";
 
 export default function Path({ fileLocation, setFileLocation }) {
@@ -138,45 +139,18 @@ export default function Path({ fileLocation, setFileLocation }) {
         </div>
       )}
       {fileLocation.Recent && (
-        <div className="flex">
-          <div
-            onClick={() => {
-              setFileLocation({ Home: true });
-            }}
-          >
-            <Button position="left" path="Home" triangle={false} />
-          </div>
-          <div>
-            <Button position="right" path="Recent" triangle={true} />
-          </div>
+        <div>
+          <Button position="alone" path="Recent" triangle={true} />
         </div>
       )}
       {fileLocation.Starred && (
-        <div className="flex">
-          <div
-            onClick={() => {
-              setFileLocation({ Home: true });
-            }}
-          >
-            <Button position="left" path="Home" triangle={false} />
-          </div>
-          <div>
-            <Button position="right" path="Starred" triangle={true} />
-          </div>
+        <div>
+          <Button position="alone" path="Starred" triangle={true} />
         </div>
       )}
       {fileLocation.Trash && (
-        <div className="flex">
-          <div
-            onClick={() => {
-              setFileLocation({ Home: true });
-            }}
-          >
-            <Button position="left" path="Home" triangle={false} />
-          </div>
-          <div>
-            <Button position="right" path="Trash" triangle={true} />
-          </div>
+        <div>
+          <Button position="alone" path="Trash" triangle={true} />
         </div>
       )}
     </div>
@@ -195,6 +169,9 @@ function Button({ position, path, triangle }) {
       `}
     >
       {path === "Home" && <AiOutlineHome className="text-lg" />}
+      {path === "Recent" && <BiHistory className="text-lg" />}
+      {path === "Starred" && <AiFillStar className="text-lg" />}
+      {path === "Trash" && <BiTrash className="text-lg" />}
       <p className="font-normal">{path}</p>
       {triangle && <GoTriangleDown />}
     </div>

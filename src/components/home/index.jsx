@@ -48,7 +48,7 @@ export default function Index({ setLogin }) {
         setSystemDropdownState,
       }}
     >
-      <div className="flex flex-col h-screen w-full bg-wallpaper bg-cover bg-right select-none font-ubuntu">
+      <div className="flex flex-col h-screen w-full bg-wallpaper bg-cover bg-center select-none font-ubuntu">
         {/* header */}
         <Header
           activitiesActiveState={activitiesActiveState}
@@ -83,8 +83,7 @@ export default function Index({ setLogin }) {
             </div>
           ) : (
             <>
-              <div className="flex flex-grow duration-300">
-                <div className="flex flex-grow pl-16 pt-8 -mr-96 -mb-96">
+              <div className="flex absolute top-8 pl-16 -right-50 h-desktop w-desktop duration-300">
                   <Files />
                   <Firefox
                     setProgramActiveState={setProgramActiveState}
@@ -96,7 +95,8 @@ export default function Index({ setLogin }) {
                     setProgramMinimizeState={setProgramMinimizeState}
                     programMinimizeState={programMinimizeState}
                   />
-                </div>
+                {/* <div className="flex flex-grow pl-16 pt-8 -ml-96 -mr-96 -mb-96">
+                </div> */}
               </div>
               {/* 
             <div className="fixed flex flex-grow duration-300">

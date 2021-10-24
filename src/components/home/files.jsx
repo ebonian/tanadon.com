@@ -1,15 +1,6 @@
 import { useContext, useState, createContext } from "react";
 import Draggable from "react-draggable";
-import {
-  BiX,
-  BiMinus,
-  BiSquare,
-  BiSearch,
-  BiListUl,
-  BiMenu,
-  BiHistory,
-  BiTrash,
-} from "react-icons/bi";
+import { BiSearch, BiListUl, BiMenu, BiHistory, BiTrash } from "react-icons/bi";
 import { AiFillPicture, AiFillStar, AiOutlineHome } from "react-icons/ai";
 import { BsChevronCompactLeft, BsChevronCompactRight } from "react-icons/bs";
 import { GoTriangleDown } from "react-icons/go";
@@ -23,6 +14,11 @@ import { ProgramState } from ".";
 import Control from "./control";
 import Home from "./files/home";
 import Path from "./files/path";
+import Empty from "./files/empty";
+import Starred from "./files/starred";
+import Desktop from "./files/desktop";
+import Coding from "./files/coding";
+import Works from "./files/works";
 
 // export const FileLocationContext = createContext(null);
 
@@ -41,29 +37,8 @@ export default function Files() {
 
   // folder path state
   const [fileLocation, setFileLocation] = useState({
-    Recent: false,
-    Starred: false,
     Home: true,
-    Desktop: false,
-    Documents: false,
-    Downloads: false,
-    Music: false,
-    Pictures: false,
-    Videos: false,
-    Trash: false,
   });
-  // const [sidebarActiveState, setSidebarActiveState] = useState({
-  // Recent: false,
-  // Starred: false,
-  // Home: true,
-  // Desktop: false,
-  // Documents: false,
-  // Downloads: false,
-  // Music: false,
-  // Pictures: false,
-  // Videos: false,
-  // Trash: false,
-  // });
   return (
     <>
       {programMinimizeState.files ? (
@@ -276,16 +251,45 @@ export default function Files() {
                     </div>
                   </div>
                   {/* content */}
+
+                  {fileLocation.Recent && <Empty />}
+                  {fileLocation.Downloads && <Empty />}
+                  {fileLocation.Trash && <Empty />}
                   <div className="flex w-full items-start py-2 px-3 overflow-y-auto">
                     <div className="flex flex-wrap -mr-6">
-                      {/* <FileLocationContext.Provider
-                        value={{ fileLocation, setFileLocation }}
-                      > */}
-                      <Home
-                        fileLocation={fileLocation}
-                        setFileLocation={setFileLocation}
-                      />
-                      {/* </FileLocationContext.Provider> */}
+                      {fileLocation.Starred && (
+                        <Starred
+                          fileLocation={fileLocation}
+                          setFileLocation={setFileLocation}
+                        />
+                      )}
+                      {fileLocation.Home && (
+                        <Home
+                          fileLocation={fileLocation}
+                          setFileLocation={setFileLocation}
+                        />
+                      )}
+                      {fileLocation.Desktop && (
+                        <Desktop
+                          fileLocation={fileLocation}
+                          setFileLocation={setFileLocation}
+                        />
+                      )}
+                      {fileLocation.Documents && <></>}
+                      {fileLocation.Music && <></>}
+                      {fileLocation.Pictures && <></>}
+                      {fileLocation.Coding && (
+                        <Coding
+                          fileLocation={fileLocation}
+                          setFileLocation={setFileLocation}
+                        />
+                      )}
+                      {fileLocation.Works && (
+                        <Works
+                          fileLocation={fileLocation}
+                          setFileLocation={setFileLocation}
+                        />
+                      )}
                     </div>
                   </div>
                 </div>

@@ -96,7 +96,7 @@ export default function Home({ fileLocation, setFileLocation }) {
 }
 
 function Folder({ name, select }) {
-  const { homeSelection, setHomeSelection } = useContext(HomeSelectionContext);
+  const { setHomeSelection } = useContext(HomeSelectionContext);
   return (
     <>
       {select ? (

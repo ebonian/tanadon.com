@@ -1,19 +1,26 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 
-import { RiSettingsLine, RiShutDownLine } from "react-icons/ri";
+import {
+  RiSettingsLine,
+  RiShutDownLine,
+  RiTerminalBoxLine,
+} from "react-icons/ri";
 import { GoTriangleDown, GoTriangleRight } from "react-icons/go";
-import { BsFillVolumeUpFill } from "react-icons/bs";
+import { BsFillVolumeUpFill, BsFolder2Open } from "react-icons/bs";
 import { BiLockAlt, BiWifi2 } from "react-icons/bi";
-import { MdSignalWifiStatusbarNull, MdVolumeDown } from "react-icons/md";
-import { FaLock, FaTools, FaUser } from "react-icons/fa";
+import { MdHelp, MdVolumeDown } from "react-icons/md";
+import { FaFirefoxBrowser, FaUser } from "react-icons/fa";
+import { SiVisualstudiocode } from "react-icons/si";
+import { ProgramState } from ".";
 
-export default function Header({
-  activitiesActiveState,
-  setActivitiesActiveState,
-  systemDropdownState,
-  setSystemDropdownState,
-  setLogin,
-}) {
+export default function Header({ setLogin }) {
+  const {
+    programActiveState,
+    activitiesActiveState,
+    setActivitiesActiveState,
+    systemDropdownState,
+    setSystemDropdownState,
+  } = useContext(ProgramState);
   // date state
   const [clockState, setClockState] = useState();
 
@@ -41,20 +48,62 @@ export default function Header({
 
   return (
     <div className="flex justify-center items-center w-full h-8 bg-base-300 text-white z-50">
-      <div
-        className={`absolute left-0 px-3 top-0 pt-1 text-gray-300 h-8 cursor-pointer ${
-          activitiesActiveState && "border-b-2 border-primary"
-        }`}
-        onClick={() => {
-          setActivitiesActiveState(!activitiesActiveState);
-        }}
-      >
-        <p>Acitivities</p>
+      {/* activities */}
+      <div className="absolute flex left-0 top-0">
+        <div
+          className={`px-3 pt-1 text-gray-300 h-8 cursor-pointer ${
+            activitiesActiveState && "border-b-2 border-primary"
+          }`}
+          onClick={() => {
+            setActivitiesActiveState(!activitiesActiveState);
+          }}
+        >
+          <p>Acitivities</p>
+        </div>
+        <div className="flex justify-center items-center space-x-2 h-8 ml-5 text-gray-200 cursor-pointer">
+          {programActiveState.firefox && (
+            <>
+              <FaFirefoxBrowser className="text-lg" />
+              <p>Firefox Web Browser</p>
+              <GoTriangleDown className="mt-0.5" />
+            </>
+          )}
+          {programActiveState.files && (
+            <>
+              <BsFolder2Open className="text-lg" />
+              <p>Files</p>
+              <GoTriangleDown className="mt-0.5" />
+            </>
+          )}
+          {programActiveState.terminal && (
+            <>
+              <RiTerminalBoxLine className="text-lg" />
+              <p>Terminal</p>
+              <GoTriangleDown className="mt-0.5" />
+            </>
+          )}
+          {programActiveState.code && (
+            <>
+              <SiVisualstudiocode className="text-lg" />
+              <p>Visual Studio Code</p>
+              <GoTriangleDown className="mt-0.5" />
+            </>
+          )}
+          {programActiveState.help && (
+            <>
+              <MdHelp className="text-lg" />
+              <p>Help</p>
+              <GoTriangleDown className="mt-0.5" />
+            </>
+          )}
+        </div>
       </div>
 
+      {/* date */}
       <div className="flex items-center text-gray-200">
         <p>{formatDate.format(new Date()) + " " + clockState}</p>
       </div>
+
       {/* utilities icon */}
       <div className="flex flex-col absolute right-0 top-1 items-end text-lg z-50">
         <div
@@ -73,7 +122,11 @@ export default function Header({
         <div className="flex flex-col justify-center items-end mt-4 shadow-lg text-gray-700">
           {/* dropdown */}
           {systemDropdownState && (
-            <ActionCenter page="home" setLogin={setLogin} setSystemDropdownState={setSystemDropdownState} />
+            <ActionCenter
+              page="home"
+              setLogin={setLogin}
+              setSystemDropdownState={setSystemDropdownState}
+            />
           )}
         </div>
       </div>
@@ -221,7 +274,7 @@ function ActionCenter({ setLogin, page, setSystemDropdownState }) {
                   className="cursor-pointer"
                   onClick={() => {
                     setLogin("shutting down");
-                    setSystemDropdownState(false)
+                    setSystemDropdownState(false);
                   }}
                 >
                   Power Off...

@@ -36,6 +36,7 @@ module.exports = {
         firefox: "1120px",
         files: "900px",
         terminal: "800px",
+        small: "650px",
       },
       height: {
         desktop: "150%",
@@ -43,6 +44,7 @@ module.exports = {
         firefox: "800px",
         files: "600px",
         terminal: "500px",
+        small: "350px",
       },
       borderColor: (theme) => ({
         darkActive: "#ffffff #202020 #202020 #ffffff",

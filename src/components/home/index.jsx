@@ -4,6 +4,8 @@ import Sidebar from "./sidebar";
 import Files from "./files";
 import Firefox from "./firefox";
 import Terminal from "./terminal";
+import Code from "./code";
+import Help from "./help";
 
 // import Desktop from "./desktop";
 
@@ -72,13 +74,7 @@ export default function Index({ setLogin, login }) {
     >
       <div className="flex flex-col h-screen w-full bg-wallpaper bg-cover bg-center select-none font-ubuntu">
         {/* header */}
-        <Header
-          activitiesActiveState={activitiesActiveState}
-          setActivitiesActiveState={setActivitiesActiveState}
-          systemDropdownState={systemDropdownState}
-          setSystemDropdownState={setSystemDropdownState}
-          setLogin={setLogin}
-        />
+        <Header setLogin={setLogin} />
         <div
           className="flex flex-grow"
           onClick={() => {
@@ -86,18 +82,7 @@ export default function Index({ setLogin, login }) {
           }}
         >
           {/* sidebar */}
-          <Sidebar
-            setProgramActiveState={setProgramActiveState}
-            programActiveState={programActiveState}
-            setProgramOpenState={setProgramOpenState}
-            programOpenState={programOpenState}
-            setProgramFocusState={setProgramFocusState}
-            programFocusState={programFocusState}
-            setProgramMinimizeState={setProgramMinimizeState}
-            programMinimizeState={programMinimizeState}
-            setActivitiesActiveState={setActivitiesActiveState}
-            activitiesActiveState={activitiesActiveState}
-          />
+          <Sidebar />
           {/* main component */}
           {activitiesActiveState ? (
             <div className="flex flex-grow bg-black bg-opacity-50 duration-300">
@@ -109,6 +94,8 @@ export default function Index({ setLogin, login }) {
                 <Files />
                 <Firefox />
                 <Terminal />
+                <Code />
+                <Help />
               </div>
             </>
           )}

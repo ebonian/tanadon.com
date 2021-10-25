@@ -48,7 +48,7 @@ export default function Files() {
           {programFocusState.files || programOpenState.files ? (
             <Draggable bounds="parent" handle="strong">
               <div
-                className={`absolute text-white resize border border-black border-opacity-20 w-files h-files overflow-auto overflow-y-hidden overflow-x-hidden rounded-t-md shadow-xl ${
+                className={`absolute text-white resize border border-black border-opacity-20 w-small h-terminal md:w-terminal lg:w-files lg:h-files overflow-auto overflow-y-hidden overflow-x-hidden rounded-t-md shadow-xl ${
                   programFocusState.files ? "z-40" : "z-30"
                 } ${
                   programFocusState.files
@@ -60,6 +60,11 @@ export default function Files() {
                     firefox: false,
                     files: true,
                     terminal: false,
+                    code: false,
+                    help: false,
+                    document: false,
+                    image: false,
+                    text: false,
                   });
                 }}
               >
@@ -80,6 +85,11 @@ export default function Files() {
                           firefox: false,
                           files: true,
                           terminal: false,
+                          code: false,
+                          help: false,
+                          document: false,
+                          image: false,
+                          text: false,
                         });
                       }}
                     >
@@ -104,6 +114,11 @@ export default function Files() {
                           firefox: false,
                           files: true,
                           terminal: false,
+                          code: false,
+                          help: false,
+                          document: false,
+                          image: false,
+                          text: false,
                         });
                       }}
                     />
@@ -115,6 +130,11 @@ export default function Files() {
                           firefox: false,
                           files: true,
                           terminal: false,
+                          code: false,
+                          help: false,
+                          document: false,
+                          image: false,
+                          text: false,
                         });
                       }}
                     >
@@ -149,6 +169,11 @@ export default function Files() {
                       firefox: false,
                       files: true,
                       terminal: false,
+                      code: false,
+                      help: false,
+                      document: false,
+                      image: false,
+                      text: false,
                     });
                   }}
                 >

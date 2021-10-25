@@ -52,6 +52,11 @@ export default function Terminal() {
                         firefox: false,
                         files: false,
                         terminal: true,
+                        code: false,
+                        help: false,
+                        document: false,
+                        image: false,
+                        text: false,
                       });
                     }}
                   >
@@ -85,6 +90,11 @@ export default function Terminal() {
                       firefox: false,
                       files: false,
                       terminal: true,
+                      code: false,
+                      help: false,
+                      document: false,
+                      image: false,
+                      text: false,
                     });
                   }}
                 >

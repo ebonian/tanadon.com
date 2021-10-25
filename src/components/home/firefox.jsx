@@ -1,6 +1,7 @@
 import { useContext, useState } from "react";
 import Draggable from "react-draggable";
 import Control from "./control";
+import { ProgramState } from ".";
 import {
   FiArrowLeft,
   FiArrowRight,
@@ -16,7 +17,6 @@ import { FaGithub } from "react-icons/fa";
 import FacebookIcon from "../../images/Facebook_f_logo_(2021).svg";
 import GmailIcon from "../../images/Gmail_icon_(2020).svg";
 import { MdRefresh } from "react-icons/md";
-import { ProgramState } from ".";
 
 export default function Firefox() {
   const {
@@ -49,7 +49,7 @@ export default function Firefox() {
           {programFocusState.firefox || programOpenState.firefox ? (
             <Draggable bounds="parent" handle="strong">
               <div
-                className={`absolute text-white resize border border-black border-opacity-20 w-firefox h-firefox overflow-auto overflow-y-hidden overflow-x-hidden rounded-t-md shadow-xl ${
+                className={`absolute text-white resize border border-black border-opacity-20 w-small h-terminal md:w-terminal md:h-terminal lg:w-firefox lg:h-firefox overflow-auto overflow-y-hidden overflow-x-hidden rounded-t-md shadow-xl ${
                   programFocusState.firefox ? "z-40" : "z-30"
                 } ${
                   programFocusState.firefox
@@ -61,6 +61,11 @@ export default function Firefox() {
                     firefox: true,
                     files: false,
                     terminal: false,
+                    code: false,
+                    help: false,
+                    document: false,
+                    image: false,
+                    text: false,
                   });
                 }}
               >
@@ -77,6 +82,11 @@ export default function Firefox() {
                         firefox: true,
                         files: false,
                         terminal: false,
+                        code: false,
+                        help: false,
+                        document: false,
+                        image: false,
+                        text: false,
                       });
                     }}
                   >
@@ -178,27 +188,39 @@ export default function Firefox() {
                             target="_blank"
                             className="text-sm"
                           >
-                            https://<span className="text-white">github.com</span>/Ebonian
+                            https://
+                            <span className="text-white">github.com</span>
+                            /Ebonian
                           </a>
-                        ): <></>}
+                        ) : (
+                          <></>
+                        )}
                         {activeTab.Facebook && openTab.Facebook ? (
                           <a
                             href="https://www.facebook.com/tanadon.santisan/"
                             target="_blank"
                             className="text-sm"
                           >
-                            https://<span className="text-white">www.facebook.com</span>/tanadon.santisan/
+                            https://
+                            <span className="text-white">www.facebook.com</span>
+                            /tanadon.santisan/
                           </a>
-                        ): <></>}
+                        ) : (
+                          <></>
+                        )}
                         {activeTab.Gmail && openTab.Gmail ? (
                           <a
                             href="mailto:tanadon.santisan@gmail.com"
                             target="_blank"
                             className="text-sm"
                           >
-                            https://<span className="text-white">mail.google.com</span>/mail/u/0/#inbox?compose=new
+                            https://
+                            <span className="text-white">mail.google.com</span>
+                            /mail/u/0/#inbox?compose=new
                           </a>
-                        ): <></>}
+                        ) : (
+                          <></>
+                        )}
                       </div>
                       <div>
                         <div className="flex justify-center items-center rounded w-6 h-6 bg-white bg-opacity-0 hover:bg-opacity-10">

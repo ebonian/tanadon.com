@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import Index from "../components/home";
+import Popup from "../components/home/popup";
 import Loading from "../components/loading";
 import Login from "../components/login";
 
@@ -26,9 +27,7 @@ export default function Home() {
   //   window.addEventListener("popstate", CapturePopStateHandler, true);
   // }, []);
 
-
-// 
-
+  //
 
   // const [login, setLogin] = useState("not login");
   const [login, setLogin] = useState("success");
@@ -40,9 +39,17 @@ export default function Home() {
   // }, []);
   return (
     <div className="h-screen w-full bg-black">
+      {/* popup */}
+      {login === "shutting down" && <Popup setLogin={setLogin} />}
+
+      {/* main component */}
       {login === "logging in" && <Login setLogin={setLogin} />}
       {login === "logged in" && <Loading setLogin={setLogin} />}
-      {login === "success" && <Index setLogin={setLogin} />}
+      {login === "success" || login === "shutting down" ? (
+        <Index setLogin={setLogin} login={login} />
+      ) : (
+        <></>
+      )}
     </div>
   );
 }

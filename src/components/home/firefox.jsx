@@ -1,5 +1,6 @@
 import { useContext, useState } from "react";
 import Draggable from "react-draggable";
+import Control from "./control";
 import {
   FiArrowLeft,
   FiArrowRight,
@@ -11,7 +12,6 @@ import {
   FiStar,
   FiX,
 } from "react-icons/fi";
-import Control from "./control";
 import { FaGithub } from "react-icons/fa";
 import FacebookIcon from "../../images/Facebook_f_logo_(2021).svg";
 import GmailIcon from "../../images/Gmail_icon_(2020).svg";
@@ -64,6 +64,7 @@ export default function Firefox() {
                   });
                 }}
               >
+                {/* header */}
                 <strong>
                   <Control window="Firefox" />
 
@@ -145,7 +146,7 @@ export default function Firefox() {
                   </div>
                 </strong>
                 {/* body */}
-                {/* header top bar */}
+                {/* top bar */}
                 <div className="flex w-full flex-col">
                   <div className="flex items-center justify-between h-10 w-full bg-base-1100 border-b border-t border-black border-opacity-20 px-4 py-1">
                     {/* back foward refresh */}
@@ -171,33 +172,33 @@ export default function Firefox() {
                             <FiLock />
                           </div>
                         </div>
-                        {activeTab.Github && (
+                        {activeTab.Github && openTab.Github ? (
                           <a
                             href="https://github.com/Ebonian"
                             target="_blank"
                             className="text-sm"
                           >
-                            https://github.com/Ebonian
+                            https://<span className="text-white">github.com</span>/Ebonian
                           </a>
-                        )}
-                        {activeTab.Facebook && (
+                        ): <></>}
+                        {activeTab.Facebook && openTab.Facebook ? (
                           <a
                             href="https://www.facebook.com/tanadon.santisan/"
                             target="_blank"
                             className="text-sm"
                           >
-                            https://www.facebook.com/tanadon.santisan/
+                            https://<span className="text-white">www.facebook.com</span>/tanadon.santisan/
                           </a>
-                        )}
-                        {activeTab.Gmail && (
+                        ): <></>}
+                        {activeTab.Gmail && openTab.Gmail ? (
                           <a
                             href="mailto:tanadon.santisan@gmail.com"
                             target="_blank"
                             className="text-sm"
                           >
-                            https://mail.google.com/mail/u/0/#inbox?compose=new
+                            https://<span className="text-white">mail.google.com</span>/mail/u/0/#inbox?compose=new
                           </a>
-                        )}
+                        ): <></>}
                       </div>
                       <div>
                         <div className="flex justify-center items-center rounded w-6 h-6 bg-white bg-opacity-0 hover:bg-opacity-10">

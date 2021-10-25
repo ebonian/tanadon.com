@@ -1,32 +1,54 @@
 import { createContext, useState } from "react";
-import Desktop from "./desktop";
 import Header from "./header";
 import Sidebar from "./sidebar";
 import Files from "./files";
 import Firefox from "./firefox";
+import Terminal from "./terminal";
+
+// import Desktop from "./desktop";
 
 export const ProgramState = createContext();
 
-export default function Index({ setLogin }) {
+export default function Index({ setLogin, login }) {
   const [programActiveState, setProgramActiveState] = useState({
     firefox: false,
     files: false,
     terminal: false,
+    code: false,
+    help: false,
+    document: false,
+    image: false,
+    text: false,
   });
   const [programOpenState, setProgramOpenState] = useState({
     firefox: false,
     files: false,
     terminal: false,
+    code: false,
+    help: false,
+    document: false,
+    image: false,
+    text: false,
   });
   const [programFocusState, setProgramFocusState] = useState({
     firefox: false,
     files: false,
     terminal: false,
+    code: false,
+    help: false,
+    document: false,
+    image: false,
+    text: false,
   });
   const [programMinimizeState, setProgramMinimizeState] = useState({
     firefox: false,
     files: false,
     terminal: false,
+    code: false,
+    help: false,
+    document: false,
+    image: false,
+    text: false,
   });
   const [activitiesActiveState, setActivitiesActiveState] = useState(false);
   const [systemDropdownState, setSystemDropdownState] = useState(false);
@@ -84,24 +106,10 @@ export default function Index({ setLogin }) {
           ) : (
             <>
               <div className="flex absolute top-8 pl-16 -right-50 h-desktop w-desktop duration-300">
-                  <Files />
-                  <Firefox
-                    setProgramActiveState={setProgramActiveState}
-                    programActiveState={programActiveState}
-                    setProgramOpenState={setProgramOpenState}
-                    programOpenState={programOpenState}
-                    setProgramFocusState={setProgramFocusState}
-                    programFocusState={programFocusState}
-                    setProgramMinimizeState={setProgramMinimizeState}
-                    programMinimizeState={programMinimizeState}
-                  />
-                {/* <div className="flex flex-grow pl-16 pt-8 -ml-96 -mr-96 -mb-96">
-                </div> */}
+                <Files />
+                <Firefox />
+                <Terminal />
               </div>
-              {/* 
-            <div className="fixed flex flex-grow duration-300">
-              <Desktop />
-            </div> */}
             </>
           )}
         </div>

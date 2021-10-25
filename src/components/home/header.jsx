@@ -73,7 +73,7 @@ export default function Header({
         <div className="flex flex-col justify-center items-end mt-4 shadow-lg text-gray-700">
           {/* dropdown */}
           {systemDropdownState && (
-            <ActionCenter page="home" setLogin={setLogin} />
+            <ActionCenter page="home" setLogin={setLogin} setSystemDropdownState={setSystemDropdownState} />
           )}
         </div>
       </div>
@@ -81,7 +81,7 @@ export default function Header({
   );
 }
 
-function ActionCenter({ setLogin, page }) {
+function ActionCenter({ setLogin, page, setSystemDropdownState }) {
   const [menuDropdownState, setMenuDropdownState] = useState({
     connection: false,
     user: false,
@@ -220,7 +220,8 @@ function ActionCenter({ setLogin, page }) {
                 <p
                   className="cursor-pointer"
                   onClick={() => {
-                    setLogin("shutdown");
+                    setLogin("shutting down");
+                    setSystemDropdownState(false)
                   }}
                 >
                   Power Off...

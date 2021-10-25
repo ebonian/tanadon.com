@@ -216,6 +216,26 @@ export default function Desktop() {
             works: false,
             readme: false,
           });
+          setProgramFocusState({
+            firefox: false,
+            files: false,
+            terminal: false,
+            code: false,
+            help: false,
+            document: false,
+            image: false,
+            text: false,
+          });
+          setProgramActiveState({
+            firefox: false,
+            files: false,
+            terminal: false,
+            code: false,
+            help: false,
+            document: false,
+            image: false,
+            text: false,
+          });
         }}
       ></div>
     </div>

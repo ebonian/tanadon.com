@@ -1,4 +1,6 @@
 import { useState, useEffect } from "react";
+import Boot from "../components/boot";
+import BootLoading from "../components/bootload";
 import Index from "../components/home";
 import Popup from "../components/home/popup";
 import Loading from "../components/loading";
@@ -30,7 +32,8 @@ export default function Home() {
   //
 
   // const [login, setLogin] = useState("not login");
-  const [login, setLogin] = useState("success");
+  // const [login, setLogin] = useState("success");
+  const [login, setLogin] = useState("booting");
 
   // useEffect(() => {
   //   setTimeout(() => {
@@ -43,6 +46,8 @@ export default function Home() {
       {login === "shutting down" && <Popup setLogin={setLogin} />}
 
       {/* main component */}
+      {login === "booting" && <Boot setLogin={setLogin} />}
+      {login === "load boot" && <BootLoading setLogin={setLogin} />}
       {login === "logging in" && <Login setLogin={setLogin} />}
       {login === "logged in" && <Loading setLogin={setLogin} />}
       {login === "success" || login === "shutting down" ? (

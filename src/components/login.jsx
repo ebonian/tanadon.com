@@ -1,18 +1,31 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { FiChevronLeft, FiUser } from "react-icons/fi";
-import { FaUbuntu, FaNetworkWired } from "react-icons/fa";
+import { FaUbuntu } from "react-icons/fa";
 import { RiSettingsLine, RiShutDownLine } from "react-icons/ri";
 import { MdAccessibility, MdSignalWifiStatusbarNull } from "react-icons/md";
 import { GoTriangleDown } from "react-icons/go";
 import { BsFillVolumeUpFill } from "react-icons/bs";
+import { gsap } from "gsap";
 
 export default function Login({ setLogin }) {
+  let transition = useRef(null);
+  useEffect(() => {
+    gsap.to(transition, 1, { opacity: 0, display: "none" });
+  }, []);
   return (
-    <div className="flex flex-col justify-between items-center h-screen w-full bg-base-200 text-white select-none font-ubuntu">
-      <Header />
-      <Body setLogin={setLogin} />
-      <Footer />
-    </div>
+    <>
+      <div
+        className="absolute h-screen w-full bg-black z-100"
+        ref={(el) => {
+          transition = el;
+        }}
+      />
+      <div className="flex flex-col justify-between items-center h-screen w-full bg-base-200 text-white select-none font-ubuntu">
+        <Header />
+        <Body setLogin={setLogin} />
+        <Footer />
+      </div>
+    </>
   );
 }
 

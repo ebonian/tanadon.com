@@ -54,6 +54,7 @@ module.exports = {
       fontFamily: {
         ubuntu: ["Ubuntu"],
         poppins: ["Poppins"],
+        sourcecode: ["Source Code Pro"],
       },
       backgroundImage: {
         wallpaper: "url('/src/images/wallpaper.jpg')",

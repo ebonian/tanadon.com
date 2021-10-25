@@ -33,12 +33,10 @@ export default function Files() {
     programFocusState,
     setProgramMinimizeState,
     programMinimizeState,
+    fileLocation,
+    setFileLocation,
   } = useContext(ProgramState);
 
-  // folder path state
-  const [fileLocation, setFileLocation] = useState({
-    Home: true,
-  });
   return (
     <>
       {programMinimizeState.files ? (
@@ -70,7 +68,7 @@ export default function Files() {
               >
                 {/* top */}
                 <strong>
-                  <Control window="Files" />
+                  <Control window="Files" setFileLocation={setFileLocation} />
 
                   <div
                     className={`flex justify-between items-center h-12 border-t-2 border-white border-opacity-5 pr-4 pl-3 ${
@@ -179,7 +177,7 @@ export default function Files() {
                 >
                   {/* sidebar */}
                   <div
-                    className={`flex flex-none flex-col w-56 overflow-auto border-r border-black border-opacity-30 space-y-0.5 pt-1.5 ${
+                    className={`flex flex-none flex-col w-56 overflow-auto border-r border-black border-opacity-30 space-y-0.5 pt-1.5 pb-14 ${
                       programFocusState.files ? "bg-base-700" : "bg-base-800"
                     }`}
                   >

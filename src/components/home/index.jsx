@@ -6,6 +6,7 @@ import Firefox from "./firefox";
 import Terminal from "./terminal";
 import Code from "./code";
 import Help from "./help";
+import Desktop from "./desktop";
 
 // import Desktop from "./desktop";
 
@@ -55,6 +56,11 @@ export default function Index({ setLogin, login }) {
   const [activitiesActiveState, setActivitiesActiveState] = useState(false);
   const [systemDropdownState, setSystemDropdownState] = useState(false);
 
+  // files system
+  const [fileLocation, setFileLocation] = useState({
+    Home: true,
+  });
+
   return (
     <ProgramState.Provider
       value={{
@@ -70,6 +76,8 @@ export default function Index({ setLogin, login }) {
         setActivitiesActiveState,
         systemDropdownState,
         setSystemDropdownState,
+        fileLocation,
+        setFileLocation,
       }}
     >
       <div className="flex flex-col h-screen w-full bg-wallpaper bg-cover bg-center select-none font-ubuntu">
@@ -96,6 +104,7 @@ export default function Index({ setLogin, login }) {
                 <Terminal />
                 <Code />
                 <Help />
+                <Desktop />
               </div>
             </>
           )}

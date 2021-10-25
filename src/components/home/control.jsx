@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { ProgramState } from "./index";
 import { BiX, BiMinus, BiSquare } from "react-icons/bi";
 
-export default function Control({ window }) {
+export default function Control({ window, setFileLocation }) {
   return (
     <>
       {window === "Firefox" && (
@@ -13,7 +13,7 @@ export default function Control({ window }) {
       {window === "Files" && (
         <>
           <div className="w-28" />
-          <Files />
+          <Files setFileLocation={setFileLocation} />
         </>
       )}
       {window === "Terminal" && (
@@ -103,7 +103,7 @@ function Firefox() {
   );
 }
 
-function Files() {
+function Files({ setFileLocation }) {
   const {
     setProgramActiveState,
     programActiveState,
@@ -162,6 +162,9 @@ function Files() {
           setProgramMinimizeState({
             ...programMinimizeState,
             files: true,
+          });
+          setFileLocation({
+            Home: true,
           });
         }}
       >

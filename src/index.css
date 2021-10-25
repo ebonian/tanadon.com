@@ -7,7 +7,24 @@
 html,
 body {
   overflow: hidden;
-}
-body {
   position: relative;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #ffffff50;
+  border-radius: 100px;
+}
+::-webkit-scrollbar-track-piece:start {
+  background: transparent;
+}
+::-webkit-scrollbar-track-piece:end {
+  background: transparent;
 }

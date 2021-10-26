@@ -31,6 +31,11 @@ export default function Control({ window, setFileLocation }) {
           <Help />
         </>
       )}
+      {window === "Text" && (
+        <>
+          <Text />
+        </>
+      )}
     </>
   );
 }
@@ -369,6 +374,79 @@ function Help() {
           setProgramMinimizeState({
             ...programMinimizeState,
             help: true,
+          });
+        }}
+      >
+        <BiX className="text-lg" />
+      </div>
+    </div>
+  );
+}
+
+function Text() {
+  const {
+    setProgramActiveState,
+    programActiveState,
+    setProgramOpenState,
+    programOpenState,
+    setProgramFocusState,
+    programFocusState,
+    setProgramMinimizeState,
+    programMinimizeState,
+    textLocation,
+    setTextLocation,
+  } = useContext(ProgramState);
+  return (
+    <div
+      className={`flex absolute right-0 top-0 pr-4 rounded-md h-12 border-t-2 border-white border-opacity-5 bg-base-600 items-center space-x-5 text-white ${
+        programFocusState.text ? "bg-base-600" : "bg-base-700"
+      }`}
+    >
+      <div
+        className="flex justify-center items-end w-6 h-6 bg-white bg-opacity-0 hover:bg-opacity-10 duration-75 p-0.5 rounded-full cursor-pointer"
+        onClick={() => {
+          setProgramFocusState({
+            ...programFocusState,
+            text: false,
+          });
+          setProgramActiveState({
+            ...programActiveState,
+            text: false,
+          });
+          setProgramMinimizeState({
+            ...programMinimizeState,
+            text: true,
+          });
+        }}
+      >
+        <BiMinus />
+      </div>
+      <div className="flex justify-center items-center w-6 h-6 bg-white bg-opacity-0 hover:bg-opacity-10 duration-75 p-1.5 rounded-full cursor-pointer">
+        <BiSquare />
+      </div>
+      <div
+        className={`flex justify-center items-center w-6 h-6 rounded-full cursor-pointer ${
+          programFocusState.text ? "bg-primary" : "bg-white bg-opacity-10"
+        }`}
+        onClick={() => {
+          setTextLocation({
+            default: true,
+          });
+          setProgramActiveState({
+            ...programActiveState,
+            text: false,
+          });
+          setProgramOpenState({
+            ...programOpenState,
+            text: false,
+          });
+          setProgramFocusState({
+            ...programFocusState,
+            text: false,
+          });
+          setProgramMinimizeState({
+            ...programMinimizeState,
+            text: true,
           });
         }}
       >

@@ -9,7 +9,7 @@ export default function BootLoading({ setLogin }) {
     }, 4000);
   }, []);
   return (
-    <div className="flex flex-col justify-center items-center h-screen w-full bg-black text-white space-y-10 select-none font-ubuntu">
+    <div className="flex flex-col justify-center items-center h-screen w-full bg-gray-900 text-white space-y-10 select-none font-ubuntu">
       <div className="flex absolute bottom-6 justify-center ml-8">
         <h1 className="text-6xl">ubuntu</h1>
         <FaUbuntu className="text-3xl" />

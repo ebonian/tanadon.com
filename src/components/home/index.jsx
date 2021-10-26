@@ -6,6 +6,7 @@ import Firefox from "./firefox";
 import Terminal from "./terminal";
 import Code from "./code";
 import Help from "./help";
+import Text from "./text";
 import Desktop from "./desktop";
 
 // import Desktop from "./desktop";
@@ -61,6 +62,11 @@ export default function Index({ setLogin, login }) {
     Home: true,
   });
 
+  // text editor system
+  const [textLocation, setTextLocation] = useState({
+    default: true,
+  });
+
   return (
     <ProgramState.Provider
       value={{
@@ -78,6 +84,8 @@ export default function Index({ setLogin, login }) {
         setSystemDropdownState,
         fileLocation,
         setFileLocation,
+        textLocation,
+        setTextLocation,
       }}
     >
       <div className="flex flex-col h-screen w-full bg-wallpaper bg-cover bg-center select-none font-ubuntu">
@@ -104,6 +112,7 @@ export default function Index({ setLogin, login }) {
                 <Terminal />
                 <Code />
                 <Help />
+                <Text />
                 <Desktop />
               </div>
             </>

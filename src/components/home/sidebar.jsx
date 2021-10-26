@@ -7,6 +7,7 @@ import TerminalIcon from "../../images/terminal-icon.png";
 import CodeIcon from "../../images/Visual_Studio_Code_1.35_icon.svg";
 import HelpIcon from "../../images/system-help.png";
 import DocumentIcon from "../../images/GNOME_Document_Viewer_icon_2019.svg";
+import TextIcon from "../../images/accessories-text-editor.png";
 import { ProgramState } from ".";
 
 export default function Sidebar() {
@@ -14,8 +15,8 @@ export default function Sidebar() {
     useContext(ProgramState);
   return (
     <div
-      className={`flex flex-col justify-between items-center h-full w-16 bg-black z-50 ${
-        activitiesActiveState ? "bg-opacity-60" : "bg-opacity-50"
+      className={`flex flex-col justify-between items-center h-full w-16 z-50 ${
+        activitiesActiveState ? "bg-base-300" : "bg-opacity-50 bg-black"
       } duration-300`}
     >
       <div className="flex flex-col items-center w-16 flex-grow p-1 space-y-1">
@@ -42,6 +43,10 @@ export default function Sidebar() {
         <DocumentProgram
           open={programOpenState.document}
           active={programActiveState.document}
+        />
+        <TextProgram
+          open={programOpenState.text}
+          active={programActiveState.text}
         />
       </div>
       <div className="flex items-center justify-center w-16 h-16 p-1">
@@ -479,6 +484,105 @@ function HelpProgram({ open, active }) {
             </div>
           </div>
         </div>
+      )}
+    </>
+  );
+}
+
+function TextProgram({ open, active }) {
+  const {
+    setProgramActiveState,
+    programActiveState,
+    setProgramOpenState,
+    programOpenState,
+    activitiesActiveState,
+    setActivitiesActiveState,
+    setProgramFocusState,
+    programFocusState,
+    setProgramMinimizeState,
+    programMinimizeState,
+  } = useContext(ProgramState);
+  return (
+    <>
+      {open ? (
+        <>
+          {active ? (
+            <div
+              className="flex justify-center items-center h-14 w-full bg-white bg-opacity-25 rounded-md cursor-pointer duration-300 group"
+              onClick={() => {
+                setActivitiesActiveState(false);
+              }}
+            >
+              <div className="absolute left-16 ml-2 duration-100 bg-black bg-opacity-25 py-0.5 px-3 rounded-md text-white text-sm hidden group-hover:block z-50">
+                <p>Text Editor</p>
+              </div>
+              <div className="flex flex-grow justify-start items-center space-x-1">
+                <FaCircle className="text-primary w-1 h-1" />
+                <div>
+                  <img
+                    src={TextIcon}
+                    alt="document icon"
+                    className="w-12 h-12 -ml-0.5"
+                  />
+                </div>
+              </div>
+            </div>
+          ) : (
+            <div
+              className="flex justify-center items-center h-14 w-full bg-white bg-opacity-0 hover:bg-opacity-10 duration-100 rounded-md cursor-pointer group"
+              onClick={() => {
+                setProgramActiveState({
+                  firefox: false,
+                  files: false,
+                  terminal: false,
+                  code: false,
+                  help: false,
+                  document: false,
+                  image: false,
+                  text: true,
+                });
+                setProgramOpenState({ ...programOpenState, text: true });
+                setProgramFocusState({
+                  firefox: false,
+                  files: false,
+                  terminal: false,
+                  code: false,
+                  help: false,
+                  document: false,
+                  image: false,
+                  text: true,
+                });
+                setProgramMinimizeState({
+                  ...programMinimizeState,
+                  text: false,
+                });
+                setActivitiesActiveState(false);
+              }}
+            >
+              <div className="absolute left-16 ml-2 duration-100 bg-black bg-opacity-25 py-0.5 px-3 rounded-md text-white text-sm hidden group-hover:block z-50">
+                <p>Text Editor</p>
+              </div>
+              <div className="flex flex-grow justify-start items-center space-x-1">
+                <>
+                  {open ? (
+                    <FaCircle className="text-primary w-1 h-1" />
+                  ) : (
+                    <FaCircle className="text-primary w-1 h-1 opacity-0" />
+                  )}
+                </>
+                <div>
+                  <img
+                    src={TextIcon}
+                    alt="document icon"
+                    className="w-12 h-12 -ml-0.5"
+                  />
+                </div>
+              </div>
+            </div>
+          )}
+        </>
+      ) : (
+        <></>
       )}
     </>
   );

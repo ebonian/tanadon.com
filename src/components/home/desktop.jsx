@@ -20,6 +20,8 @@ export default function Desktop() {
     setProgramFocusState,
     programMinimizeState,
     setProgramMinimizeState,
+    textLocation,
+    setTextLocation,
   } = useContext(ProgramState);
 
   const [desktopSelection, setDesktopSelection] = useState({
@@ -200,7 +202,32 @@ export default function Desktop() {
             name="README.md"
             select={desktopSelection.readme}
             onDoubleClick={() => {
-              setFileLocation({ readme: true });
+              setTextLocation({ readme: true });
+              setProgramActiveState({
+                firefox: false,
+                files: false,
+                terminal: false,
+                code: false,
+                help: false,
+                document: false,
+                image: false,
+                text: true,
+              });
+              setProgramOpenState({ ...programOpenState, text: true });
+              setProgramFocusState({
+                firefox: false,
+                files: false,
+                terminal: false,
+                code: false,
+                help: false,
+                document: false,
+                image: false,
+                text: true,
+              });
+              setProgramMinimizeState({
+                ...programMinimizeState,
+                text: false,
+              });
             }}
           />
         </DesktopSelectionContext.Provider>

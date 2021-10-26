@@ -28,3 +28,21 @@ body {
 ::-webkit-scrollbar-track-piece:end {
   background: transparent;
 }
+
+.typing-anim-1 {
+  width: 18em;
+  text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box;
+}
+
+.typing-anim-2 {
+  width: 55em;
+  text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box;
+}

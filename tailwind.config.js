@@ -28,8 +28,17 @@ module.exports = {
           terminalFocus: "#300a24",
           terminalUnfocus: "#380c2a",
         },
+        portfolio: {
+          primary: "#48efc8",
+          base: {
+            100: "#181A1B",
+            200: "#131313",
+          },
+        },
       },
       width: {
+        120: "30rem",
+        160: "40rem",
         popup: "480px",
         desktop: "150%",
         start: "250px",
@@ -39,6 +48,8 @@ module.exports = {
         small: "650px",
       },
       height: {
+        120: "30rem",
+        160: "40rem",
         desktop: "150%",
         start: "400px",
         firefox: "800px",
@@ -58,6 +69,11 @@ module.exports = {
       },
       backgroundImage: {
         wallpaper: "url('/src/images/wallpaper.jpg')",
+        doji: "url('/src/images/portfolio/doji01.png')",
+        enneagram: "url('/src/images/portfolio/enneagram01.png')",
+        zigma: "url('/src/images/portfolio/zigma01.png')",
+        rood: "url('/src/images/portfolio/rood01.png')",
+        kob: "url('/src/images/portfolio/kob01.png')",
       },
       margin: {
         18: "4.25rem",

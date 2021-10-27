@@ -31,8 +31,8 @@ export default function Home() {
 
   //
 
-  const [login, setLogin] = useState("success");
-  // const [login, setLogin] = useState("booting");
+  // const [login, setLogin] = useState("success");
+  const [login, setLogin] = useState("booting");
 
   // useEffect(() => {
   //   setTimeout(() => {

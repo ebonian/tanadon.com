@@ -46,3 +46,10 @@ body {
   -webkit-box-sizing: content-box;
   box-sizing: content-box;
 }
+
+.header-anim {
+  width: 8rem;
+  white-space: nowrap;
+  overflow: hidden;
+  box-sizing: content-box;
+}

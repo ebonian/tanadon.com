@@ -91,7 +91,7 @@ export default function Boot({ setLogin }) {
           <p className="text-gray-400" ref={(el) => (tenthItem = el)}>
             There's also another site of my portfolio you can check out later
             <a
-              href="https://tanadon.com/main/"
+              href="/portfolio"
               target="_blank"
               className="ml-3 underline hover:text-primary"
             >

@@ -8,6 +8,8 @@ import {
   BsJournalBookmarkFill,
 } from "react-icons/bs";
 import { BiMenu, BiSearch } from "react-icons/bi";
+import { FiFacebook, FiGithub, FiLinkedin, FiMail } from "react-icons/fi";
+import { Link } from "react-router-dom";
 
 export default function Help() {
   const {
@@ -29,12 +31,12 @@ export default function Help() {
           {programFocusState.help || programOpenState.help ? (
             <Draggable bounds="parent" handle="strong">
               <div
-                className={`absolute text-white resize border border-gray-800 w-2/6 h-2/4 overflow-auto overflow-y-hidden overflow-x-hidden rounded-t-md shadow-xl ${
+                className={`absolute left-1/10 top-10 text-white resize border border-gray-800 w-2/6 h-2/4 overflow-auto overflow-y-hidden overflow-x-hidden rounded-t-md shadow-xl ${
                   programFocusState.help ? "z-40" : "z-30"
                 } ${
                   programFocusState.help
-                    ? "bg-gray-900"
-                    : "bg-gray-900 text-opacity-40"
+                    ? "bg-portfolio-base-200"
+                    : "bg-portfolio-base-100 text-opacity-40"
                 }`}
                 onClick={() => {
                   setProgramFocusState({
@@ -128,7 +130,7 @@ export default function Help() {
                   </div>
                 </strong>
                 {/* body */}
-                <div className="flex flex-col text-center h-full flex-grow bg-gray-900 font-sourcecode overflow-y-auto select-text">
+                <div className="flex flex-col text-center h-full flex-grow bg-portfolio-base-200 font-sourcecode overflow-y-auto select-text">
                   <div className="mt-10 w-full px-10">
                     <h1 className="font-bold text-xl">
                       Hi, welcome to my computer!
@@ -179,6 +181,26 @@ export default function Help() {
                         Explorer above the dock on the left side of the screen.
                       </p>
                     </div>
+                  </div>
+                  <div className="flex justify-center mt-2 mb-7 text-sm text-gray-400">
+                    <p>
+                      Visit my full portfolio {"->"}{" "}
+                      <Link
+                        to="/"
+                        className="hover:underline hover:text-portfolio-primary"
+                      >
+                        here
+                      </Link>
+                    </p>
+                  </div>
+                  <div className="flex justify-center items-center text-2xl space-x-4">
+                    <FiGithub />
+                    <FiFacebook />
+                    <FiMail />
+                    <FiLinkedin />
+                  </div>
+                  <div className="flex justify-center mt-2 mb-20">
+                    <p>Tanadon Santisan</p>
                   </div>
                 </div>
               </div>

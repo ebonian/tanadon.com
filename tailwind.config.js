@@ -57,6 +57,10 @@ module.exports = {
         terminal: "500px",
         small: "350px",
       },
+      inset: {
+        "1/10": "10%",
+        "1/5": "20%",
+      },
       borderColor: (theme) => ({
         darkActive: "#ffffff #202020 #202020 #ffffff",
         darkInactive: "#202020 #ffffff #ffffff #202020",

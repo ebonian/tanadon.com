@@ -1,8 +1,16 @@
 import { useContext } from "react";
 import { FiArrowDown, FiArrowLeft } from "react-icons/fi";
 import { PortfolioContext } from "../../../pages/portfolio";
+import Aspects from "./aspects";
+import Cai from "./cai";
+import Constructect from "./constructect";
 import Doji from "./doji";
 import Enneagram from "./enneagram";
+import Personal from "./personal";
+import Pps from "./pps";
+import Recog from "./recog";
+import Rood from "./rood";
+import Zigma from "./zigma";
 
 export default function ProjectDetail() {
   const { project, setProject, projectPage, setProjectPage } =
@@ -30,7 +38,15 @@ export default function ProjectDetail() {
         {/* content */}
         <div className="flex flex-col items-center w-full h-full">
           {project.doji && <Doji />}
+          {project.personal && <Personal />}
           {project.enneagram && <Enneagram />}
+          {project.pps && <Pps />}
+          {project.cai && <Cai />}
+          {project.zigma && <Zigma />}
+          {project.rood && <Rood />}
+          {project.recog && <Recog />}
+          {project.constructect && <Constructect />}
+          {project.aspects && <Aspects />}
         </div>
       </div>
     </div>

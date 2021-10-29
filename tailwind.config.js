@@ -70,14 +70,18 @@ module.exports = {
         ubuntu: ["Ubuntu"],
         poppins: ["Poppins"],
         sourcecode: ["Source Code Pro"],
+        kanit: ["Kanit"],
       },
       backgroundImage: {
         wallpaper: "url('/src/images/wallpaper.jpg')",
         doji: "url('/src/images/portfolio/doji01.png')",
+        personal: "url('/src/images/portfolio/personal01.png')",
         enneagram: "url('/src/images/portfolio/enneagram01.png')",
         zigma: "url('/src/images/portfolio/zigma01.png')",
         rood: "url('/src/images/portfolio/rood01.png')",
+        constructect: "url('/src/images/portfolio/constructect01.png')",
         kob: "url('/src/images/portfolio/kob01.png')",
+        aspects: "url('/src/images/portfolio/aspects01.png')",
       },
       margin: {
         18: "4.25rem",

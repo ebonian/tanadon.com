@@ -1,10 +1,12 @@
 export default function Tag({ tag }) {
+  var collection = JSON.stringify(tag);
+
   return (
     <div className="flex w-80 flex-wrap select-none">
-      {tag.programming && <Item name="Programming" />}
-      {tag.collaboration && <Item name="Collaboration" />}
-      {tag.media && <Item name="Media" />}
-      {tag.business && <Item name="Bussiness" />}
+      {collection.includes("Programming") && <Item name="Programming" />}
+      {collection.includes("Collaboration") && <Item name="Collaboration" />}
+      {collection.includes("Media") && <Item name="Media" />}
+      {collection.includes("Bussiness") && <Item name="Bussiness" />}
     </div>
   );
 }

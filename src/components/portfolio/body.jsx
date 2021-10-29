@@ -17,41 +17,50 @@ export default function Body() {
     setProject,
     projectPage,
     setProjectPage,
+    lang,
+    setLang,
   } = useContext(PortfolioContext);
 
   let firstItem = useRef(null);
   let secondItem = useRef(null);
   let thirdItem = useRef(null);
   let fourthItem = useRef(null);
+  let fifthItem = useRef(null);
 
   let aboutItem = useRef(null);
   let projectsItem = useRef(null);
   let expItem = useRef(null);
   let contactItem = useRef(null);
 
-  // useEffect(() => {
-  //   gsap.from(firstItem, 1, { delay: 6, opacity: 0, y: 20, display: "none" });
-  //   gsap.from(secondItem, 1, {
-  //     delay: 6.5,
-  //     opacity: 0,
-  //     y: 20,
-  //     display: "none",
-  //   });
-  //   gsap.from(thirdItem, 1, { delay: 7, opacity: 0, y: 20, display: "none" });
-  //   gsap.from(fourthItem, 1, {
-  //     delay: 7.5,
-  //     opacity: 0,
-  //     y: 20,
-  //     display: "none",
-  //   });
-  // }, []);
+  useEffect(() => {
+    gsap.from(firstItem, 1, { delay: 6, opacity: 0, y: 20, display: "none" });
+    gsap.from(secondItem, 1, {
+      delay: 6.5,
+      opacity: 0,
+      y: 20,
+      display: "none",
+    });
+    gsap.from(thirdItem, 1, { delay: 7, opacity: 0, y: 20, display: "none" });
+    gsap.from(fourthItem, 1, {
+      delay: 7.5,
+      opacity: 0,
+      y: 20,
+      display: "none",
+    });
+    gsap.from(fifthItem, 1, {
+      delay: 8,
+      opacity: 0,
+      y: 20,
+      display: "none",
+    });
+  }, []);
 
   const clickAnim = (item) => {
     gsap.to(item, 0.5, {
       width: "384px",
       ease: Power3.easeOut,
     });
-    console.log("triggered");
+    // console.log("triggered");
   };
 
   return (
@@ -77,7 +86,7 @@ export default function Body() {
           }}
         >
           <ToggleList
-            link="About Me"
+            link={`${lang === "en" ? "About Me" : "เกี่ยวกับผม"}`}
             active={activePage.about}
             onClick={() => {
               setActivePage({ about: true });
@@ -97,7 +106,7 @@ export default function Body() {
           }}
         >
           <ToggleList
-            link="Projects"
+            link={`${lang === "en" ? "Projects" : "โปรเจกต์"}`}
             active={activePage.projects}
             onClick={() => {
               setActivePage({ projects: true });
@@ -117,7 +126,7 @@ export default function Body() {
           }}
         >
           <ToggleList
-            link="Experiences"
+            link={`${lang === "en" ? "Experiences" : "ประสบการณ์"}`}
             active={activePage.exp}
             onClick={() => {
               setActivePage({ exp: true });
@@ -137,7 +146,7 @@ export default function Body() {
           }}
         >
           <ToggleList
-            link="Contact"
+            link={`${lang === "en" ? "Contact" : "โซเชียล"}`}
             active={activePage.contact}
             onClick={() => {
               setActivePage({ contact: true });
@@ -151,19 +160,48 @@ export default function Body() {
             }}
           />
         </div>
+        <p
+          className="text-base font-normal pt-4"
+          ref={(el) => {
+            fifthItem = el;
+          }}
+        >
+          <span
+            className={`mr-2 cursor-pointer hover:text-portfolio-primary ${
+              lang === "en" && "text-portfolio-primary"
+            }`}
+            onClick={() => {
+              setLang("en");
+            }}
+          >
+            en
+          </span>
+          |
+          <span
+            className={`ml-2 cursor-pointer hover:text-portfolio-primary ${
+              lang === "th" && "text-portfolio-primary"
+            }`}
+            onClick={() => {
+              setLang("th");
+            }}
+          >
+            th
+          </span>
+        </p>
       </div>
 
       {/* divider */}
-      {!activePage.about &&
-      !activePage.projects &&
-      !activePage.exp &&
-      !activePage.contact ? (
-        <></>
-      ) : (
-        <>
-          <div className="h-36 xl:h-32 duration-300 bg-white w-px hidden sm:block" />
-        </>
-      )}
+
+      <div
+        className={`duration-300 bg-white w-px hidden sm:block ${
+          !activePage.about &&
+          !activePage.projects &&
+          !activePage.exp &&
+          !activePage.contact
+            ? "h-0"
+            : "h-52 xl:h-44"
+        }`}
+      />
 
       {/* content */}
       <div className="h-120 xl:h-160 overflow-y-auto overflow-x-hidden">

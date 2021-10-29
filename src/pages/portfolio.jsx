@@ -1,8 +1,9 @@
-import { useState, useEffect, createContext } from "react";
+import { useState, createContext } from "react";
 
 import Body from "../components/portfolio/body";
 import Header from "../components/portfolio/header";
 import ProjectDetail from "../components/portfolio/projects/index";
+import Popup from "../components/wip";
 
 export const PortfolioContext = createContext(null);
 
@@ -21,6 +22,10 @@ export default function Portfolio() {
   });
   const [projectPage, setProjectPage] = useState(false);
   const [project, setProject] = useState({});
+
+  const [lang, setLang] = useState("en");
+
+  const [popup, setPopup] = useState(true);
   return (
     <PortfolioContext.Provider
       value={{
@@ -32,9 +37,21 @@ export default function Portfolio() {
         setProjectPage,
         project,
         setProject,
+        lang,
+        setLang,
+        popup,
+        setPopup,
       }}
     >
-      <div className="flex justify-center h-screen w-full bg-portfolio-base-200 font-sourcecode px-5 sm:px-20 2xl:px-0">
+      {/* temporary */}
+      <Popup />
+      {/* temporary */}
+
+      <div
+        className={`flex justify-center h-screen w-full bg-portfolio-base-200 px-5 sm:px-20 2xl:px-0 ${
+          lang === "en" ? "font-sourcecode" : "font-kanit"
+        }`}
+      >
         <div className="flex flex-col flex-grow h-screen max-w-screen-xl">
           <Header />
           <Body />

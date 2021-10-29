@@ -2,116 +2,135 @@ import { useContext } from "react";
 import { PortfolioContext } from "../../pages/portfolio";
 import { Link } from "react-router-dom";
 import Tag from "./tag";
+import { data } from "../../static/index";
 
 export default function Projects() {
   const { project, setProject, projectPage, setProjectPage } =
     useContext(PortfolioContext);
   return (
-    <div className="flex flex-col items-center sm:items-start space-y-8 sm:w-96 pr-4 sm:-mr-1">
+    <div className="flex flex-col items-center sm:items-start space-y-8 sm:w-96 pr-4 sm:-mr-1 select-none top-0">
       <WorkList
-        name="Doji"
-        year="2021"
-        desc="A technical trading assistant platform for crypto traders."
-        link="/portfolio/doji"
+        name={data.project.doji.title}
+        description={data.project.doji.description}
+        year={data.project.doji.year}
         onClick={() => {
           setProjectPage(true);
           setProject({ doji: true });
         }}
       >
-        <Tag tag={{ programming: true, collaboration: true, business: true }} />
+        <Tag tag={data.project.doji.tag} />
       </WorkList>
       <WorkList
-        name="Enneagram"
-        year="2021"
-        desc="An Enneagram Online Exhibition"
+        name={data.project.personal.title}
+        description={data.project.personal.description}
+        year={data.project.personal.year}
+        link="/portfolio/personal"
+        onClick={() => {
+          setProjectPage(true);
+          setProject({ personal: true });
+        }}
+      >
+        <Tag tag={data.project.personal.tag} />
+      </WorkList>
+      <WorkList
+        name={data.project.enneagram.title}
+        description={data.project.enneagram.description}
+        year={data.project.enneagram.year}
         link="/portfolio/enneagram"
         onClick={() => {
           setProjectPage(true);
           setProject({ enneagram: true });
         }}
       >
-        <Tag tag={{ programming: true }} />
+        <Tag tag={data.project.enneagram.tag} />
       </WorkList>
       <WorkList
-        name="PPS Renovation"
-        year="2021"
-        desc="Digitizing our school!"
+        name={data.project.pps.title}
+        description={data.project.pps.description}
+        year={data.project.pps.year}
         link="/portfolio/ppsrenovation"
         onClick={() => {
           setProjectPage(true);
+          setProject({ pps: true });
         }}
       >
-        <Tag tag={{ programming: true, collaboration: true }} />
+        <Tag tag={data.project.pps.tag} />
       </WorkList>
       <WorkList
-        name="CAI Project"
-        year="2021"
-        desc="Lorem Ipsum"
+        name={data.project.cai.title}
+        description={data.project.cai.description}
+        year={data.project.cai.year}
         link="/portfolio/cai"
         onClick={() => {
           setProjectPage(true);
+          setProject({ cai: true });
         }}
       />
       <WorkList
-        name="Zigma"
-        year="2020-2021"
-        desc="The complete all in one application for money management."
+        name={data.project.zigma.title}
+        description={data.project.zigma.description}
+        year={data.project.zigma.year}
         link="/portfolio/zigma"
         onClick={() => {
           setProjectPage(true);
+          setProject({ zigma: true });
         }}
       >
-        <Tag tag={{ programming: true, collaboration: true }} />
+        <Tag tag={data.project.zigma.tag} />
       </WorkList>
       <WorkList
-        name="Emotion Recognition"
-        year="2021"
-        desc="Emotion Detection from face with Tensorflow and OpenCV."
-        link="/portfolio/emorecog"
-        onClick={() => {
-          setProjectPage(true);
-        }}
-      >
-        <Tag tag={{ programming: true }} />
-      </WorkList>
-      <WorkList
-        name="Rood"
-        year="2019"
-        desc="The application to get rid of your credit card debt."
+        name={data.project.rood.title}
+        description={data.project.rood.description}
+        year={data.project.rood.year}
         link="/portfolio/rood"
         onClick={() => {
           setProjectPage(true);
+          setProject({ rood: true });
         }}
       >
-        <Tag tag={{ programming: true, collaboration: true, business: true }} />
+        <Tag tag={data.project.rood.tag} />
       </WorkList>
       <WorkList
-        name="Constructect"
-        year="2018"
-        desc="The Universal Designed Home for Disabled & Eldery."
+        name={data.project.recog.title}
+        description={data.project.recog.description}
+        year={data.project.recog.year}
+        link="/portfolio/emorecog"
+        onClick={() => {
+          setProjectPage(true);
+          setProject({ recog: true });
+        }}
+      >
+        <Tag tag={data.project.recog.tag} />
+      </WorkList>
+      <WorkList
+        name={data.project.constructect.title}
+        description={data.project.constructect.description}
+        year={data.project.constructect.year}
         link="/portfolio/constructect"
         onClick={() => {
           setProjectPage(true);
+          setProject({ constructect: true });
         }}
       >
-        <Tag tag={{ collaboration: true, media: true }} />
+        <Tag tag={data.project.constructect.tag} />
       </WorkList>
       <WorkList
-        name="The Aspects"
-        year="2020"
-        desc="Lorem Ipsum"
+        name={data.project.aspects.title}
+        description={data.project.aspects.description}
+        year={data.project.aspects.year}
         link="/portfolio/aspects"
         onClick={() => {
           setProjectPage(true);
+          setProject({ aspects: true });
         }}
       >
-        <Tag tag={{ media: true }} />
+        <Tag tag={data.project.aspects.tag} />
       </WorkList>
     </div>
   );
 }
 
-function WorkList({ name, year, desc, link, onClick, children }) {
+function WorkList({ name, year, description, tag, onClick, children }) {
   const { project, setProject, projectPage, setProjectPage } =
     useContext(PortfolioContext);
   return (
@@ -123,12 +142,15 @@ function WorkList({ name, year, desc, link, onClick, children }) {
         <div
           className={`h-28 w-80 rounded-2xl cursor-pointer bg-cover bg-no-repeat ${
             (name === "Doji" && "bg-doji") ||
+            (name === "Personal Website" && "bg-personal") ||
             (name === "Enneagram" && "bg-enneagram") ||
             (name === "Zigma" && "bg-zigma") ||
-            (name === "Rood" && "bg-rood")
+            (name === "Rood" && "bg-rood") ||
+            (name === "Constructect" && "bg-constructect") ||
+            (name === "The Aspects" && "bg-aspects")
           }`}
         >
-          <div className="flex justify-end items-end py-2 px-4 h-full w-full bg-white rounded-2xl duration-200 bg-opacity-0 hover:bg-opacity-30"></div>
+          <div className="flex justify-end items-end py-2 px-4 h-full w-full bg-white rounded-2xl duration-200 bg-opacity-0 group-hover:bg-opacity-30"></div>
         </div>
         <div className="space-y-2 w-80 cursor-pointer">
           <h1 className="font-semibold text-xl group-hover:text-portfolio-primary duration-300">
@@ -138,7 +160,7 @@ function WorkList({ name, year, desc, link, onClick, children }) {
               {year}
             </span>
           </h1>
-          <p>{desc}</p>
+          <p>{description}</p>
         </div>
         {children}
       </div>

@@ -19,7 +19,7 @@ export default function Header() {
     gsap.from(rightItem, 2, { delay: 5, x: 40 });
   }, []);
   return (
-    <div className="flex justify-between items-center w-full h-20 text-white select-none z-50">
+    <div className="flex justify-between items-center w-full h-20 text-white select-none z-50 font-sourcecode">
       {/* left */}
       <div className="flex font-bold text-3xl group ">
         <a href="/">
@@ -45,13 +45,13 @@ export default function Header() {
       >
         <Link
           to="/computer"
-          className="group-hover:text-portfolio-primary group-hover:translate-x-1 duration-300"
+          className="group-hover:text-portfolio-primary group-hover:translate-x-3 duration-300 group-hover:tracking-wide"
         >
           Explore My Computer
         </Link>
         <Link
           to="/computer"
-          className="group-hover:text-portfolio-primary group-hover:translate-x-2 duration-300 hidden sm:block"
+          className="group-hover:text-portfolio-primary group-hover:translate-x-5 duration-300 hidden sm:block"
         >
           {"->"}
         </Link>

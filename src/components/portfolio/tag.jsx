@@ -6,7 +6,13 @@ export default function Tag({ tag }) {
       {collection.includes("Programming") && <Item name="Programming" />}
       {collection.includes("Collaboration") && <Item name="Collaboration" />}
       {collection.includes("Media") && <Item name="Media" />}
-      {collection.includes("Bussiness") && <Item name="Bussiness" />}
+      {collection.includes("Business") && <Item name="Business" />}
+      {collection.includes("Camp") && <Item name="Camp" />}
+      {collection.includes("โปรแกรมมิ่ง") && <Item name="โปรแกรมมิ่ง" />}
+      {collection.includes("โปรเจกต์ทีม") && <Item name="โปรเจกต์ทีม" />}
+      {collection.includes("มีเดีย") && <Item name="มีเดีย" />}
+      {collection.includes("ธุรกิจ") && <Item name="ธุรกิจ" />}
+      {collection.includes("แคมป์") && <Item name="แคมป์" />}
     </div>
   );
 }

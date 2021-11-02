@@ -32,28 +32,28 @@ export default function Body() {
   let expItem = useRef(null);
   let contactItem = useRef(null);
 
-  useEffect(() => {
-    gsap.from(firstItem, 1, { delay: 6, opacity: 0, y: 20, display: "none" });
-    gsap.from(secondItem, 1, {
-      delay: 6.5,
-      opacity: 0,
-      y: 20,
-      display: "none",
-    });
-    gsap.from(thirdItem, 1, { delay: 7, opacity: 0, y: 20, display: "none" });
-    gsap.from(fourthItem, 1, {
-      delay: 7.5,
-      opacity: 0,
-      y: 20,
-      display: "none",
-    });
-    gsap.from(fifthItem, 1, {
-      delay: 8,
-      opacity: 0,
-      y: 20,
-      display: "none",
-    });
-  }, []);
+  // useEffect(() => {
+  //   gsap.from(firstItem, 1, { delay: 6, opacity: 0, y: 20, display: "none" });
+  //   gsap.from(secondItem, 1, {
+  //     delay: 6.5,
+  //     opacity: 0,
+  //     y: 20,
+  //     display: "none",
+  //   });
+  //   gsap.from(thirdItem, 1, { delay: 7, opacity: 0, y: 20, display: "none" });
+  //   gsap.from(fourthItem, 1, {
+  //     delay: 7.5,
+  //     opacity: 0,
+  //     y: 20,
+  //     display: "none",
+  //   });
+  //   gsap.from(fifthItem, 1, {
+  //     delay: 8,
+  //     opacity: 0,
+  //     y: 20,
+  //     display: "none",
+  //   });
+  // }, []);
 
   const clickAnim = (item) => {
     gsap.to(item, 0.5, {
@@ -71,7 +71,7 @@ export default function Body() {
     >
       {/* nav */}
       <div
-        className={`flex flex-col text-xl space-y-3 xl:space-y-1 select-none px-4 ${
+        className={`flex flex-col text-xl space-y-3 xl:space-y-1 select-none px-4 w-40 ${
           !activePage.about &&
           !activePage.projects &&
           !activePage.exp &&
@@ -161,7 +161,7 @@ export default function Body() {
           />
         </div>
         <p
-          className="text-base font-normal pt-4"
+          className="text-base font-normal pt-4 font-sourcecode"
           ref={(el) => {
             fifthItem = el;
           }}

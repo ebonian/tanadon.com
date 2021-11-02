@@ -71,6 +71,7 @@ module.exports = {
         poppins: ["Poppins"],
         sourcecode: ["Source Code Pro"],
         kanit: ["Kanit"],
+        prompt: ["Prompt"],
       },
       backgroundImage: {
         wallpaper: "url('/src/images/wallpaper.jpg')",

@@ -44,12 +44,12 @@ export default function Portfolio() {
       }}
     >
       {/* temporary */}
-      <Popup />
+      {/* <Popup /> */}
       {/* temporary */}
 
       <div
         className={`flex justify-center h-screen w-full bg-portfolio-base-200 px-5 sm:px-20 2xl:px-0 ${
-          lang === "en" ? "font-sourcecode" : "font-kanit"
+          lang === "en" ? "font-sourcecode" : "font-prompt"
         }`}
       >
         <div className="flex flex-col flex-grow h-screen max-w-screen-xl">

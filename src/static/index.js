@@ -22,15 +22,30 @@ export const data = {
       learning: [
         "Doing this project has also allowed me to learn more about working as a full-stack, understanding Blockchain, and implementing much technology. The project is in the mid-development state, but we think our product will be launched very soon this year.",
       ],
+      th: {
+        title: "โดจิ",
+        description:
+          "เเพลตฟอร์มผู้ช่วยด้าน technical trading สำหรับคริปโตเทรดเดอร์",
+        tag: ["โปรแกรมมิ่ง", "โปรเจกต์ทีม", "ธุรกิจ"],
+        detail: [""],
+        learning: [""],
+      },
     },
 
     personal: {
       title: "Personal Website",
-      description: "The Interactive Portfolio",
+      description: "The interactive form of Portfolio.",
       year: "2021",
       tag: ["Programming"],
       detail: [""],
       learning: [""],
+      th: {
+        title: "เว็บไซต์ส่วนตัว",
+        description: "พอร์ทโฟลิโอฉบับดิจิตัล",
+        tag: ["โปรแกรมมิ่ง"],
+        detail: [""],
+        learning: [""],
+      },
     },
 
     enneagram: {
@@ -45,6 +60,13 @@ export const data = {
       learning: [
         "This website is very challenging because I have only one week, and the problem-solving process is very complicated. However, being able to get through that tough week allowed me to push my limits. Working on tight deadlines was very challenging, but the results were very satisfying as well",
       ],
+      th: {
+        title: "นพลักษณ์",
+        description: "นิทรรศการนพลักษณ์ออนไลน์",
+        tag: ["โปรแกรมมิ่ง"],
+        detail: [""],
+        learning: [""],
+      },
     },
 
     pps: {
@@ -54,6 +76,13 @@ export const data = {
       tag: ["Programming", "Collaboration"],
       detail: [""],
       learning: [""],
+      th: {
+        title: "PPS รีโนเวชั่น",
+        description: "เปลี่ยนแปลงระบบโรงเรียนเป็นดิจิทัล",
+        tag: ["โปรแกรมมิ่ง", "โปรเจกต์ทีม"],
+        detail: [""],
+        learning: [""],
+      },
     },
 
     cai: {
@@ -63,6 +92,13 @@ export const data = {
       tag: ["Programming", "Camp"],
       detail: [""],
       learning: [""],
+      th: {
+        title: "แคมป์ CAI",
+        description: "โลเร็ม ยิปซั่ม",
+        tag: ["โปรแกรมมิ่ง", "แคมป์"],
+        detail: [""],
+        learning: [""],
+      },
     },
 
     zigma: {
@@ -77,6 +113,13 @@ export const data = {
         "The project is still in the development process, and we hope it will release within next year. Been through this project taught me many, many things. Empathizing our user is one of the keys to making it easy to use and comprehend. Ai and Machine Learning is a very new thing to me. This project opened up the opportunity for me to develop my programming skills, understanding of machine learning, and collaboration as a team. Innovating innovation and being in a competition is very challenging. Working with experienced people Getting advice from a mentor made me learn a lot of new things!",
       ],
       learning: [""],
+      th: {
+        title: "ซิกม่า",
+        description: "แอปพลิชั่นสำหรับการบริหารจัดการเงินอย่างครบวงจร",
+        tag: ["โปรแกรมมิ่ง", "โปรเจกต์ทีม"],
+        detail: [""],
+        learning: [""],
+      },
     },
 
     rood: {
@@ -90,6 +133,13 @@ export const data = {
         "After that, we identified the problem and ideated that idea into the application's prototype. We invented the formula and program that allows users to fill in the amount of debt they have, their costs of a day and fixed cost, desired goal. Results are money that they shouldn't spend more than in one day. We tested the prototype by opening a booth in the innovation exhibition, and the feedback was great. Still, our team decided not to continue due to a lack of knowledge and the time we have in developing the application.",
       ],
       learning: [""],
+      th: {
+        title: "รูด",
+        description: "แอปพลิชั่นจัดการและกำจัดหนึ้บัตรเครดิต",
+        tag: ["โปรแกรมมิ่ง", "โปรเจกต์ทีม"],
+        detail: [""],
+        learning: [""],
+      },
     },
 
     recog: {

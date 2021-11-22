@@ -126,7 +126,7 @@ export default function Body() {
           }}
         >
           <ToggleList
-            link={`${lang === "en" ? "Experiences" : "ประสบการณ์"}`}
+            link={`${lang === "en" ? "Education" : "การศึกษา"}`}
             active={activePage.exp}
             onClick={() => {
               setActivePage({ exp: true });

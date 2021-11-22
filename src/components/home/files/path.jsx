@@ -124,7 +124,7 @@ export default function Path({ fileLocation, setFileLocation }) {
           </div>
         </div>
       )}
-      {fileLocation.Works && (
+      {fileLocation.Projects && (
         <div className="flex">
           <div
             onClick={() => {
@@ -134,7 +134,7 @@ export default function Path({ fileLocation, setFileLocation }) {
             <Button position="left" path="Home" triangle={false} />
           </div>
           <div>
-            <Button position="right" path="Works" triangle={true} />
+            <Button position="right" path="Projects" triangle={true} />
           </div>
         </div>
       )}

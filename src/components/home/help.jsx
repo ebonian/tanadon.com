@@ -185,12 +185,13 @@ export default function Help() {
                   <div className="flex justify-center mt-2 mb-7 text-sm text-gray-400">
                     <p>
                       Visit my full portfolio {"->"}{" "}
-                      <Link
-                        to="/"
+                      <a
+                        href="/"
+                        target="_blank"
                         className="hover:underline hover:text-portfolio-primary"
                       >
                         here
-                      </Link>
+                      </a>
                     </p>
                   </div>
                   <div className="flex justify-center items-center text-2xl space-x-4">

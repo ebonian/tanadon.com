@@ -8,7 +8,7 @@ export default function Projects() {
   const { project, setProject, projectPage, setProjectPage, lang } =
     useContext(PortfolioContext);
   return (
-    <div className="flex flex-col items-center sm:items-start space-y-8 sm:w-96 pr-4 sm:-mr-1 select-none top-0">
+    <div className="flex flex-col items-center sm:items-start space-y-8 sm:w-96 pr-4 sm:-mr-1 select-none top-0 pb-14">
       <WorkList
         name={
           lang === "en" ? data.project.doji.title : data.project.doji.th.title

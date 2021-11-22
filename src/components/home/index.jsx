@@ -8,6 +8,7 @@ import Code from "./code";
 import Help from "./help";
 import Text from "./text";
 import Desktop from "./desktop";
+import Document from "./document";
 
 // import Desktop from "./desktop";
 
@@ -67,6 +68,11 @@ export default function Index({ setLogin, login }) {
     default: true,
   });
 
+  // document system
+  const [documentLocation, setDocumentLocation] = useState({
+    default: true,
+  });
+
   return (
     <ProgramState.Provider
       value={{
@@ -86,6 +92,8 @@ export default function Index({ setLogin, login }) {
         setFileLocation,
         textLocation,
         setTextLocation,
+        documentLocation,
+        setDocumentLocation,
       }}
     >
       <div className="flex flex-col h-screen w-full bg-wallpaper bg-cover bg-center select-none font-ubuntu">
@@ -112,6 +120,7 @@ export default function Index({ setLogin, login }) {
                 <Terminal />
                 <Code />
                 <Help />
+                <Document />
                 <Text />
                 <Desktop />
               </div>

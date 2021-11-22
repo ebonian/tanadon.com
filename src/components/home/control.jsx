@@ -31,6 +31,11 @@ export default function Control({ window, setFileLocation }) {
           <Help />
         </>
       )}
+      {window === "Document" && (
+        <>
+          <Document />
+        </>
+      )}
       {window === "Text" && (
         <>
           <Text />
@@ -53,7 +58,7 @@ function Firefox() {
   } = useContext(ProgramState);
   return (
     <div
-      className={`flex absolute right-0 top-0 pr-4 rounded-md h-12 border-t-2 border-white border-opacity-5 bg-base-600 items-center space-x-5 text-white ${
+      className={`flex absolute right-0 top-0 pr-4 rounded-r-md h-12 border-t-2 border-white border-opacity-5 bg-base-600 items-center space-x-5 text-white ${
         programFocusState.firefox ? "bg-base-600" : "bg-base-700"
       }`}
     >
@@ -121,7 +126,7 @@ function Files({ setFileLocation }) {
   } = useContext(ProgramState);
   return (
     <div
-      className={`flex absolute right-0 top-0 pr-4 rounded-md h-12 border-t-2 border-white border-opacity-5 bg-base-600 items-center space-x-5 text-white ${
+      className={`flex absolute right-0 top-0 pr-4 rounded-r-md h-12 border-t-2 border-white border-opacity-5 bg-base-600 items-center space-x-5 text-white ${
         programFocusState.files ? "bg-base-600" : "bg-base-700"
       }`}
     >
@@ -192,7 +197,7 @@ function Terminal() {
   } = useContext(ProgramState);
   return (
     <div
-      className={`flex absolute right-0 top-0 pr-4 rounded-md h-12 border-t-2 border-white border-opacity-5 bg-base-600 items-center space-x-5 text-white ${
+      className={`flex absolute right-0 top-0 pr-4 rounded-r-md h-12 border-t-2 border-white border-opacity-5 bg-base-600 items-center space-x-5 text-white ${
         programFocusState.terminal ? "bg-base-600" : "bg-base-700"
       }`}
     >
@@ -260,7 +265,7 @@ function Code() {
   } = useContext(ProgramState);
   return (
     <div
-      className={`flex absolute right-0 top-0 pr-4 rounded-md h-12 border-t-2 border-white border-opacity-5 bg-base-600 items-center space-x-5 text-white ${
+      className={`flex absolute right-0 top-0 pr-4 rounded-r-md h-12 border-t-2 border-white border-opacity-5 bg-base-600 items-center space-x-5 text-white ${
         programFocusState.code ? "bg-base-600" : "bg-base-700"
       }`}
     >
@@ -328,7 +333,7 @@ function Help() {
   } = useContext(ProgramState);
   return (
     <div
-      className={`flex absolute right-0 top-0 pr-4 rounded-md h-12 border-t-2 border-white border-opacity-5 bg-base-600 items-center space-x-5 text-white ${
+      className={`flex absolute right-0 top-0 pr-4 rounded-r-md h-12 border-t-2 border-white border-opacity-5 bg-base-600 items-center space-x-5 text-white ${
         programFocusState.help ? "bg-base-600" : "bg-base-700"
       }`}
     >
@@ -383,6 +388,78 @@ function Help() {
   );
 }
 
+function Document() {
+  const {
+    setProgramActiveState,
+    programActiveState,
+    setProgramOpenState,
+    programOpenState,
+    setProgramFocusState,
+    programFocusState,
+    setProgramMinimizeState,
+    programMinimizeState,
+    documentLocation,
+    setDocumentLocation,
+  } = useContext(ProgramState);
+  return (
+    <div
+      className={`flex absolute right-0 top-0 pr-4 rounded-r-md h-12 border-t-2 border-white border-opacity-5 bg-base-600 items-center space-x-5 text-white ${
+        programFocusState.document ? "bg-base-600" : "bg-base-700"
+      }`}
+    >
+      <div
+        className="flex justify-center items-end w-6 h-6 bg-white bg-opacity-0 hover:bg-opacity-10 duration-75 p-0.5 rounded-full cursor-pointer"
+        onClick={() => {
+          setProgramFocusState({
+            ...programFocusState,
+            document: false,
+          });
+          setProgramActiveState({
+            ...programActiveState,
+            document: false,
+          });
+          setProgramMinimizeState({
+            ...programMinimizeState,
+            document: true,
+          });
+        }}
+      >
+        <BiMinus />
+      </div>
+      <div className="flex justify-center items-center w-6 h-6 bg-white bg-opacity-0 hover:bg-opacity-10 duration-75 p-1.5 rounded-full cursor-pointer">
+        <BiSquare />
+      </div>
+      <div
+        className={`flex justify-center items-center w-6 h-6 rounded-full cursor-pointer ${
+          programFocusState.text ? "bg-primary" : "bg-white bg-opacity-10"
+        }`}
+        onClick={() => {
+          setDocumentLocation({
+            default: true,
+          });
+          setProgramActiveState({
+            ...programActiveState,
+            document: false,
+          });
+          setProgramOpenState({
+            ...programOpenState,
+            document: false,
+          });
+          setProgramFocusState({
+            ...programFocusState,
+            document: false,
+          });
+          setProgramMinimizeState({
+            ...programMinimizeState,
+            document: true,
+          });
+        }}
+      >
+        <BiX className="text-lg" />
+      </div>
+    </div>
+  );
+}
 function Text() {
   const {
     setProgramActiveState,
@@ -398,7 +475,7 @@ function Text() {
   } = useContext(ProgramState);
   return (
     <div
-      className={`flex absolute right-0 top-0 pr-4 rounded-md h-12 border-t-2 border-white border-opacity-5 bg-base-600 items-center space-x-5 text-white ${
+      className={`flex absolute right-0 top-0 pr-4 rounded-r-md h-12 border-t-2 border-white border-opacity-5 bg-base-600 items-center space-x-5 text-white ${
         programFocusState.text ? "bg-base-600" : "bg-base-700"
       }`}
     >

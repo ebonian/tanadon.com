@@ -22,19 +22,19 @@ export default function Home({ fileLocation, setFileLocation }) {
     Pictures: false,
     Portfolio: false,
     Videos: false,
-    Works: false,
+    Projects: false,
   });
 
   // const { fileLocation, setFileLocation } = useContext(FileLocationContext);
   return (
     <HomeSelectionContext.Provider value={{ homeSelection, setHomeSelection }}>
-      <div
+      {/* <div
         onDoubleClick={() => {
           setFileLocation({ Coding: true });
         }}
       >
         <Folder name="Coding" select={homeSelection.Coding} />
-      </div>
+      </div> */}
       <div
         onDoubleClick={() => {
           setFileLocation({ Desktop: true });
@@ -86,10 +86,10 @@ export default function Home({ fileLocation, setFileLocation }) {
       </div>
       <div
         onDoubleClick={() => {
-          setFileLocation({ Works: true });
+          setFileLocation({ Projects: true });
         }}
       >
-        <Folder name="Works" select={homeSelection.Works} />
+        <Folder name="Projects" select={homeSelection.Projects} />
       </div>
     </HomeSelectionContext.Provider>
   );
@@ -101,7 +101,7 @@ function Folder({ name, select }) {
     <>
       {select ? (
         <div className="flex flex-col items-center justify-center text-center mb-5 w-24 mr-4 bg-white bg-opacity-20 hover:bg-opacity-25 rounded-md px-4 py-1.5">
-          {name === "Coding" && <img src={FolderIcon} />}
+          {/* {name === "Coding" && <img src={FolderIcon} />} */}
           {name === "Desktop" && <img src={DesktopFilesIcon} />}
           {name === "Documents" && <img src={DocumentsFilesIcon} />}
           {name === "Downloads" && <img src={DownloadsFilesIcon} />}
@@ -109,12 +109,12 @@ function Folder({ name, select }) {
           {name === "Pictures" && <img src={PicturesFilesIcon} />}
           {name === "Portfolio" && <img src={FolderIcon} />}
           {name === "Videos" && <img src={VideosFilesIcon} />}
-          {name === "Works" && <img src={FolderIcon} />}
+          {name === "Projects" && <img src={FolderIcon} />}
           <p>{name}</p>
         </div>
       ) : (
         <>
-          {name === "Coding" && (
+          {/* {name === "Coding" && (
             <div
               className="flex flex-col items-center justify-center text-center mb-5 w-24 mr-4 bg-white bg-opacity-0 hover:bg-opacity-5 rounded-md px-4 py-1.5"
               onClick={() => {
@@ -124,7 +124,7 @@ function Folder({ name, select }) {
               <img src={FolderIcon} />
               <p>{name}</p>
             </div>
-          )}
+          )} */}
           {name === "Desktop" && (
             <div
               className="flex flex-col items-center justify-center text-center mb-5 w-24 mr-4 bg-white bg-opacity-0 hover:bg-opacity-5 rounded-md px-4 py-1.5"
@@ -202,11 +202,11 @@ function Folder({ name, select }) {
               <p>{name}</p>
             </div>
           )}
-          {name === "Works" && (
+          {name === "Projects" && (
             <div
               className="flex flex-col items-center justify-center text-center mb-5 w-24 mr-4 bg-white bg-opacity-0 hover:bg-opacity-5 rounded-md px-4 py-1.5"
               onClick={() => {
-                setHomeSelection({ Works: true });
+                setHomeSelection({ Projects: true });
               }}
             >
               <img src={FolderIcon} />

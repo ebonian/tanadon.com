@@ -29,7 +29,7 @@ export default function Desktop() {
     trash: false,
     coding: false,
     portfolio: false,
-    works: false,
+    projects: false,
     readme: false,
   });
   return (
@@ -102,7 +102,7 @@ export default function Desktop() {
               });
             }}
           />
-          <Files
+          {/* <Files
             name="Coding"
             select={desktopSelection.coding}
             onDoubleClick={() => {
@@ -133,7 +133,7 @@ export default function Desktop() {
                 files: false,
               });
             }}
-          />
+          /> */}
           <Files
             name="Portfolio"
             select={desktopSelection.portfolio}
@@ -167,10 +167,10 @@ export default function Desktop() {
             }}
           />
           <Files
-            name="Works"
-            select={desktopSelection.works}
+            name="Projects"
+            select={desktopSelection.projects}
             onDoubleClick={() => {
-              setFileLocation({ Works: true });
+              setFileLocation({ Projects: true });
               setProgramActiveState({
                 firefox: false,
                 files: true,
@@ -277,13 +277,13 @@ function Files({ name, select, onDoubleClick }) {
         <div className="flex flex-col items-center justify-center text-center mb-5 w-24 mr-4 bg-white bg-opacity-20 hover:bg-opacity-25 rounded-md px-4 py-1.5 text-white">
           {name === "tanadon" && <img src={HomeFolderIcon} className="h-14" />}
           {name === "Trash" && <img src={TrashIcon} className="h-14" />}
-          {name === "Coding" && (
+          {/* {name === "Coding" && (
             <img src={FolderShortcutIcon} className="h-14" />
-          )}
+          )} */}
           {name === "Portfolio" && (
             <img src={FolderShortcutIcon} className="h-14" />
           )}
-          {name === "Works" && (
+          {name === "Projects" && (
             <img src={FolderShortcutIcon} className="h-14" />
           )}
           {name === "README.md" && <img src={TextIcon} className="h-14" />}
@@ -313,7 +313,7 @@ function Files({ name, select, onDoubleClick }) {
               <p>{name}</p>
             </div>
           )}
-          {name === "Coding" && (
+          {/* {name === "Coding" && (
             <div
               className="flex flex-col items-center justify-center text-center mb-5 w-24 mr-4 bg-white bg-opacity-0 hover:bg-opacity-5 rounded-md px-4 py-1.5 text-white"
               onClick={() => {
@@ -323,7 +323,7 @@ function Files({ name, select, onDoubleClick }) {
               <img src={FolderShortcutIcon} className="h-14" />
               <p>{name}</p>
             </div>
-          )}
+          )} */}
           {name === "Portfolio" && (
             <div
               className="flex flex-col items-center justify-center text-center mb-5 w-24 mr-4 bg-white bg-opacity-0 hover:bg-opacity-5 rounded-md px-4 py-1.5 text-white"
@@ -335,11 +335,11 @@ function Files({ name, select, onDoubleClick }) {
               <p>{name}</p>
             </div>
           )}
-          {name === "Works" && (
+          {name === "Projects" && (
             <div
               className="flex flex-col items-center justify-center text-center mb-5 w-24 mr-4 bg-white bg-opacity-0 hover:bg-opacity-5 rounded-md px-4 py-1.5 text-white"
               onClick={() => {
-                setDesktopSelection({ works: true });
+                setDesktopSelection({ projects: true });
               }}
             >
               <img src={FolderShortcutIcon} className="h-14" />

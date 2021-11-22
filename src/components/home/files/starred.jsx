@@ -14,7 +14,7 @@ export default function Starred({ fileLocation, setFileLocation }) {
     Pictures: false,
     Portfolio: false,
     Videos: false,
-    Works: false,
+    Projects: false,
   });
   return (
     <StarredSelectionContext.Provider
@@ -36,10 +36,10 @@ export default function Starred({ fileLocation, setFileLocation }) {
       </div>
       <div
         onDoubleClick={() => {
-          setFileLocation({ Works: true });
+          setFileLocation({ Projects: true });
         }}
       >
-        <Folder name="Works" select={starredSelection.Works} />
+        <Folder name="Projects" select={starredSelection.Projects} />
       </div>
     </StarredSelectionContext.Provider>
   );
@@ -53,7 +53,7 @@ function Folder({ name, select }) {
         <div className="flex flex-col items-center justify-center text-center mb-5 w-24 mr-4 bg-white bg-opacity-20 hover:bg-opacity-25 rounded-md px-4 py-1.5">
           {name === "Coding" && <img src={FolderIcon} />}
           {name === "Portfolio" && <img src={FolderIcon} />}
-          {name === "Works" && <img src={FolderIcon} />}
+          {name === "Projects" && <img src={FolderIcon} />}
           <p>{name}</p>
         </div>
       ) : (
@@ -80,11 +80,11 @@ function Folder({ name, select }) {
               <p>{name}</p>
             </div>
           )}
-          {name === "Works" && (
+          {name === "Projects" && (
             <div
               className="flex flex-col items-center justify-center text-center mb-5 w-24 mr-4 bg-white bg-opacity-0 hover:bg-opacity-5 rounded-md px-4 py-1.5"
               onClick={() => {
-                setStarredSelection({ Works: true });
+                setStarredSelection({ Projects: true });
               }}
             >
               <img src={FolderIcon} />

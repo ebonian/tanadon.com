@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function Popup({ setLogin }) {
   return (
     <div className="absolute flex justify-center items-center h-screen w-full z-100 text-gray-700 bg-black bg-opacity-70 font-ubuntu select-none">
@@ -23,14 +25,12 @@ export default function Popup({ setLogin }) {
           >
             Restart
           </div>
-          <div
+          <Link
             className="flex flex-grow items-center justify-center rounded-br border-t border-r border-b border-black border-opacity-25 bg-black bg-opacity-0 hover:bg-opacity-6 cursor-pointer"
-            onClick={() => {
-              setLogin("shut down");
-            }}
+            to="/"
           >
             Power Off
-          </div>
+          </Link>
         </div>
       </div>
     </div>

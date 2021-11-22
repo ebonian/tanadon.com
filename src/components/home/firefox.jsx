@@ -9,6 +9,7 @@ import {
   FiMenu,
   FiPlus,
   FiPocket,
+  FiSearch,
   FiShield,
   FiStar,
   FiX,
@@ -40,6 +41,7 @@ export default function Firefox() {
     Facebook: true,
     Gmail: true,
   });
+  console.log(activeTab);
   return (
     <>
       {programMinimizeState.firefox ? (
@@ -106,6 +108,7 @@ export default function Firefox() {
                           openTab={openTab}
                           activeTab={activeTab}
                           setOpenTab={setOpenTab}
+                          setActiveTab={setActiveTab}
                         />
                       )}
                       {openTab.Facebook && (
@@ -122,6 +125,7 @@ export default function Firefox() {
                           openTab={openTab}
                           activeTab={activeTab}
                           setOpenTab={setOpenTab}
+                          setActiveTab={setActiveTab}
                         />
                       )}
                       {openTab.Gmail && (
@@ -138,6 +142,7 @@ export default function Firefox() {
                           openTab={openTab}
                           activeTab={activeTab}
                           setOpenTab={setOpenTab}
+                          setActiveTab={setActiveTab}
                         />
                       )}
                       <div
@@ -174,14 +179,36 @@ export default function Firefox() {
                     {/* url */}
                     <div className="flex flex-grow justify-between items-center h-full bg-base-600 px-1.5 select-text text-gray-300 rounded">
                       <div className="flex items-center space-x-3 whitespace-nowrap">
-                        <div className="flex items-center space-x-2">
-                          <div className="flex justify-center items-center rounded w-6 h-6 bg-white bg-opacity-0 hover:bg-opacity-10">
-                            <FiShield />
+                        {!activeTab.Github &&
+                        !activeTab.Facebook &&
+                        !activeTab.Gmail ? (
+                          <div className="flex items-center space-x-2">
+                            <div className="flex justify-center items-center rounded w-6 h-6">
+                              <FiSearch />
+                            </div>
                           </div>
-                          <div className="flex justify-center items-center rounded w-6 h-6 bg-white bg-opacity-0 hover:bg-opacity-10">
-                            <FiLock />
+                        ) : (
+                          <div className="flex items-center space-x-2">
+                            <div className="flex justify-center items-center rounded w-6 h-6 bg-white bg-opacity-0 hover:bg-opacity-10">
+                              <FiShield />
+                            </div>
+                            <div className="flex justify-center items-center rounded w-6 h-6 bg-white bg-opacity-0 hover:bg-opacity-10">
+                              <FiLock />
+                            </div>
                           </div>
-                        </div>
+                        )}
+                        {!activeTab.Github &&
+                        !activeTab.Facebook &&
+                        !activeTab.Gmail ? (
+                          <input
+                            type="text"
+                            className="text-sm outline-none bg-base-600 w-96"
+                            placeholder="Search with Google or enter address"
+                          />
+                        ) : (
+                          <></>
+                        )}
+
                         {activeTab.Github && openTab.Github ? (
                           <a
                             href="https://github.com/Ebonian"
@@ -223,9 +250,15 @@ export default function Firefox() {
                         )}
                       </div>
                       <div>
-                        <div className="flex justify-center items-center rounded w-6 h-6 bg-white bg-opacity-0 hover:bg-opacity-10">
-                          <FiStar />
-                        </div>
+                        {!activeTab.Github &&
+                        !activeTab.Facebook &&
+                        !activeTab.Gmail ? (
+                          <></>
+                        ) : (
+                          <div className="flex justify-center items-center rounded w-6 h-6 bg-white bg-opacity-0 hover:bg-opacity-10">
+                            <FiStar />
+                          </div>
+                        )}
                       </div>
                     </div>
                     {/* menu */}
@@ -250,7 +283,15 @@ export default function Firefox() {
   );
 }
 
-function Tab({ name, active, onClick, activeTab, openTab, setOpenTab }) {
+function Tab({
+  name,
+  active,
+  onClick,
+  activeTab,
+  openTab,
+  setOpenTab,
+  setActiveTab,
+}) {
   return (
     <div
       className={`${
@@ -275,8 +316,9 @@ function Tab({ name, active, onClick, activeTab, openTab, setOpenTab }) {
       {activeTab.Github && (
         <div
           className="flex items-center justify-center w-6 h-6 p-1 bg-white bg-opacity-0 hover:bg-opacity-15 rounded cursor-pointer"
-          onClick={() => {
-            setOpenTab({ ...openTab, Github: false });
+          onClick={async () => {
+            await setOpenTab({ ...openTab, Github: false });
+            setActiveTab({ ...activeTab, Github: false });
           }}
         >
           <FiX />
@@ -285,8 +327,9 @@ function Tab({ name, active, onClick, activeTab, openTab, setOpenTab }) {
       {activeTab.Facebook && (
         <div
           className="flex items-center justify-center w-6 h-6 p-1 bg-white bg-opacity-0 hover:bg-opacity-15 rounded cursor-pointer"
-          onClick={() => {
-            setOpenTab({ ...openTab, Facebook: false });
+          onClick={async () => {
+            await setOpenTab({ ...openTab, Facebook: false });
+            setActiveTab({ ...activeTab, Facebook: false });
           }}
         >
           <FiX />
@@ -295,8 +338,9 @@ function Tab({ name, active, onClick, activeTab, openTab, setOpenTab }) {
       {activeTab.Gmail && (
         <div
           className="flex items-center justify-center w-6 h-6 p-1 bg-white bg-opacity-0 hover:bg-opacity-15 rounded cursor-pointer"
-          onClick={() => {
-            setOpenTab({ ...openTab, Gmail: false });
+          onClick={async () => {
+            await setOpenTab({ ...openTab, Gmail: false });
+            setActiveTab({ ...activeTab, Gmail: false });
           }}
         >
           <FiX />

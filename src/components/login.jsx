@@ -107,7 +107,7 @@ function Body({ setLogin }) {
       <div
         className="flex justify-center items-center bg-white bg-opacity-5 w-20 h-10 cursor-pointer"
         onClick={() => {
-          setLogin("logged in");
+          setLogin("success");
         }}
       >
         <p className="">Sign In</p>

@@ -14,7 +14,7 @@ export default function Desktop({ fileLocation, setFileLocation }) {
     Pictures: false,
     Portfolio: false,
     Videos: false,
-    Works: false,
+    Projects: false,
   });
   return (
     <DesktopSelectionContext.Provider
@@ -36,10 +36,10 @@ export default function Desktop({ fileLocation, setFileLocation }) {
       </div>
       <div
         onDoubleClick={() => {
-          setFileLocation({ Works: true });
+          setFileLocation({ Projects: true });
         }}
       >
-        <Folder name="Works" select={desktopSelection.Works} />
+        <Folder name="Projects" select={desktopSelection.Projects} />
       </div>
     </DesktopSelectionContext.Provider>
   );
@@ -53,7 +53,7 @@ function Folder({ name, select }) {
         <div className="flex flex-col items-center justify-center text-center mb-5 w-24 mr-4 bg-white bg-opacity-20 hover:bg-opacity-25 rounded-md px-4 py-1.5">
           {name === "Coding" && <img src={FolderShortcutIcon} />}
           {name === "Portfolio" && <img src={FolderShortcutIcon} />}
-          {name === "Works" && <img src={FolderShortcutIcon} />}
+          {name === "Projects" && <img src={FolderShortcutIcon} />}
           <p>{name}</p>
         </div>
       ) : (
@@ -80,11 +80,11 @@ function Folder({ name, select }) {
               <p>{name}</p>
             </div>
           )}
-          {name === "Works" && (
+          {name === "Projects" && (
             <div
               className="flex flex-col items-center justify-center text-center mb-5 w-24 mr-4 bg-white bg-opacity-0 hover:bg-opacity-5 rounded-md px-4 py-1.5"
               onClick={() => {
-                setDesktopSelection({ Works: true });
+                setDesktopSelection({ Projects: true });
               }}
             >
               <img src={FolderShortcutIcon} />

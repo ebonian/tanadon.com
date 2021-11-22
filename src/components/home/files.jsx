@@ -18,7 +18,8 @@ import Empty from "./files/empty";
 import Starred from "./files/starred";
 import Desktop from "./files/desktop";
 import Coding from "./files/coding";
-import Works from "./files/works";
+import Projects from "./files/projects";
+import Documents from "./files/documents";
 
 // export const FileLocationContext = createContext(null);
 
@@ -298,7 +299,12 @@ export default function Files() {
                           setFileLocation={setFileLocation}
                         />
                       )}
-                      {fileLocation.Documents && <></>}
+                      {fileLocation.Documents && (
+                        <Documents
+                          fileLocation={fileLocation}
+                          setFileLocation={setFileLocation}
+                        />
+                      )}
                       {fileLocation.Music && <></>}
                       {fileLocation.Pictures && <></>}
                       {fileLocation.Coding && (
@@ -307,8 +313,8 @@ export default function Files() {
                           setFileLocation={setFileLocation}
                         />
                       )}
-                      {fileLocation.Works && (
-                        <Works
+                      {fileLocation.Projects && (
+                        <Projects
                           fileLocation={fileLocation}
                           setFileLocation={setFileLocation}
                         />

@@ -11,7 +11,13 @@ import { BiMenu, BiSearch } from "react-icons/bi";
 import { FiPlusSquare } from "react-icons/fi";
 import { GoTriangleDown } from "react-icons/go";
 
-export default function Text() {
+import แบบสรุปอันดับ from "../../images/แบบสรุปอันดับ.jpg";
+import Transcript1 from "../../images/Transcript_1.jpg";
+import Transcript2 from "../../images/Transcript_2.jpg";
+import ปพ11 from "../../images/ปพ.1_1.jpg";
+import ปพ12 from "../../images/ปพ.1_2.jpg";
+
+export default function Document() {
   const {
     setProgramActiveState,
     programActiveState,
@@ -21,24 +27,24 @@ export default function Text() {
     programFocusState,
     setProgramMinimizeState,
     programMinimizeState,
-    textLocation,
-    setTextLocation,
+    documentLocation,
+    setDocumentLocation,
   } = useContext(ProgramState);
 
   const [saveButton, setSaveButton] = useState(false);
   return (
     <>
-      {programMinimizeState.text ? (
+      {programMinimizeState.document ? (
         <></>
       ) : (
         <>
-          {programFocusState.text || programOpenState.text ? (
+          {programFocusState.document || programOpenState.document ? (
             <Draggable bounds="parent" handle="strong">
               <div
-                className={`absolute text-white resize border border-gray-800 w-1/4 h-2/4 overflow-auto overflow-y-hidden overflow-x-hidden rounded-t-md shadow-xl ${
-                  programFocusState.text ? "z-40" : "z-30"
+                className={`absolute text-white resize border border-gray-800 w-firefox h-firefox overflow-auto overflow-y-hidden overflow-x-hidden rounded-t-md shadow-xl ${
+                  programFocusState.document ? "z-40" : "z-30"
                 } ${
-                  programFocusState.text
+                  programFocusState.document
                     ? "bg-base-500"
                     : "bg-base-900 text-opacity-40"
                 }`}
@@ -49,17 +55,17 @@ export default function Text() {
                     terminal: false,
                     code: false,
                     help: false,
-                    document: false,
+                    document: true,
                     image: false,
-                    text: true,
+                    text: false,
                   });
                 }}
               >
                 <strong>
-                  <Control window="Text" />
+                  <Control window="Document" />
                   <div
                     className={`flex justify-between items-center h-12 border-t-2 border-white border-opacity-5 pr-4 pl-3 text-white ${
-                      programFocusState.text ? "bg-base-600" : "bg-base-700"
+                      programFocusState.document ? "bg-base-600" : "bg-base-700"
                     } rounded-t-md`}
                     onClick={() => {
                       setProgramActiveState({
@@ -68,9 +74,9 @@ export default function Text() {
                         terminal: false,
                         code: false,
                         help: false,
-                        document: false,
+                        document: true,
                         image: false,
-                        text: true,
+                        text: false,
                       });
                     }}
                   >
@@ -84,9 +90,9 @@ export default function Text() {
                           terminal: false,
                           code: false,
                           help: false,
-                          document: false,
+                          document: true,
                           image: false,
-                          text: true,
+                          text: false,
                         });
                       }}
                     >
@@ -112,17 +118,39 @@ export default function Text() {
                           terminal: false,
                           code: false,
                           help: false,
-                          document: false,
+                          document: true,
                           image: false,
-                          text: true,
+                          text: false,
                         });
                       }}
                     >
-                      {textLocation.readme && (
+                      {documentLocation.แบบสรุปอันดับ && (
                         <>
-                          <p className="font-medium text-sm">README.md</p>
+                          <p className="font-medium text-sm">
+                            แบบสรุปอันดับนักเรียน โครงการเรียนดี ช้างเผือก
+                          </p>
                           <p className="font-normal text-xs text-gray-400">
-                            ~/Desktop
+                            แบบสรุปอันดับนักเรียน.pdf
+                          </p>
+                        </>
+                      )}
+                      {documentLocation.Transcript && (
+                        <>
+                          <p className="font-medium text-sm">
+                            Tanadon Santisan Transcript
+                          </p>
+                          <p className="font-normal text-xs text-gray-400">
+                            Transcript.pdf
+                          </p>
+                        </>
+                      )}
+                      {documentLocation.ปพ1 && (
+                        <>
+                          <p className="font-medium text-sm">
+                            ระเบียนแสดงผลการเรียน ธนดล ศานติสรร (ปพ.1)
+                          </p>
+                          <p className="font-normal text-xs text-gray-400">
+                            ปพ1.pdf
                           </p>
                         </>
                       )}
@@ -137,9 +165,9 @@ export default function Text() {
                           terminal: false,
                           code: false,
                           help: false,
-                          document: false,
+                          document: true,
                           image: false,
-                          text: true,
+                          text: false,
                         });
                       }}
                     >
@@ -163,7 +191,39 @@ export default function Text() {
                     </div>
                   </div>
                 </strong>
-                <div className="text-black select-text bg-white h-full overflow-y-auto pb-12 cursor-text"></div>
+                <div
+                  className="text-black select-text h-full overflow-y-auto pt-12 pb-24 flex flex-col justify-start items-center px-32 space-y-12"
+                  onClick={() => {
+                    setProgramActiveState({
+                      firefox: false,
+                      files: false,
+                      terminal: false,
+                      code: false,
+                      help: false,
+                      document: true,
+                      image: false,
+                      text: false,
+                    });
+                  }}
+                >
+                  {documentLocation.แบบสรุปอันดับ && (
+                    <>
+                      <img src={แบบสรุปอันดับ} className="shadow-xl" />
+                    </>
+                  )}
+                  {documentLocation.Transcript && (
+                    <>
+                      <img src={Transcript1} className="shadow-xl" />
+                      <img src={Transcript2} className="shadow-xl" />
+                    </>
+                  )}
+                  {documentLocation.ปพ1 && (
+                    <>
+                      <img src={ปพ11} className="shadow-xl" />
+                      <img src={ปพ12} className="shadow-xl" />
+                    </>
+                  )}
+                </div>
               </div>
             </Draggable>
           ) : (

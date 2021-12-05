@@ -130,7 +130,21 @@ export default function Help() {
                   </div>
                 </strong>
                 {/* body */}
-                <div className="flex flex-col text-center h-full flex-grow bg-portfolio-base-200 font-sourcecode overflow-y-auto select-text">
+                <div
+                  className="flex flex-col text-center h-full flex-grow bg-portfolio-base-200 font-sourcecode overflow-y-auto select-text"
+                  onClick={() => {
+                    setProgramActiveState({
+                      firefox: false,
+                      files: false,
+                      terminal: false,
+                      code: false,
+                      help: true,
+                      document: false,
+                      image: false,
+                      text: false,
+                    });
+                  }}
+                >
                   <div className="mt-10 w-full px-10">
                     <h1 className="font-bold text-xl">
                       Hi, welcome to my computer!

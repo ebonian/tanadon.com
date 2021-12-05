@@ -35,6 +35,12 @@ module.exports = {
             200: "#131313",
           },
         },
+        github: {
+          header: "#161b22",
+          bg: "#0d1117",
+          primary: "#f78166",
+          cont: "#39d353",
+        },
       },
       width: {
         120: "30rem",
@@ -72,6 +78,7 @@ module.exports = {
         sourcecode: ["Source Code Pro"],
         kanit: ["Kanit"],
         prompt: ["Prompt"],
+        segoe: ["Segoe UI"],
       },
       backgroundImage: {
         wallpaper: "url('/src/images/wallpaper.jpg')",
@@ -108,6 +115,7 @@ module.exports = {
         7: "7%",
         8: "8%",
         9: "9%",
+        12.5: "12.5%",
         15: "15%",
         35: "35%",
         45: "45%",
@@ -132,6 +140,10 @@ module.exports = {
       },
       animation: {
         blink: "blink 1s infinite",
+      },
+      gridTemplateRows: {
+        7: "repeat(7, minmax(0, 1fr))",
+        8: "repeat(8, minmax(0, 1fr))",
       },
     },
   },

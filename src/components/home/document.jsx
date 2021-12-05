@@ -7,6 +7,7 @@ import {
   BsChevronCompactRight,
   BsJournalBookmarkFill,
 } from "react-icons/bs";
+import { BiEditAlt, BiSidebar } from "react-icons/bi";
 import { BiMenu, BiSearch } from "react-icons/bi";
 import { FiPlusSquare } from "react-icons/fi";
 import { GoTriangleDown } from "react-icons/go";
@@ -31,7 +32,6 @@ export default function Document() {
     setDocumentLocation,
   } = useContext(ProgramState);
 
-  const [saveButton, setSaveButton] = useState(false);
   return (
     <>
       {programMinimizeState.document ? (
@@ -96,8 +96,8 @@ export default function Document() {
                         });
                       }}
                     >
-                      <div className="flex items-center">
-                        <div className="flex justify-center items-center h-9 w-16 bg-base-500 rounded-l border-t border-l border-b border-base-300 border-opacity-80 font-normal text-sm">
+                      <div className="flex items-center space-x-2 mr-52">
+                        {/* <div className="flex justify-center items-center h-9 w-16 bg-base-500 rounded-l border-t border-l border-b border-base-300 border-opacity-80 font-normal text-sm">
                           <p className="opacity-30">Open</p>
                         </div>
                         <div className="flex justify-center items-center h-9 w-9 bg-base-500 rounded-r border border-base-300 border-opacity-80">
@@ -105,6 +105,12 @@ export default function Document() {
                         </div>
                         <div className="flex justify-center items-center h-9 w-9 bg-base-500 rounded-r border border-base-300 border-opacity-80 ml-2">
                           <FiPlusSquare className="opacity-30" />
+                        </div> */}
+                        <div className="flex justify-center items-center h-9 w-9 bg-base-500 rounded border border-base-300 border-opacity-80">
+                          <BiSidebar className="opacity-30" />
+                        </div>
+                        <div className="flex justify-center items-center h-9 w-9 bg-base-500 rounded border border-base-300 border-opacity-80">
+                          <BiEditAlt className="opacity-30" />
                         </div>
                       </div>
                     </div>
@@ -171,19 +177,13 @@ export default function Document() {
                         });
                       }}
                     >
-                      <div
-                        className={`flex justify-center items-center h-9 w-16 rounded border border-base-300 border-opacity-80 font-normal text-sm ${
-                          saveButton
-                            ? "bg-base-500 text-gray-300"
-                            : "cursor-pointer bg-base-700 hover:bg-base-1000"
-                        }`}
-                        onClick={() => {
-                          setSaveButton(true);
-                        }}
-                      >
-                        {saveButton ? <p>Saved</p> : <p>Save</p>}
+                      <div className="flex justify-between items-center h-9 w-24 bg-base-500 rounded border border-base-300 border-opacity-80 px-4">
+                        <p className="font-normal opacity-30">100%</p>
+                        <GoTriangleDown className="opacity-30" />
                       </div>
-
+                      <div className="flex justify-center items-center h-9 w-9 bg-base-700 hover:bg-base-1000 rounded border border-base-300 border-opacity-80 cursor-pointer">
+                        <BiSearch className="text-xl" />
+                      </div>
                       <div className="flex justify-center items-center h-9 w-9 bg-base-700 hover:bg-base-1000 rounded border border-base-300 border-opacity-80 cursor-pointer">
                         <BiMenu className="text-xl" />
                       </div>
@@ -192,7 +192,7 @@ export default function Document() {
                   </div>
                 </strong>
                 <div
-                  className="text-black select-text h-full overflow-y-auto pt-12 pb-24 flex flex-col justify-start items-center px-32 space-y-12"
+                  className="text-black select-text h-full overflow-y-auto pt-12 pb-24 flex flex-col justify-start items-center px-32 space-y-6"
                   onClick={() => {
                     setProgramActiveState({
                       firefox: false,

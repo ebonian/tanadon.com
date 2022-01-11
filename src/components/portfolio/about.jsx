@@ -19,14 +19,13 @@ export default function About() {
       </div>
       <p>
         Hello, I am Tanadon Santisan, but you can call me Poon. I am a
-        12th-grade student from Panyaprateep School. I was born and raised in
-        Thailand. I have been fascinated with computers and technology since
-        childhood, and I love to innovate new things.
+        12th-grade student from Panyaprateep School based in Thailand who has
+        been passionate about computers and programming since childhood.
         <br />
         <br />
-        I’m easily inspired and more than willing to follow my fascinations
-        wherever they take me. I have very high energy and boundless enthusiasm
-        for learning and developing myself.
+        Self Learning is one of my strengths; I’m easily inspired and more than
+        willing to follow my fascinations wherever they take me. I have very
+        high energy and boundless enthusiasm for learning and developing myself.
       </p>
     </div>
   );

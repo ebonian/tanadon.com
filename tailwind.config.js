@@ -90,6 +90,9 @@ module.exports = {
         constructect: "url('/src/images/portfolio/constructect01.png')",
         kob: "url('/src/images/portfolio/kob01.png')",
         aspects: "url('/src/images/portfolio/aspects01.png')",
+        pps: "url('/src/images/portfolio/pps01.png')",
+        cai: "url('/src/images/portfolio/cai01.png')",
+        githubProfile: "url('/src/images/github-profile.png')",
       },
       margin: {
         18: "4.25rem",

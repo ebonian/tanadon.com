@@ -19,7 +19,7 @@ export default function Header() {
     gsap.from(rightItem, 2, { delay: 5, x: 40 });
   }, []);
   return (
-    <div className="flex justify-between items-center w-full h-20 text-white select-none z-50 font-sourcecode">
+    <div className="flex justify-between items-center w-full h-24 lg:h-20 text-white select-none z-50 font-sourcecode">
       {/* left */}
       <div className="flex font-bold text-3xl group ">
         <a href="/">

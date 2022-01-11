@@ -651,7 +651,7 @@ function Github() {
           <div className="flex flex-col justify-start items-center mt-10">
             <div className="relative">
               {/* profile */}
-              <div className="w-72 h-72 bg-white rounded-full cursor-pointer" />
+              <div className="w-72 h-72 bg-githubProfile bg-cover rounded-full" />
               <div className="bg-github-bg absolute w-10 h-10 rounded-full border border-gray-700 bottom-5 right-5 cursor-pointer flex justify-center items-center text-xl text-gray-400">
                 <FiSmile />
               </div>
@@ -672,7 +672,7 @@ function Github() {
               <div className="h-px w-full bg-gray-700 my-4" />
               <h3 className="font-semibold text-gray-300">Organizations</h3>
               {/* doji link */}
-              <a href="https://doji.com" target="_blank">
+              <a href="https://doji.site" target="_blank">
                 <img
                   src={DojiLogo}
                   alt="Doji Orginization"

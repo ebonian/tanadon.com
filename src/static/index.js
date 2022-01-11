@@ -11,7 +11,8 @@ export const data = {
 
     doji: {
       title: "Doji",
-      description: "A technical trading assistant platform for crypto traders.",
+      description:
+        "The technical trading assistant platform for crypto traders.",
       year: "2021",
       tag: ["Programming", "Collaboration", "Business"],
       detail: [
@@ -64,13 +65,15 @@ export const data = {
         title: "นพลักษณ์",
         description: "นิทรรศการนพลักษณ์ออนไลน์",
         tag: ["โปรแกรมมิ่ง"],
-        detail: [""],
+        detail: [
+          "วิชาบูรณาการณ์ของชั้นมัธยมศึกษาปีที่ 6 นั้นจะมีชื่อว่า 'วิชาแกะสลักชีวิต' ซึ่งในเทอมแรกของปีการศึกษานั้น หนึ่งในหัวข้อที่ผมได้เรียนรู้ในวิชาแกะสลักชีวิตก็คือเรื่องนพลักษณ์ เพื่อที่จะให้เราได้รู้จักและเข้าใจทั้งตนเอง และผู้อื่น และพัฒนาจุดด้อยหรือข้อเสียของตัวเองให้ได้",
+        ],
         learning: [""],
       },
     },
 
     pps: {
-      title: "PPS Renovation",
+      title: "PPS Renovation Lab",
       description: "Digitizing our school!",
       year: "2021",
       tag: ["Programming", "Collaboration"],
@@ -86,8 +89,8 @@ export const data = {
     },
 
     cai: {
-      title: "CAI Project",
-      description: "Lorem Ipsum",
+      title: "Creative AI Camp",
+      description: "Energy Consimption Evaluator and Predictor",
       year: "2021",
       tag: ["Programming", "Camp"],
       detail: [""],
@@ -124,7 +127,7 @@ export const data = {
 
     rood: {
       title: "Rood",
-      description: "The application to get rid of your credit card debt.",
+      description: "The application to get rid of credit card debt.",
       year: "2019",
       tag: ["programming", "Collaboration", "Business"],
       detail: [

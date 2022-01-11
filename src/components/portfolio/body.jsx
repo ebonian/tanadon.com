@@ -86,7 +86,8 @@ export default function Body() {
           }}
         >
           <ToggleList
-            link={`${lang === "en" ? "About Me" : "เกี่ยวกับผม"}`}
+            link="About Me"
+            // link={`${lang === "en" ? "About Me" : "เกี่ยวกับผม"}`}
             active={activePage.about}
             onClick={() => {
               setActivePage({ about: true });
@@ -106,7 +107,8 @@ export default function Body() {
           }}
         >
           <ToggleList
-            link={`${lang === "en" ? "Projects" : "โปรเจกต์"}`}
+            link="Projects"
+            // link={`${lang === "en" ? "Projects" : "โปรเจกต์"}`}
             active={activePage.projects}
             onClick={() => {
               setActivePage({ projects: true });
@@ -126,7 +128,8 @@ export default function Body() {
           }}
         >
           <ToggleList
-            link={`${lang === "en" ? "Education" : "การศึกษา"}`}
+            link="Education"
+            // link={`${lang === "en" ? "Education" : "การศึกษา"}`}
             active={activePage.exp}
             onClick={() => {
               setActivePage({ exp: true });
@@ -146,7 +149,8 @@ export default function Body() {
           }}
         >
           <ToggleList
-            link={`${lang === "en" ? "Contact" : "โซเชียล"}`}
+            link="Contact"
+            // link={`${lang === "en" ? "Contact" : "ติดต่อ"}`}
             active={activePage.contact}
             onClick={() => {
               setActivePage({ contact: true });
@@ -160,7 +164,8 @@ export default function Body() {
             }}
           />
         </div>
-        <p
+        {/* lang swap */}
+        {/* <p
           className="text-base font-normal pt-4 font-sourcecode"
           ref={(el) => {
             fifthItem = el;
@@ -187,7 +192,7 @@ export default function Body() {
           >
             th
           </span>
-        </p>
+        </p> */}
       </div>
 
       {/* divider */}
@@ -246,7 +251,7 @@ export default function Body() {
 function ToggleList({ link, active, onClick }) {
   return (
     <p
-      className={`cursor-pointer duration-300 hover:translate-x-3 sm:hover:-translate-x-3 ${
+      className={`cursor-pointer duration-300 hover:translate-x-3 sm:hover:-translate-x-3 font-sourcecode ${
         active ? "text-portfolio-primary" : "hover:text-portfolio-primary"
       }`}
       onClick={onClick}

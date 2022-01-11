@@ -28,32 +28,7 @@ export default function Projects() {
           tag={lang === "en" ? data.project.doji.tag : data.project.doji.th.tag}
         />
       </WorkList>
-      <WorkList
-        name={
-          lang === "en"
-            ? data.project.personal.title
-            : data.project.personal.th.title
-        }
-        description={
-          lang === "en"
-            ? data.project.personal.description
-            : data.project.personal.th.description
-        }
-        year={data.project.personal.year}
-        link="/portfolio/personal"
-        onClick={() => {
-          setProjectPage(true);
-          setProject({ personal: true });
-        }}
-      >
-        <Tag
-          tag={
-            lang === "en"
-              ? data.project.personal.tag
-              : data.project.personal.th.tag
-          }
-        />
-      </WorkList>
+
       <WorkList
         name={
           lang === "en"
@@ -121,18 +96,6 @@ export default function Projects() {
         />
       </WorkList>
       <WorkList
-        name={data.project.zigma.title}
-        description={data.project.zigma.description}
-        year={data.project.zigma.year}
-        link="/portfolio/zigma"
-        onClick={() => {
-          setProjectPage(true);
-          setProject({ zigma: true });
-        }}
-      >
-        <Tag tag={data.project.zigma.tag} />
-      </WorkList>
-      <WorkList
         name={data.project.rood.title}
         description={data.project.rood.description}
         year={data.project.rood.year}
@@ -145,6 +108,44 @@ export default function Projects() {
         <Tag tag={data.project.rood.tag} />
       </WorkList>
       <WorkList
+        name={data.project.zigma.title}
+        description={data.project.zigma.description}
+        year={data.project.zigma.year}
+        link="/portfolio/zigma"
+        onClick={() => {
+          setProjectPage(true);
+          setProject({ zigma: true });
+        }}
+      >
+        <Tag tag={data.project.zigma.tag} />
+      </WorkList>
+      <WorkList
+        name={
+          lang === "en"
+            ? data.project.personal.title
+            : data.project.personal.th.title
+        }
+        description={
+          lang === "en"
+            ? data.project.personal.description
+            : data.project.personal.th.description
+        }
+        year={data.project.personal.year}
+        link="/portfolio/personal"
+        onClick={() => {
+          setProjectPage(true);
+          setProject({ personal: true });
+        }}
+      >
+        <Tag
+          tag={
+            lang === "en"
+              ? data.project.personal.tag
+              : data.project.personal.th.tag
+          }
+        />
+      </WorkList>
+      {/* <WorkList
         name={data.project.recog.title}
         description={data.project.recog.description}
         year={data.project.recog.year}
@@ -155,8 +156,8 @@ export default function Projects() {
         }}
       >
         <Tag tag={data.project.recog.tag} />
-      </WorkList>
-      <WorkList
+      </WorkList> */}
+      {/* <WorkList
         name={data.project.constructect.title}
         description={data.project.constructect.description}
         year={data.project.constructect.year}
@@ -167,8 +168,8 @@ export default function Projects() {
         }}
       >
         <Tag tag={data.project.constructect.tag} />
-      </WorkList>
-      <WorkList
+      </WorkList> */}
+      {/* <WorkList
         name={data.project.aspects.title}
         description={data.project.aspects.description}
         year={data.project.aspects.year}
@@ -179,7 +180,7 @@ export default function Projects() {
         }}
       >
         <Tag tag={data.project.aspects.tag} />
-      </WorkList>
+      </WorkList> */}
     </div>
   );
 }
@@ -204,7 +205,9 @@ function WorkList({ name, year, description, tag, onClick, children }) {
             (name === "Zigma" && "bg-zigma") ||
             (name === "Rood" && "bg-rood") ||
             (name === "Constructect" && "bg-constructect") ||
-            (name === "The Aspects" && "bg-aspects")
+            (name === "The Aspects" && "bg-aspects") ||
+            (name === "Creative AI Camp" && "bg-cai") ||
+            (name === "PPS Renovation Lab" && "bg-pps")
           }`}
         >
           <div className="flex justify-end items-end py-2 px-4 h-full w-full bg-white rounded-2xl duration-200 bg-opacity-0 group-hover:bg-opacity-30"></div>

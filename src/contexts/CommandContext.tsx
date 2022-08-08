@@ -129,7 +129,7 @@ const CommandContext: React.FC<Props> = ({ children }) => {
       func: () =>
         setOutput([
           ...output,
-          <div className="flex space-x-2 w-full">
+          <div key="key" className="flex space-x-2 w-full">
             <p>
               <span>tanadon@TANADON</span>
               <span>:</span>
@@ -151,7 +151,7 @@ const CommandContext: React.FC<Props> = ({ children }) => {
       func: () =>
         setOutput([
           ...output,
-          <div className="flex space-x-2 w-full">
+          <div key="key" className="flex space-x-2 w-full">
             <p>
               <span>tanadon@TANADON</span>
               <span>:</span>
@@ -169,7 +169,7 @@ const CommandContext: React.FC<Props> = ({ children }) => {
       func: (arg: string[]) => {
         setOutput([
           ...output,
-          <div className="flex space-x-2 w-full">
+          <div key="key" className="flex space-x-2 w-full">
             <p>
               <span>tanadon@TANADON</span>
               <span>:</span>
@@ -184,7 +184,7 @@ const CommandContext: React.FC<Props> = ({ children }) => {
       err: (dir: string) => {
         setOutput([
           ...output,
-          <div className="flex space-x-2 w-full">
+          <div key="key" className="flex space-x-2 w-full">
             <p>
               <span>tanadon@TANADON</span>
               <span>:</span>

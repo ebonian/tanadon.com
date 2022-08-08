@@ -60,7 +60,7 @@ const Home: NextPage = () => {
               } else if (!e.target.value) {
                 setOutput([
                   ...output,
-                  <div className="flex space-x-2 w-full">
+                  <div key="key" className="flex space-x-2 w-full">
                     <p>
                       <span>tanadon@TANADON</span>
                       <span>:</span>
@@ -74,7 +74,7 @@ const Home: NextPage = () => {
               } else {
                 setOutput([
                   ...output,
-                  <div className="flex space-x-2 w-full">
+                  <div key="key" className="flex space-x-2 w-full">
                     <p>
                       <span>tanadon@TANADON</span>
                       <span>:</span>

@@ -30,6 +30,10 @@ const CommandContext: React.FC<Props> = ({ children }) => {
 
   const directories = {
     "/": {
+      bin: {},
+      boot: {},
+      dev: {},
+      etc: {},
       home: {
         tanadon: {
           Documents: {},

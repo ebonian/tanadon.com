@@ -1,7 +1,8 @@
 import { NextPage } from "next";
+import Maintenance from "../components/pages/Maintenance";
 
 const Home: NextPage = () => {
-  return <div>Welcome</div>;
+  return <Maintenance />;
 };
 
 export default Home;

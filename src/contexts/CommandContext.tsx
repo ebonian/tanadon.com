@@ -235,7 +235,7 @@ const CommandContext: React.FC<Props> = ({ children }) => {
             </p>
             <p>{command}</p>
           </div>,
-          <div>
+          <div key="key">
             <h4>Commands List</h4>
             <p>----------</p>
             {commandsList.map((command, idx) => (

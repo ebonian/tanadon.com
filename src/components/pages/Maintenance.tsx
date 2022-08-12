@@ -2,7 +2,7 @@ import { FiGithub, FiInstagram, FiMail } from "react-icons/fi";
 
 const Maintenance: React.FC = () => {
   return (
-    <div className="grid place-content-center min-h-screen bg-[#121212] text-white font-code p-10">
+    <div className="grid place-content-center min-h-screen bg-[#121212] text-white font-code py-20 px-10">
       <span className="sm:hidden text-6xl mb-3 -ml-2">👨‍💻</span>
       <h1 className="font-semibold text-4xl md:text-5xl">
         <span className="hidden sm:inline">👨‍💻</span>

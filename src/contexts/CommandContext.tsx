@@ -169,7 +169,7 @@ const CommandContext: React.FC<Props> = ({ children }) => {
         ]),
     },
     cd: {
-      arg: "",
+      arg: "dir",
       func: (arg: string[]) => {
         setOutput([
           ...output,
@@ -198,6 +198,51 @@ const CommandContext: React.FC<Props> = ({ children }) => {
             <p>{command}</p>
           </div>,
           `cd: no such file or directory: ${dir}`,
+        ]);
+      },
+    },
+    help: {
+      arg: null,
+      func: () => {
+        const orderedCommands = Object.keys(commands)
+          .sort()
+          .reduce((obj, key) => {
+            // @ts-ignore
+            obj[key] = commands[key];
+            return obj;
+          }, {});
+
+        const commandsList = [];
+
+        for (let i = 0; i < Object.keys(orderedCommands).length; i++) {
+          commandsList.push({
+            name: Object.keys(commands)[i],
+            // @ts-ignore
+            ...commands[Object.keys(orderedCommands)[i]],
+          });
+        }
+
+        console.log(commandsList);
+
+        setOutput([
+          ...output,
+          <div key="key" className="flex space-x-2 w-full">
+            <p>
+              <span>tanadon@TANADON</span>
+              <span>:</span>
+              {getPath(path)}
+              <span>$</span>
+            </p>
+            <p>{command}</p>
+          </div>,
+          <div>
+            <h4>Commands List</h4>
+            <p>----------</p>
+            {commandsList.map((command, idx) => (
+              <p key={idx}>{command.name}</p>
+            ))}
+            <br />
+          </div>,
         ]);
       },
     },

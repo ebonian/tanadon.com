@@ -7,22 +7,26 @@ const QR: NextPage = () => {
   const [qr, setQr] = useState("");
 
   const GenerateQRCode = () => {
-    QRCode.toDataURL(
-      url,
-      {
-        width: 500,
-        margin: 2,
-        color: {
-          dark: "#121212",
-          light: "#ffffff",
+    if (url) {
+      QRCode.toDataURL(
+        url,
+        {
+          width: 500,
+          margin: 2,
+          color: {
+            dark: "#121212",
+            light: "#ffffff",
+          },
         },
-      },
-      (err, url) => {
-        if (err) return console.error(err);
+        (err, url) => {
+          if (err) return console.error(err);
 
-        setQr(url);
-      }
-    );
+          setQr(url);
+        }
+      );
+    } else {
+      setQr("");
+    }
   };
 
   return (

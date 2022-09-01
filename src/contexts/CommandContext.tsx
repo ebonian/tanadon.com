@@ -1,3 +1,4 @@
+import { useRouter } from "next/router";
 import { createContext, useState } from "react";
 import { findPath } from "../libs/FindPath";
 import { getValueByKey } from "../libs/FindValueByKey";
@@ -22,6 +23,8 @@ export const CommandState = createContext({
 });
 
 const CommandContext: React.FC<Props> = ({ children }) => {
+  const router = useRouter();
+
   const [command, setCommand] = useState<string>("");
   const [args, setArgs] = useState<string[]>([]);
 
@@ -127,17 +130,17 @@ const CommandContext: React.FC<Props> = ({ children }) => {
   };
 
   const commands = {
-    clear: { arg: null, func: () => setOutput([]) },
+    clear: { arg: null, exec: () => setOutput([]) },
     ls: {
       arg: null,
-      func: () =>
+      exec: () =>
         setOutput([
           ...output,
           <div key="key" className="flex space-x-2 w-full">
             <p>
-              <span>tanadon@TANADON</span>
-              <span>:</span>
-              {getPath(path)}
+              <span className="text-[#26A269]">tanadon@TANADON</span>
+              <span className="text-[#26A269]">:</span>
+              <span className="text-blue-500">{getPath(path)}</span>
               <span>$</span>
             </p>
             <p>{command}</p>
@@ -152,14 +155,14 @@ const CommandContext: React.FC<Props> = ({ children }) => {
     },
     pwd: {
       arg: null,
-      func: () =>
+      exec: () =>
         setOutput([
           ...output,
           <div key="key" className="flex space-x-2 w-full">
             <p>
-              <span>tanadon@TANADON</span>
-              <span>:</span>
-              {getPath(path)}
+              <span className="text-[#26A269]">tanadon@TANADON</span>
+              <span className="text-[#26A269]">:</span>
+              <span className="text-blue-500">{getPath(path)}</span>
               <span>$</span>
             </p>
             <p>{command}</p>
@@ -170,14 +173,14 @@ const CommandContext: React.FC<Props> = ({ children }) => {
     },
     cd: {
       arg: "dir",
-      func: (arg: string[]) => {
+      exec: (arg: string[]) => {
         setOutput([
           ...output,
           <div key="key" className="flex space-x-2 w-full">
             <p>
-              <span>tanadon@TANADON</span>
-              <span>:</span>
-              {getPath(path)}
+              <span className="text-[#26A269]">tanadon@TANADON</span>
+              <span className="text-[#26A269]">:</span>
+              <span className="text-blue-500">{getPath(path)}</span>
               <span>$</span>
             </p>
             <p>{command}</p>
@@ -190,9 +193,9 @@ const CommandContext: React.FC<Props> = ({ children }) => {
           ...output,
           <div key="key" className="flex space-x-2 w-full">
             <p>
-              <span>tanadon@TANADON</span>
-              <span>:</span>
-              {getPath(path)}
+              <span className="text-[#26A269]">tanadon@TANADON</span>
+              <span className="text-[#26A269]">:</span>
+              <span className="text-blue-500">{getPath(path)}</span>
               <span>$</span>
             </p>
             <p>{command}</p>
@@ -201,9 +204,30 @@ const CommandContext: React.FC<Props> = ({ children }) => {
         ]);
       },
     },
+    terminal: {
+      arg: null,
+      exec: () => {
+        setOutput([
+          ...output,
+          <div key="key" className="flex space-x-2 w-full">
+            <p>
+              <span className="text-[#26A269]">tanadon@TANADON</span>
+              <span className="text-[#26A269]">:</span>
+              <span className="text-blue-500">{getPath(path)}</span>
+              <span>$</span>
+            </p>
+            <p>{command}</p>
+          </div>,
+          "Redirecting to /terminal ...",
+        ]);
+        setTimeout(() => {
+          router.push("/terminal");
+        }, 1000);
+      },
+    },
     help: {
       arg: null,
-      func: () => {
+      exec: () => {
         const orderedCommands = Object.keys(commands)
           .sort()
           .reduce((obj, key) => {
@@ -222,15 +246,13 @@ const CommandContext: React.FC<Props> = ({ children }) => {
           });
         }
 
-        console.log(commandsList);
-
         setOutput([
           ...output,
           <div key="key" className="flex space-x-2 w-full">
             <p>
-              <span>tanadon@TANADON</span>
-              <span>:</span>
-              {getPath(path)}
+              <span className="text-[#26A269]">tanadon@TANADON</span>
+              <span className="text-[#26A269]">:</span>
+              <span className="text-blue-500">{getPath(path)}</span>
               <span>$</span>
             </p>
             <p>{command}</p>

@@ -4,7 +4,11 @@ import { animateScroll as scroll } from "react-scroll";
 import { CommandState } from "../contexts/CommandContext";
 import { getPath } from "../libs/GetPath";
 
-const Terminal: NextPage = () => {
+interface Props {
+  asComponent?: boolean;
+}
+
+const Terminal: NextPage<Props> = ({ asComponent = false }) => {
   const {
     output,
     setOutput,
@@ -20,14 +24,19 @@ const Terminal: NextPage = () => {
 
   const handleClick = () => {
     ref.current!.focus();
+    ref.current?.scrollIntoView();
   };
 
   useEffect(() => handleClick(), []);
 
+  useEffect(() => ref.current?.scrollIntoView(), [output]);
+
   return (
     <main
       onClick={handleClick}
-      className="p-5 min-h-screen bg-black text-white font-code w-full"
+      className={`p-5 text-white font-code w-full ${
+        asComponent ? "min-h-full" : "bg-black min-h-screen"
+      }`}
     >
       {output.map((data, idx) => {
         return <span key={idx}>{data}</span>;
@@ -35,9 +44,9 @@ const Terminal: NextPage = () => {
 
       <div className="flex items-start space-x-2 w-full">
         <p>
-          <span>tanadon@TANADON</span>
-          <span>:</span>
-          {getPath(path)}
+          <span className="text-[#26A269]">tanadon@TANADON</span>
+          <span className="text-[#26A269]">:</span>
+          <span className="text-blue-500">{getPath(path)}</span>
           <span>$</span>
         </p>
         <input
@@ -58,15 +67,15 @@ const Terminal: NextPage = () => {
 
               if (c in commands) {
                 // @ts-ignore
-                commands[c].func(a);
+                commands[c].exec(a);
               } else if (!e.target.value) {
                 setOutput([
                   ...output,
                   <div key="key" className="flex space-x-2 w-full">
                     <p>
-                      <span>tanadon@TANADON</span>
-                      <span>:</span>
-                      {getPath(path)}
+                      <span className="text-[#26A269]">tanadon@TANADON</span>
+                      <span className="text-[#26A269]">:</span>
+                      <span className="text-blue-500">{getPath(path)}</span>
                       <span>$</span>
                     </p>
                     <p>{command}</p>
@@ -78,9 +87,9 @@ const Terminal: NextPage = () => {
                   ...output,
                   <div key="key" className="flex space-x-2 w-full">
                     <p>
-                      <span>tanadon@TANADON</span>
-                      <span>:</span>
-                      {getPath(path)}
+                      <span className="text-[#26A269]">tanadon@TANADON</span>
+                      <span className="text-[#26A269]">:</span>
+                      <span className="text-blue-500">{getPath(path)}</span>
                       <span>$</span>
                     </p>
                     <p>{command}</p>

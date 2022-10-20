@@ -9,6 +9,10 @@ module.exports = {
     extend: {
       fontFamily: {
         code: ["Source Code Pro", "monospace"],
+        inter: ["Inter", "sans-serif"],
+        kanit: ["Kanit", "sans-serif"],
+        manrope: ["Manrope", "sans-serif"],
+        poppins: ["Poppins", "sans-serif"],
       },
     },
   },

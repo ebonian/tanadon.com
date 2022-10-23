@@ -225,6 +225,48 @@ const CommandContext: React.FC<Props> = ({ children }) => {
         }, 1000);
       },
     },
+    exit: {
+      arg: null,
+      exec: () => {
+        setOutput([
+          ...output,
+          <div key="key" className="flex space-x-2 w-full">
+            <p>
+              <span className="text-[#26A269]">tanadon@TANADON</span>
+              <span className="text-[#26A269]">:</span>
+              <span className="text-blue-500">{getPath(path)}</span>
+              <span>$</span>
+            </p>
+            <p>{command}</p>
+          </div>,
+          "Exiting ...",
+        ]);
+        setTimeout(() => {
+          router.push("/");
+        }, 1000);
+      },
+    },
+    logout: {
+      arg: null,
+      exec: () => {
+        setOutput([
+          ...output,
+          <div key="key" className="flex space-x-2 w-full">
+            <p>
+              <span className="text-[#26A269]">tanadon@TANADON</span>
+              <span className="text-[#26A269]">:</span>
+              <span className="text-blue-500">{getPath(path)}</span>
+              <span>$</span>
+            </p>
+            <p>{command}</p>
+          </div>,
+          "Exiting ...",
+        ]);
+        setTimeout(() => {
+          router.push("/");
+        }, 1000);
+      },
+    },
     help: {
       arg: null,
       exec: () => {

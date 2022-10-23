@@ -27,3 +27,10 @@
 ::-webkit-scrollbar-track-piece:end {
   background: transparent;
 }
+
+#gradient-canvas {
+  --gradient-color-1: #043d5d;
+  --gradient-color-2: #032e46;
+  --gradient-color-3: #23b684;
+  --gradient-color-4: #0f595e;
+}

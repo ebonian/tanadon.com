@@ -1,11 +1,38 @@
 module.exports = {
-  extends: ["next", "turbo", "prettier"],
-  rules: {
-    "@next/next/no-html-link-for-pages": "off",
-  },
+  parser: "@typescript-eslint/parser",
   parserOptions: {
-    babelOptions: {
-      presets: [require.resolve("next/babel")],
+    ecmaFeatures: {
+      jsx: true,
     },
+    ecmaVersion: "latest",
+    sourceType: "module",
+    project: "tsconfig.json",
+  },
+  extends: [
+    "eslint:recommended",
+    "next",
+    "next/core-web-vitals",
+    "turbo",
+    "plugin:react/recommended",
+    "plugin:react-hooks/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:prettier/recommended",
+  ],
+  plugins: ["react", "@typescript-eslint", "simple-import-sort", "prettier"],
+  rules: {
+    "simple-import-sort/imports": "error",
+    "simple-import-sort/exports": "error",
+    "react/jsx-filename-extension": ["error", { extensions: [".jsx", ".tsx"] }],
+    "react/function-component-definition": "off",
+    "react/react-in-jsx-scope": "off",
+    "react/jsx-props-no-spreading": "off",
+    "react/prop-types": "off",
+    "@next/next/no-img-element": "off",
+    "import/prefer-default-export": "off",
+    "no-restricted-exports": "off",
+    "@typescript-eslint/no-empty-interface": "off",
+    "@typescript-eslint/no-use-before-define": "off",
+    "jsx-a11y/click-events-have-key-events": "off",
+    "jsx-a11y/no-static-element-interactions": "off",
   },
 };

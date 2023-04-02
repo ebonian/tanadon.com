@@ -1,12 +1,9 @@
 module.exports = {
   parser: "@typescript-eslint/parser",
   parserOptions: {
-    ecmaFeatures: {
-      jsx: true,
+    babelOptions: {
+      presets: [require.resolve("next/babel")],
     },
-    ecmaVersion: "latest",
-    sourceType: "module",
-    project: "tsconfig.json",
   },
   extends: [
     "eslint:recommended",
@@ -17,6 +14,7 @@ module.exports = {
     "plugin:react-hooks/recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:prettier/recommended",
+    "pretter",
   ],
   plugins: ["react", "@typescript-eslint", "simple-import-sort", "prettier"],
   rules: {
@@ -27,6 +25,7 @@ module.exports = {
     "react/react-in-jsx-scope": "off",
     "react/jsx-props-no-spreading": "off",
     "react/prop-types": "off",
+    "@next/next/no-html-link-for-pages": "off",
     "@next/next/no-img-element": "off",
     "import/prefer-default-export": "off",
     "no-restricted-exports": "off",

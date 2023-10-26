@@ -22,6 +22,9 @@ export default function RootLayout(): JSX.Element {
 
   return (
     <html lang="en">
+      <head>
+        <title>tanadon.</title>
+      </head>
       <body className={poppins.className}>
         <main className="main relative overflow-hidden">
           <div
@@ -58,7 +61,7 @@ export default function RootLayout(): JSX.Element {
                       title="experiences"
                     />
                     <MenuCard
-                      description="explore my projects since 2019"
+                      description="since 2019"
                       href="/projects"
                       title="projects"
                     />

@@ -1,5 +1,6 @@
 "use client";
 
+import Header from "@/components/header";
 import { usePathname } from "next/navigation";
 
 export default function Experiences(): JSX.Element {
@@ -11,11 +12,8 @@ export default function Experiences(): JSX.Element {
         pathname === "/experiences" ? "" : "opacity-0 pointer-events-none"
       }`}
     >
-      <div className={"absolute z-10 top-0 left-0 right-0 bottom-0"}>
-        <div className="h-full w-full grid place-content-center">
-          experiences
-        </div>
-        <div className="h-full w-full bg-white"></div>
+      <div className="absolute z-10 top-0 left-0 right-0 bottom-0">
+        <Header title="experiences" />
       </div>
     </div>
   );

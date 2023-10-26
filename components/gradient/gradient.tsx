@@ -18,7 +18,7 @@ export default function Gradient({
 
   return (
     <canvas
-      className="relative w-full h-full"
+      className="relative w-full h-full rounded-[48px]"
       data-js-darken-top={dataJsDarkenTop}
       data-transition-in={dataTransitionIn}
       id="gradient-canvas"

@@ -1,4 +1,4 @@
-import Gradient from "@/components/gradient/gradient.tsx";
+import Gradient from "@/components/gradient/gradient";
 
 export default function Page(): JSX.Element {
   return (

@@ -76,7 +76,7 @@ export default function RootLayout(): JSX.Element {
                 <div className="w-full h-full rounded-[48px] flex flex-col lg:flex-row justify-between space-y-5 lg:space-y-0 lg:space-x-5">
                   <MenuCard
                     description="coming very soon!"
-                    href="/"
+                    href="https://blog.tanadon.com"
                     title="blogs"
                   />
                   <MenuCard

@@ -7,7 +7,7 @@ export default function Projects(): JSX.Element {
 
   return (
     <div
-      className={`absolute top-0 bottom-0 left-0 right-0 overflow-auto duration-300 ${
+      className={`absolute top-0 bottom-0 left-0 right-0 overflow-y-auto duration-300 ${
         pathname === "/projects" ? "" : "opacity-0 pointer-events-none"
       }`}
     >

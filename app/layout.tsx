@@ -1,6 +1,9 @@
 "use client";
 
-import "./globals.css";
+import "@/styles/globals.css";
+import "@/styles/hide-scroll-bar.css";
+import "@/styles/gradient.css";
+
 import { Poppins } from "next/font/google";
 import { usePathname } from "next/navigation";
 import MenuCard from "../components/hero/menu-card";
@@ -24,7 +27,7 @@ export default function RootLayout({
         <title>tanadon.</title>
       </head>
       <body className={poppins.className}>
-        <main className="relative h-screen overflow-hidden">
+        <main className="main relative overflow-hidden">
           <div
             className={`absolute rounded-[48px] overflow-y-auto snap-y top-5 left-5 right-5 bottom-5 ${
               pathname === "/" ? "space-y-5" : "space-y-0"

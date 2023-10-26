@@ -11,14 +11,12 @@ export default function Section({
 }): JSX.Element {
   return (
     <section
-      className={twMerge("relative rounded-[48px] overflow-hidden", className)}
-      style={
-        screenHeight
-          ? {
-              height: "calc(100vh - 2.5rem)",
-            }
-          : {}
-      }
+      className={twMerge(
+        `${
+          screenHeight ? "section" : ""
+        } relative rounded-[48px] overflow-hidden`,
+        className
+      )}
     >
       {children}
     </section>

@@ -1,10 +1,12 @@
+import Page from "@/layouts/page";
+
 export default function Experiences(): JSX.Element {
   return (
-    <>
-      <div className="bg-white h-full w-full text-black grid place-content-center">
+    <Page path="/experiences">
+      <div className="h-full bg-black grid place-content-center">
         Experiences
       </div>
-      <div className="h-full w-full">more</div>
-    </>
+      <div className="h-full bg-white"></div>
+    </Page>
   );
 }

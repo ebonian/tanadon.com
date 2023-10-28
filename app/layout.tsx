@@ -11,6 +11,7 @@ import Projects from "./projects/page";
 import { usePathname } from "next/navigation";
 import Section from "@/components/section";
 import MenuCard from "@/components/hero/menu-card";
+import Tools from "./tools/page";
 
 const poppins = Poppins({
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
@@ -48,6 +49,7 @@ export default function RootLayout(): JSX.Element {
                       <Home />
                       <Experiences />
                       <Projects />
+                      <Tools />
                     </div>
                   </div>
                   <div

@@ -13,7 +13,7 @@ export default function Experiences(): JSX.Element {
       }`}
     >
       <div className="absolute z-10 top-0 left-0 right-0 bottom-0">
-        <Header title="experiences" />
+        <Header />
       </div>
     </div>
   );

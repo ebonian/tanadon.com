@@ -34,11 +34,11 @@ export default function Header({
       <Link
         href="/"
         className={`relative rounded-full w-24 h-full text-white flex justify-start items-center ease-out duration-300 pl-9 ${
-          hideBack ? "" : "group hover:w-44 hover:bg-white/10"
+          hideBack ? "" : "group lg:hover:w-44 hover:bg-white/10"
         }`}
       >
         <FiArrowLeft className="text-2xl" />
-        <span className="absolute left-20 duration-200 -translate-x-4 group-hover:translate-x-0 w-0 group-hover:w-20 ease-out overflow-hidden font-medium group-hover:tracking-widest text-lg">
+        <span className="absolute hidden lg:inline left-20 duration-200 -translate-x-4 group-hover:translate-x-0 w-0 group-hover:w-20 ease-out overflow-hidden font-medium group-hover:tracking-widest text-lg">
           back
         </span>
       </Link>

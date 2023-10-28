@@ -21,7 +21,7 @@ export default function Header({
 
   return (
     <div
-      className={`h-24 rounded-full grid grid-cols-3 duration-1000 ease-out ${
+      className={`h-24 rounded-full grid grid-cols-3 duration-1000 ease-out select-none ${
         absolute && "absolute"
       } ${
         showOnPath

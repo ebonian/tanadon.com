@@ -2,36 +2,43 @@
     {
         "organization": "Carsup Co.",
         "position": "Co-Founder and CTO",
+        "slug": "carsup",
         "year": 2023
     },
     {
-        "organization": "Engineering Student",
+        "organization": "Engineering Student Committee",
         "position": "Head of Information Technology Department",
+        "slug": "esc",
         "year": 2023
     },
     {
         "organization": "Larngear Dev",
         "position": "Founder and Product Manager",
+        "slug": "larngear-dev",
         "year": 2023
     },
     {
         "organization": "Thinc. Club",
         "position": "Core Team",
+        "slug": "thinc",
         "year": 2023
     },
     {
         "organization": "Gamlytics Co.",
         "position": "Back-End Developer",
+        "slug": "gamlytics",
         "year": 2023
     },
     {
         "organization": "Doji Inc.",
         "position": "Co-Founder and Technical Lead",
+        "slug": "doji",
         "year": 2022
     },
     {
         "organization": "Student Government",
         "position": "Front-End Developer",
+        "slug": "sgcu",
         "year": 2022
     }
 ]

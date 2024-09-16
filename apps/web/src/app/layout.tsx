@@ -1,7 +1,9 @@
 import './globals.css';
 import '@repo/ui/styles.css';
+import { cn } from '@ui/lib/utils';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
+import { ThemeProvider } from '~/components/theme-provider';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -17,7 +19,16 @@ export default function RootLayout({
 }): JSX.Element {
     return (
         <html lang='en'>
-            <body className={inter.className}>{children}</body>
+            <body className={cn(inter.className, 'dark')}>
+                <ThemeProvider
+                    attribute='class'
+                    defaultTheme='dark'
+                    disableTransitionOnChange
+                    enableSystem
+                >
+                    {children}
+                </ThemeProvider>
+            </body>
         </html>
     );
 }

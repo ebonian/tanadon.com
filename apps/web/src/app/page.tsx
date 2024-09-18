@@ -1,10 +1,9 @@
-import { Button } from '@ui/components/ui/button';
+import GradientBackground from '~/components/common/gradient-background';
 
 export default function Page(): JSX.Element {
     return (
-        <div>
-            <p>tanadon.com</p>
-            <Button>Click me</Button>
-        </div>
+        <GradientBackground>
+            <div />
+        </GradientBackground>
     );
 }

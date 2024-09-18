@@ -1,7 +1,7 @@
 ```
   ╭──╮    ┌──────────────────────────────────┐
-╭─╯◠ ◠──╮ │ Hello & welcome to tanadon.com!  │
-╰─╮  ◯──╯<  Type "help" for help!            │
+╭─╯◠ ◠──╮│ Hello & welcome to tanadon.com!  │
+╰─╮  ◯──╯< Type "help" for help!            │
   │  │    │ Good luck buddy!                 │
   │  │    └──────────────────────────────────┘
   │  ╰─╮

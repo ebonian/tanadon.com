@@ -2,10 +2,9 @@ import './globals.css';
 import '@repo/ui/styles.css';
 import { cn } from '@ui/lib/utils';
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+import { caskaydiaMono } from '~/lib/fonts';
+import { IsClientCtxProvider } from '~/providers/is-client-ctx-provider';
 import { ThemeProvider } from '~/providers/theme-provider';
-
-const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
     title: 'Create Turborepo',
@@ -19,14 +18,14 @@ export default function RootLayout({
 }): JSX.Element {
     return (
         <html lang='en'>
-            <body className={cn(inter.className, 'dark')}>
+            <body className={cn(caskaydiaMono.variable, 'dark')}>
                 <ThemeProvider
                     attribute='class'
                     defaultTheme='dark'
                     disableTransitionOnChange
                     enableSystem
                 >
-                    {children}
+                    <IsClientCtxProvider>{children}</IsClientCtxProvider>
                 </ThemeProvider>
             </body>
         </html>
